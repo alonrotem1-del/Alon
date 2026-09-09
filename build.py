@@ -28,7 +28,13 @@ TEMPLATE = ROOT / "deck_template.html"
 DATA = ROOT / "data" / "deck_data.json"
 DIST = ROOT / "dist"
 OUT = DIST / "deck.html"
-PORTRAIT_CANDIDATES = ("portrait.jpg", "portrait.jpeg", "portrait.png", "portrait.webp")
+# Portrait lookup order. `headshot.*` wins over `portrait.*` so a newly supplied
+# photo is picked up whatever its extension, without having to match or delete
+# the file already in the repo. First match in this list is used.
+PORTRAIT_CANDIDATES = (
+    "headshot.jpg", "headshot.jpeg", "headshot.png", "headshot.webp",
+    "portrait.jpg", "portrait.jpeg", "portrait.png", "portrait.webp",
+)
 
 # --------------------------------------------------------------------------- #
 # helpers
