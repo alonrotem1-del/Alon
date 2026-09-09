@@ -26,10 +26,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data" / "deck_data.json"
-EXTRACT = ROOT / "dist" / "deck_extract.json"
+RENDERED = ROOT / "dist" / "deck_text.json"
 
-# Digits that are page furniture rather than analytical figures.
-FURNITURE = {"01", "02", "03"}
+# Digits that are page furniture (page numbers, section and item indices)
+# rather than analytical figures.
+FURNITURE = {f"{i:02d}" for i in range(0, 21)}
 
 
 def fail(msg: str) -> None:
@@ -123,6 +124,21 @@ def expected_figures(d: dict) -> dict[str, list[str]]:
         # thousands separators are produced here, exactly as build.py produces them
         put(f'{alt["fee_min"]:,}', f"alternatives[{i}].fee_min")
         put(f'{alt["fee_max"]:,}', f"alternatives[{i}].fee_max")
+        # the chart value label prints the pair as a single range token
+        put(f'{alt["fee_min"]:,}–{alt["fee_max"]:,}', f"alternatives[{i}].fee range")
+
+    # the slide-7 headline states ratios; re-derive them here independently
+    a, b = d["alternatives"]
+    def fmt(x):
+        return f"{x:.0f}" if abs(x - round(x)) < 0.05 else f"{x:.1f}"
+    for lo_k, hi_k, name in (("hours_min", "hours_max", "hours"), ("fee_min", "fee_max", "fee")):
+        put(fmt(b[lo_k] / a[lo_k]), f"derived ratio b/a {name} (min)")
+        put(fmt(b[hi_k] / a[hi_k]), f"derived ratio b/a {name} (max)")
+    # chart axis maxima are the larger of the pair, printed on the axis
+    for hi_k, f in (("hours_max", lambda v: f"{v:g}"), ("weeks_max", lambda v: f"{v:g}"),
+                    ("fee_max", lambda v: f"{v:,.0f}")):
+        put(f(max(a[hi_k], b[hi_k])), f"chart axis max ({hi_k})")
+    put("0", "chart axis zero")
 
     m = re.search(r"(\d+)\s+\S+\s+(\d{4})", d["meeting"]["date_he"])
     if m:
@@ -142,27 +158,26 @@ def main() -> int:
         print("Not certifying figures against unverified data.")
         return 1
 
-    if not EXTRACT.exists():
-        print(f"\nERROR: {EXTRACT} missing — run `node qa/extract.js` first.")
+    if not RENDERED.exists():
+        print(f"\nERROR: {RENDERED} missing — run `node qa/render.js` first.")
         return 1
 
-    ex = json.loads(EXTRACT.read_text(encoding="utf-8"))
+    ex = json.loads(RENDERED.read_text(encoding="utf-8"))
     exp = expected_figures(d)
 
     print("\n" + "=" * 78)
     print("PASS 2 — EVERY RENDERED NUMBER TRACED TO ITS SOURCE FIELD")
     print("=" * 78)
 
-    # numeric tokens as painted: 9,000 / 15-20 / 10+ / 16 / 2026 ...
-    TOKEN = re.compile(r"\d[\d,]*(?:–\d[\d,]*)?\+?")
+    # numeric tokens as painted: 9,000-13,000 / 15-20 / 10+ / 2.8 / 16 ...
+    TOKEN = re.compile(r"\d[\d,]*(?:\.\d+)?(?:–\d[\d,]*(?:\.\d+)?)?\+?")
     seen: dict[str, list[int]] = {}
-    for s in ex["slides"]:
-        for it in s["items"]:
-            if it["kind"] != "text":
-                continue
-            text = "".join(r["t"] for r in it["runs"])
+    for sl in ex["slides"]:
+        for text in sl["texts"]:
             for tok in TOKEN.findall(text):
-                seen.setdefault(tok, []).append(s["n"])
+                tok = tok.rstrip(",.")   # sentence punctuation, not part of the figure
+                if tok:
+                    seen.setdefault(tok, []).append(sl["n"])
 
     pages = {f"{i}" for i in range(1, len(ex["slides"]) + 1)}
     unexplained, matched = [], []

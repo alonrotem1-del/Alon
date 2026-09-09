@@ -10,7 +10,8 @@
       "experience_years": "The brief for this deck states 10+ years. Alon's supplied slide states 'למעלה מ-7 שנים'. These are not reconciled here: the brief's figure is used because it is the current instruction, and the supplied deck is demonstrably older (it lists the children as ages 7/5/3). Flagged rather than silently averaged.",
       "children_ages": "The supplied slide gives ages 7/5/3. Those ages are stale by an unknown interval, so no age is printed — only the names.",
       "institution_name": "The supplied slide says 'המרכז הבינתחומי הרצליה'. That institution is now Reichman University. Alon's own wording is kept."
-    }
+    },
+    "charts": "The three small multiples plot ONLY the scope and pricing ranges in this file. No external benchmark, market rate or industry average is plotted anywhere, because none was supplied. Bar geometry and the slide-7 headline ratios are computed by build.py from these fields, never typed."
   },
   "meeting": {
     "date_he": "9 בספטמבר 2026",
@@ -156,12 +157,13 @@
         "value_he": "מנהל עסקים, המרכז הבינתחומי הרצליה — בהצטיינות יתרה"
       }
     ],
-    "practice_he": "שנים בפרויקטים אסטרטגיים מקומיים ובינלאומיים — צמיחה, מיפוי שווקים, בחינות היתכנות ובניית מודלים עסקיים.",
+    "practice_he": "שנים בפרויקטים אסטרטגיים מקומיים ובינלאומיים",
     "callout_he": "התפקיד שלי בליווי: לא לקטול חלומות, אלא לשמש Devil's Advocate חיובי — לוודא שלא שורפים תקציבים על תוכנה שלא תתאים לשוק.",
     "disciplines_label_he": "דיסציפלינות",
     "disciplines_he": "אסטרטגיית צמיחה · אסטרטגיית פורטפוליו · אסטרטגיה דיגיטלית · בדיקות כלכליות",
     "sectors_label_he": "מגזרים",
-    "sectors_he": "פיננסים · בריאות · תעשייה ביטחונית · לוגיסטיקה · תשתיות · תעשייה קיבוצית · חקלאות · פסולת · קנאביס רפואי"
+    "sectors_he": "פיננסים · בריאות · תעשייה ביטחונית · לוגיסטיקה · תשתיות · תעשייה קיבוצית · חקלאות · פסולת · קנאביס רפואי",
+    "photo_cap_he": "אלון, אירה, יולי, ליאו ורומי."
   },
   "cover": {
     "eyebrow_he": "בחינת היתכנות · CRM ופורטל לקוחות לתעשיית האירועים",
@@ -178,5 +180,12 @@
     "s5": "שאלות מפתח לדיון וסגירת צעדים הבאים",
     "s5_sub": "שלוש שאלות שהתשובות עליהן קובעות את היקף שלב א'"
   },
-  "next_step_he": "הצעד הבא: בחירת חלופת עבודה, תיאום לוחות זמנים והנעת שלב א'."
+  "next_step_he": "הצעד הבא: בחירת חלופת עבודה, תיאום לוחות זמנים והנעת שלב א'.",
+  "charts": {
+    "source_he": "מקור: טווחי היקף ותמחור כפי שנמסרו על ידי אלון רותם עבור הצעה זו. אינם בנצ'מרק שוק."
+  },
+  "dividers": {
+    "d1_title": "מוודאים כדאיות לפני שכותבים שורת קוד",
+    "d2_title": "שתי חלופות — לפי עומס, קצב ותקציב"
+  }
 }

@@ -4,444 +4,374 @@
 <meta charset="utf-8">
 <title>בחינת היתכנות אסטרטגית וכלכלית — מצגת פגישת פתיחה</title>
 <style>
-/* ==========================================================================
-   DESIGN TOKENS — Warm Executive Minimalist
-   Type floor: substantive text >= 24px (12pt). Meta/footnotes >= 20px (10pt).
-   1920px canvas => 1px = 0.5pt in the PPTX export.
-   No box-shadow and no ::before/::after decoration anywhere: neither survives
-   the PPTX export, so every visible element is a real DOM node.
-   ========================================================================== */
+/* ===========================================================================
+   TYPEFACES — build.py inlines these as base64 data URIs.
+   Display : Frank Ruhl Libre — a Hebrew serif, for headlines and oversized
+             numerals. It carries the voice.
+   Text    : Assistant — a Hebrew sans, for body, tables, chart labels and
+             every figure. It carries the information.
+   Both SIL OFL 1.1. Real fallback stacks below.
+   =========================================================================== */
+@font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:300 900;font-display:block;
+  src:url('assets/fonts/frankruhl-hebrew.woff2') format('woff2');
+  unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:300 900;font-display:block;
+  src:url('assets/fonts/frankruhl-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:200 800;font-display:block;
+  src:url('assets/fonts/assistant-hebrew.woff2') format('woff2');
+  unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
+@font-face{font-family:'Assistant';font-style:normal;font-weight:200 800;font-display:block;
+  src:url('assets/fonts/assistant-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+/* ===========================================================================
+   TOKENS
+   =========================================================================== */
 :root{
-  --bg:#F9FAFB;
-  --card:#FFFFFF;
-  --ink:#0F172A;
-  --ink-2:#1E293B;
-  --ink-3:#475569;
-  --muted:#64748B;
-  --line:#E2E8F0;
-  --line-soft:#EDF1F5;
-  --accent:#C2410C;
-  --accent-bright:#EA580C;
-  --tint:#FFF7ED;
-  --tint-2:#FFEDD5;
+  /* --- type scale. Every size in the deck is one of these. No one-offs. --- */
+  --t-num:   240px;  /* divider numeral                                   */
+  --t-disp:   96px;  /* cover headline                                    */
+  --t-big:    76px;  /* big-number tile                                   */
+  --t-h1:     60px;  /* slide headline                                    */
+  --t-h2:     40px;  /* divider title, tile title                         */
+  --t-lead:   32px;  /* subhead, lead line                                */
+  --t-h3:     30px;  /* row heading inside a block                        */
+  --t-body:   26px;  /* body                                              */
+  --t-small:  24px;  /* small body — FLOOR for substantive text (12pt)    */
+  --t-kick:   22px;  /* uppercase kicker                                  */
+  --t-cap:    20px;  /* caption / source / footnote — HARD FLOOR (10pt)   */
+
+  --f-display:'Frank Ruhl Libre','Times New Roman',Georgia,'Noto Serif Hebrew',serif;
+  --f-text:'Assistant','Helvetica Neue',Arial,'Noto Sans Hebrew',sans-serif;
+
+  /* --- colour. One primary, one accent spent sparingly, a neutral ramp
+         carrying a slight blue bias toward the primary. --- */
+  --p-900:#0B2233;
+  --p-700:#12374E;
+  --p-500:#1E5170;
+  --accent:#BF4B22;
+  --accent-soft:#F7E7DE;
+
+  --n-0:#FFFFFF;
+  --n-50:#F6F8FA;
+  --n-100:#EBF0F4;
+  --n-200:#DAE2E9;
+  --n-300:#BECAD4;
+  --n-500:#78899A;
+  --n-700:#3C5162;
+
+  /* semantic — deliberately separate from the accent */
+  --pos:#2E7A5C;
+  --cau:#A8891C;
+  --neg:#A63A2E;
+
+  /* --- layout constants. Every block is positioned from these. --- */
+  --m:120px;              /* side margin, identical on every slide        */
+  --w:1680px;             /* content width = 1920 - 2*120                 */
+  --kick-y:92px;          /* kicker top                                   */
+  --head-y:136px;         /* headline top                                 */
+  --sub-y:298px;          /* subhead top                                  */
+  --band-y:392px;         /* content band top                             */
+  --band-h:508px;         /* content band height -> bottom at 900         */
+  --rule-y:946px;         /* footer hairline                              */
+  --foot-y:964px;         /* footer text top                              */
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{background:#E7EAEE}
+html{background:var(--n-200)}
 body{
-  font-family:Arial,'Liberation Sans','Helvetica Neue',sans-serif;
+  font-family:var(--f-text);
   direction:rtl;
+  color:var(--p-900);
   -webkit-font-smoothing:antialiased;
-  text-rendering:geometricPrecision;
-  padding:40px 0;
+  padding:48px 0;
 }
-body.flat{padding:0;background:#FFFFFF}
+body.flat{padding:0;background:var(--n-0)}
 
 .slide{
   position:relative;
-  width:1920px;
-  height:1080px;
+  width:1920px;height:1080px;
   overflow:hidden;
-  background:var(--bg);
-  color:var(--ink);
-  padding:64px 88px 76px;
-  margin:0 auto 40px;
-  border:1px solid #D6DBE1;
-  display:flex;flex-direction:column;
+  background:var(--n-50);
+  margin:0 auto 48px;
 }
-body.flat .slide{margin:0;border:0}
+body.flat .slide{margin:0}
 
-/* ---------- shared primitives ---------- */
-.rule{height:4px;width:56px;background:var(--accent);border-radius:2px}
-.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+/* Latin runs inside Hebrew: real dir="ltr", so numbers, product names and
+   units read correctly without dragging the paragraph with them. */
+[dir="ltr"]{unicode-bidi:isolate}
 
-.eyebrow{
-  font-size:24px;font-weight:600;letter-spacing:.01em;
-  color:var(--accent);
+/* ---------- header ---------- */
+.kick{
+  position:absolute;top:var(--kick-y);right:var(--m);
+  font-size:var(--t-kick);font-weight:700;letter-spacing:.16em;
+  color:var(--accent);text-transform:uppercase;
 }
-
-.s-head{margin-bottom:38px}
-.s-head .rule{margin-bottom:22px}
-h2{
-  font-size:52px;font-weight:700;line-height:1.16;
-  color:var(--ink);letter-spacing:-.01em;
+.kick-dark{color:#E9A683}
+h1.head{
+  position:absolute;top:var(--head-y);right:var(--m);width:1400px;
+  font-family:var(--f-display);font-size:var(--t-h1);font-weight:700;
+  line-height:1.2;letter-spacing:-.005em;color:var(--p-900);
+  text-wrap:balance;
 }
-.s-sub{
-  font-size:28px;font-weight:400;line-height:1.4;
-  color:var(--muted);margin-top:14px;max-width:1400px;
-}
-
-/* auto-generated footer (build.py) */
-.foot{
-  position:absolute;right:88px;left:88px;bottom:30px;
-  display:flex;align-items:center;gap:20px;
-}
-.foot-line{flex:1;height:1px;background:var(--line)}
-.foot-txt{font-size:20px;font-weight:400;color:#94A3B8;white-space:nowrap}
-.foot-pg{font-size:20px;font-weight:600;color:var(--ink-3);white-space:nowrap}
-
-/* ==========================================================================
-   SLIDE 1 — COVER
-   ========================================================================== */
-.cover{display:flex;flex-direction:column;flex:1}
-.cover-eyebrow{display:flex;align-items:center;gap:14px}
-.dot{width:12px;height:12px;border-radius:6px;background:var(--accent-bright)}
-
-.cover-h1{margin-top:auto;font-size:82px;font-weight:700;line-height:1.14;letter-spacing:-.015em}
-.cover-h1-a{color:var(--ink);display:block}
-.cover-h1-b{color:var(--accent);display:block}
-.cover-sub{
-  font-size:34px;font-weight:400;line-height:1.45;color:var(--ink-3);
-  margin-top:30px;max-width:1180px;
+.sub{
+  position:absolute;top:var(--sub-y);right:var(--m);width:1300px;
+  font-size:var(--t-lead);font-weight:400;line-height:1.35;color:var(--n-700);
+  text-wrap:balance;
 }
 
-.cover-panel{
-  margin-top:52px;
-  background:var(--tint);
-  border:1px solid var(--tint-2);
-  border-radius:14px;
-  padding:34px 38px;
-  max-width:1500px;
-  display:flex;gap:26px;align-items:flex-start;
+/* ---------- content band ---------- */
+.band{
+  position:absolute;top:var(--band-y);right:var(--m);
+  width:var(--w);height:var(--band-h);
 }
-.cover-panel-bar{width:4px;align-self:stretch;background:var(--accent-bright);border-radius:2px;flex:none}
-.cover-panel-txt{font-size:29px;line-height:1.5;color:var(--ink-2);font-weight:500}
+.band-split{display:grid;grid-template-rows:1fr auto;gap:36px}
 
-.cover-meta{
-  margin-top:auto;
-  display:flex;align-items:stretch;gap:0;
-  border-top:1px solid var(--line);
-  padding-top:34px;
-}
-.meta-cell{padding-inline-end:64px;margin-inline-end:64px;border-inline-end:1px solid var(--line)}
-.meta-cell.last{border-inline-end:0;margin-inline-end:0;padding-inline-end:0}
-.meta-k{font-size:24px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-bottom:9px}
-.meta-v{font-size:28px;font-weight:600;color:var(--ink)}
+/* ---------- footer ---------- */
+.f-rule{position:absolute;top:var(--rule-y);right:var(--m);width:var(--w);height:1px;background:var(--n-300)}
+.f-cap{position:absolute;top:var(--foot-y);right:var(--m);
+  font-size:var(--t-cap);font-weight:400;color:var(--n-500);letter-spacing:.02em}
+.f-pg{position:absolute;top:var(--foot-y);left:var(--m);
+  font-size:var(--t-cap);font-weight:700;color:var(--n-700);letter-spacing:.06em}
+.slide-dark .f-rule{background:rgba(255,255,255,.22)}
+.slide-dark .f-cap{color:rgba(255,255,255,.62)}
+.slide-dark .f-pg{color:rgba(255,255,255,.85)}
 
-/* ==========================================================================
-   SLIDE 2 — ABOUT
-   ========================================================================== */
-.about-cols{display:flex;gap:34px;align-items:stretch}
-.creds{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
-.col{
-  background:var(--card);border:1px solid var(--line);border-radius:16px;
-  padding:38px 38px 30px;
-  display:flex;flex-direction:column;
+/* ===========================================================================
+   COVER
+   =========================================================================== */
+.slide-cover{background:var(--n-0)}
+.cv-rule{position:absolute;top:184px;right:var(--m);width:104px;height:6px;background:var(--accent)}
+.cv-head{
+  position:absolute;top:246px;right:var(--m);width:1500px;
+  font-family:var(--f-display);font-size:var(--t-disp);font-weight:700;
+  line-height:1.14;letter-spacing:-.01em;color:var(--p-900);
 }
-.col-personal{width:660px;flex:none;background:var(--tint);border-color:var(--tint-2)}
-.col-pro{flex:1}
+.cv-head em{font-style:normal;color:var(--accent);display:block}
+.cv-lead{
+  position:absolute;top:536px;right:var(--m);width:1180px;
+  font-size:var(--t-lead);font-weight:400;line-height:1.4;color:var(--n-700);
+}
+.cv-note{
+  position:absolute;top:648px;right:var(--m);width:1180px;
+  padding-inline-start:26px;border-inline-start:4px solid var(--accent);
+  font-size:var(--t-body);font-weight:400;line-height:1.5;color:var(--p-700);
+}
+.cv-meta{
+  position:absolute;top:800px;right:var(--m);width:var(--w);height:104px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:56px;
+  border-top:1px solid var(--n-200);padding-top:30px;
+}
+.mk{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--n-500);text-transform:uppercase}
+.mv{font-size:var(--t-body);font-weight:600;color:var(--p-900);margin-top:10px}
 
-.col-tag{font-size:24px;font-weight:700;letter-spacing:.05em;color:var(--accent);margin-bottom:24px}
+/* ===========================================================================
+   SECTION DIVIDER — full-bleed primary, oversized numeral
+   =========================================================================== */
+.slide-div{background:var(--p-900)}
+.dv-num{
+  position:absolute;top:250px;right:var(--m);
+  font-family:var(--f-display);font-size:var(--t-num);font-weight:700;
+  line-height:.86;color:rgba(255,255,255,.13);letter-spacing:-.02em;
+}
+.dv-rule{position:absolute;top:560px;right:var(--m);width:104px;height:6px;background:var(--accent)}
+.dv-title{
+  position:absolute;top:614px;right:var(--m);width:1400px;
+  font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+  line-height:1.2;color:var(--n-0);
+}
+.dv-cap{
+  position:absolute;top:700px;right:var(--m);width:1180px;
+  font-size:var(--t-body);font-weight:400;line-height:1.45;color:rgba(255,255,255,.68);
+}
 
-.portrait{
-  width:100%;aspect-ratio:19/10;border-radius:12px;
-  background:#FFFFFF;border:1px solid var(--tint-2);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:24px;overflow:hidden;
-}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
-.mono{font-size:88px;font-weight:700;color:var(--accent);letter-spacing:.04em;line-height:1}
+/* ===========================================================================
+   COMPONENTS
+   =========================================================================== */
 
-.bio-name{font-size:44px;font-weight:700;color:var(--ink);line-height:1.2}
-.bio-fam{font-size:26px;font-weight:400;color:var(--ink-3);line-height:1.5;margin-top:14px}
-.bio-note{
-  font-size:24px;line-height:1.5;color:var(--ink-2);font-weight:500;
-  margin-top:auto;padding-top:24px;border-top:1px solid var(--tint-2);
-}
+/* --- tile: one accent edge, flat fill, no radius, no shadow --- */
+.tile{background:var(--n-0);border-inline-start:5px solid var(--accent);padding:34px 38px}
+.tile-q{background:var(--n-0);border-inline-start:5px solid var(--n-300);padding:34px 38px}
+.tile-h{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;line-height:1.22;color:var(--p-900)}
+.tile-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
 
-.cred{display:flex;align-items:flex-start;gap:22px;padding:22px 0;border-bottom:1px solid var(--line-soft)}
-.cred.first{padding-top:0}
-.cred:last-child{border-bottom:0}
-.cred-k{
-  width:214px;flex:none;font-size:24px;font-weight:700;color:var(--accent);
-  line-height:1.35;
-}
-.cred-v{font-size:28px;font-weight:500;color:var(--ink);line-height:1.35}
-.practice{
-  display:flex;gap:22px;align-items:flex-start;
-  margin-top:auto;padding-top:28px;border-top:1px solid var(--line);
-}
-.practice-num{
-  font-size:56px;font-weight:700;color:var(--accent);line-height:1;flex:none;
-  padding-top:2px;
-}
-.practice-txt{font-size:26px;line-height:1.5;color:var(--ink-2);font-weight:400}
-.tagline{font-size:24px;line-height:1.45;color:var(--ink-3);font-weight:400;margin-top:12px}
-.tagline-k{font-weight:700;color:var(--accent)}
+/* --- big-number tile --- */
+.bn{background:var(--p-900);padding:30px 34px;display:flex;align-items:center;gap:26px}
+.bn-v{font-family:var(--f-display);font-size:var(--t-big);font-weight:700;line-height:1.1;color:var(--n-0);flex:none}
+.bn-k{font-size:var(--t-small);font-weight:500;line-height:1.35;color:rgba(255,255,255,.72)}
 
-.callout{
-  margin-top:auto;
-  background:var(--ink);border-radius:16px;
-  padding:32px 34px;
-  display:flex;gap:26px;align-items:flex-start;
-}
-.callout-bar{width:4px;align-self:stretch;background:var(--accent-bright);border-radius:2px;flex:none}
-.callout-txt{font-size:27px;line-height:1.48;color:#F8FAFC;font-weight:500}
-.callout-txt b{color:#FDBA74;font-weight:700}
-
-/* ==========================================================================
-   SLIDE 3 — METHODOLOGY
-   ========================================================================== */
-.phases{display:flex;gap:30px;align-items:stretch;flex:1}
-.phase{
-  flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;
-  padding:36px 38px 34px;display:flex;flex-direction:column;
-}
-.phase-1{border-color:#FBD5B5}
-.phase-top{display:flex;align-items:flex-start;gap:22px;margin-bottom:26px}
-.phase-num{
-  font-size:52px;font-weight:700;color:var(--accent);line-height:1;flex:none;
-  width:78px;
-}
-.phase-titles{flex:1}
-.phase-chip{
-  display:inline-block;font-size:24px;font-weight:700;color:var(--accent);
-  background:var(--tint);border:1px solid var(--tint-2);border-radius:6px;
-  padding:4px 14px;margin-bottom:12px;letter-spacing:.02em;
-}
-.phase-t{font-size:36px;font-weight:700;color:var(--ink);line-height:1.22}
-.phase-t-en{font-size:22px;font-weight:600;color:#94A3B8;margin-top:7px;letter-spacing:.02em}
-
-.phase-sep{height:1px;background:var(--line);margin-bottom:8px}
-
-.bul{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line-soft)}
-.bul.last{border-bottom:0;padding-bottom:4px}
-.bul-dot{width:10px;height:10px;border-radius:5px;background:var(--accent-bright);flex:none;margin-top:12px}
-.bul-h{font-size:29px;font-weight:700;color:var(--ink);line-height:1.3}
-.bul-b{font-size:25px;font-weight:400;color:var(--ink-3);line-height:1.45;margin-top:7px}
-
-.flow{
-  display:flex;align-items:center;justify-content:center;
-  width:76px;flex:none;
-}
-.flow-arrow{
-  font-size:44px;font-weight:700;color:#CBD5E1;line-height:1;
-}
-.num{direction:ltr;unicode-bidi:isolate;text-align:right}
-
-.meth-foot{
-  margin-top:30px;display:flex;align-items:center;gap:22px;
-  background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:26px 34px;
-}
-.meth-foot-bar{width:4px;height:44px;background:var(--accent-bright);border-radius:2px;flex:none}
-.meth-foot-txt{font-size:26px;line-height:1.4;color:var(--ink-2);font-weight:500}
-
-/* ==========================================================================
-   SLIDE 4 — ALTERNATIVES
-   ========================================================================== */
-.alts{
-  display:grid;grid-template-columns:1fr 1fr;column-gap:34px;
-  grid-template-rows:auto auto auto 1fr auto;flex:1;
-}
-.alt{
-  grid-row:1 / -1;display:grid;grid-template-rows:subgrid;
-  background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
-}
-.alt-hi{border:2px solid var(--accent)}
-.alt-band{padding:22px 34px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:20px}
-.alt-band-hi{background:var(--tint);border-bottom-color:var(--tint-2)}
-.alt-num{font-size:40px;font-weight:700;color:var(--accent);line-height:1.05;flex:none;width:64px}
-.alt-titles{flex:1}
-.alt-t{font-size:34px;font-weight:700;color:var(--ink);line-height:1.22}
-.alt-t-en{font-size:22px;font-weight:600;color:#94A3B8;margin-top:6px;letter-spacing:.02em}
-
-.row{padding:12px 34px;border-bottom:1px solid var(--line-soft)}
-.row-last{border-bottom:0}
-.row-k{font-size:24px;font-weight:700;color:var(--accent);letter-spacing:.04em;margin-bottom:10px}
-.row-v{font-size:25px;font-weight:400;color:var(--ink-2);line-height:1.45}
-.row-v b{font-weight:700;color:var(--ink)}
-
-.chips{display:flex;flex-wrap:wrap;gap:10px}
+/* --- chip --- */
 .chip{
-  font-size:24px;font-weight:600;color:var(--ink-2);
-  background:#F1F5F9;border:1px solid var(--line);border-radius:8px;padding:7px 14px;
+  display:inline-block;font-size:var(--t-cap);font-weight:700;letter-spacing:.04em;
+  color:var(--p-700);background:var(--n-100);padding:7px 15px;
 }
+.chip-a{color:var(--accent);background:var(--accent-soft)}
 
-.dl{display:flex;gap:14px;align-items:flex-start;margin-top:11px}
-.dl.first{margin-top:0}
-.dl-dot{width:8px;height:8px;border-radius:4px;background:var(--accent-bright);flex:none;margin-top:11px}
-.dl-t{font-size:25px;font-weight:400;color:var(--ink-2);line-height:1.4}
+/* --- table: header band in primary, white hairline separators, no grid --- */
+.tbl{width:100%;border-collapse:collapse;table-layout:fixed}
+.tbl thead th{
+  background:var(--p-900);color:var(--n-0);
+  font-size:var(--t-small);font-weight:700;letter-spacing:.06em;
+  text-align:start;padding:17px 24px;vertical-align:middle;
+}
+.tbl thead th.th-a{background:var(--accent)}
+.tbl tbody td{
+  background:var(--n-0);
+  border-bottom:2px solid var(--n-50);
+  padding:14px 24px;vertical-align:top;
+  font-size:var(--t-small);font-weight:400;line-height:1.36;color:var(--p-700);
+}
+.tbl tbody tr:last-child td{border-bottom:0}
+.tbl td.k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
+  background:var(--n-50);text-transform:uppercase;width:196px}
+.tbl td strong{font-weight:700;color:var(--p-900)}
+.fee{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.3}
+.fee-vat{font-size:var(--t-cap);font-weight:500;color:var(--n-500);margin-top:6px}
 
-.fee{
-  margin:0 34px 22px;
-  background:var(--tint);border:1px solid var(--tint-2);border-radius:12px;
-  padding:18px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
-.fee-hi{background:var(--accent);border-color:var(--accent)}
-.fee-k{font-size:24px;font-weight:700;letter-spacing:.04em;color:var(--accent)}
-.fee-hi .fee-k{color:#FFE8D6}
-.fee-right{text-align:start}
-.fee-num{font-size:44px;font-weight:700;color:var(--ink);line-height:1.1;white-space:nowrap}
-.fee-hi .fee-num{color:#FFFFFF}
-.fee-vat{font-size:20px;font-weight:600;color:var(--muted);margin-top:5px}
-.fee-hi .fee-vat{color:#FFD9BF}
+/* --- small multiples --- */
+.mc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:52px;height:100%}
+.mc{display:flex;flex-direction:column}
+.mc-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.2}
+.mc-u{font-size:var(--t-cap);font-weight:500;color:var(--n-500);margin-top:6px}
+.mc-plot{position:relative;direction:ltr;margin-top:28px;flex:1}
+.mc-grid{position:absolute;left:0;right:196px;top:0;bottom:0}
+.gl{position:absolute;top:0;bottom:34px;width:1px;background:var(--n-200)}
+.gl-0{background:var(--n-300)}
+.gl-t{position:absolute;bottom:0;font-size:var(--t-cap);font-weight:500;color:var(--n-500);white-space:nowrap}
+.mc-series{position:absolute;left:0;right:0;top:0;bottom:34px;display:flex;flex-direction:column;justify-content:center;gap:24px}
+.sr{position:relative;height:100px}
+.sr-lab{position:absolute;left:0;top:0;direction:rtl;font-size:var(--t-small);font-weight:700;color:var(--n-700)}
+.sr-track{position:absolute;left:0;right:196px;top:48px;height:28px}
+.bar-min{position:absolute;top:0;height:28px;background:var(--p-500);left:0}
+.bar-rng{position:absolute;top:0;height:28px;background:var(--n-300)}
+.sr-a .bar-min{background:var(--accent)}
+.sr-a .bar-rng{background:var(--accent-soft)}
+.sr-v{position:absolute;top:1px;font-size:var(--t-small);font-weight:700;color:var(--p-900);white-space:nowrap}
 
-/* ==========================================================================
-   SLIDE 5 — DISCUSSION
-   ========================================================================== */
-.qs{display:flex;gap:30px;align-items:stretch;margin-top:auto}
-.q{
-  flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;
-  padding:34px 34px 36px;display:flex;flex-direction:column;
-}
-.q-num{font-size:34px;font-weight:700;color:#CBD5E1;line-height:1;margin-bottom:20px}
-.q-tag{
-  display:inline-block;align-self:flex-start;
-  font-size:24px;font-weight:700;letter-spacing:.04em;color:var(--accent);
-  background:var(--tint);border:1px solid var(--tint-2);border-radius:6px;padding:5px 14px;
-  margin-bottom:22px;
-}
-.q-sep{height:1px;background:var(--line);margin-bottom:22px}
-.q-txt{font-size:36px;font-weight:600;color:var(--ink);line-height:1.4}
+/* --- numbered question rows — hairline, not a card --- */
+.q-list{display:grid;grid-template-rows:repeat(3,1fr);height:100%}
+.q-row{display:grid;grid-template-columns:104px 1fr;gap:30px;align-items:center;
+  border-top:1px solid var(--n-200)}
+.q-row:first-child{border-top:0}
+.q-n{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;color:var(--n-300);line-height:1}
+.q-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.q-t{font-size:var(--t-h3);font-weight:600;line-height:1.35;color:var(--p-900);margin-top:8px}
 
-.next{
-  margin-top:30px;margin-bottom:auto;background:var(--ink);border-radius:16px;
-  padding:34px 40px;display:flex;align-items:center;gap:28px;
-}
-.next-chip{
-  font-size:24px;font-weight:700;letter-spacing:.05em;color:#0F172A;
-  background:#FDBA74;border-radius:8px;padding:8px 18px;flex:none;
-}
-.next-txt{font-size:31px;font-weight:600;color:#F8FAFC;line-height:1.35;flex:1}
-.next-date{font-size:24px;font-weight:600;color:#94A3B8;flex:none;white-space:nowrap}
+/* --- about slide --- */
+.ab{display:grid;grid-template-columns:640px 1fr;gap:64px;height:100%}
+.ab-photo{width:100%;height:296px;overflow:hidden;background:var(--n-100)}
+.ab-photo img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block}
+.ab-cap{font-size:var(--t-cap);font-weight:500;color:var(--n-500);margin-top:14px;line-height:1.4}
+.ab-rows{display:flex;flex-direction:column;gap:22px}
+.cr{display:grid;grid-template-columns:220px 1fr;gap:26px;align-items:baseline;
+  padding-bottom:20px;border-bottom:1px solid var(--n-200)}
+.cr-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);text-transform:uppercase}
+.cr-v{font-size:var(--t-body);font-weight:600;color:var(--p-900);line-height:1.3}
+.ab-chips{display:flex;flex-wrap:wrap;gap:10px}
+.ab-lab{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
+  text-transform:uppercase;margin-bottom:12px}
 
-/* ==========================================================================
-   PRINT — one slide per page, exactly 1920x1080, no page chrome
-   ========================================================================== */
-@page{size:1920px 1080px;margin:0}
-@media print{
-  html{background:#FFFFFF}
-  body{padding:0;background:#FFFFFF}
-  .slide{margin:0;border:0;break-after:page;page-break-after:always}
-  .slide:last-of-type{break-after:auto;page-break-after:auto}
-}
+/* --- phase tiles --- */
+.ph-row{display:grid;grid-template-columns:1fr 1fr;gap:44px;height:100%}
+.ph{background:var(--n-0);border-inline-start:5px solid var(--accent);padding:36px 40px;
+  display:flex;flex-direction:column;gap:24px}
+.ph-2{border-inline-start-color:var(--p-500)}
+.ph-2 .tile-k{color:var(--p-500)}
+.ph-top{display:flex;flex-direction:column;gap:10px}
+.ph-b{display:grid;grid-template-columns:14px 1fr;gap:20px;align-items:start}
+.ph-dot{width:14px;height:14px;background:var(--accent);margin-top:11px}
+.ph-2 .ph-dot{background:var(--p-500)}
+.ph-h{font-size:var(--t-body);font-weight:700;color:var(--p-900);line-height:1.3}
+.ph-d{font-size:var(--t-small);font-weight:400;color:var(--n-700);line-height:1.4;margin-top:5px}
+.ph-list{display:flex;flex-direction:column;gap:22px;flex:1;justify-content:space-evenly}
+
+/* --- next-step bar --- */
+.next{background:var(--accent);padding:30px 40px;display:flex;align-items:center;gap:30px}
+.next-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.8);
+  text-transform:uppercase;white-space:nowrap}
+.next-t{font-size:var(--t-h3);font-weight:700;color:#FFFFFF;line-height:1.3}
 </style>
 </head>
 <body>
 
-<!-- ============================ SLIDE 1 — COVER ============================ -->
-<section class="slide" id="s1" data-title="שער">
-  <div class="cover">
-    <div class="cover-eyebrow">
-      <div class="dot"></div>
-      <div class="eyebrow">{{cover.eyebrow_he}}</div>
-    </div>
-
-    <h1 class="cover-h1">
-      <span class="cover-h1-a">הופכים רעיון למוצר עובד:</span>
-      <span class="cover-h1-b">בחינת היתכנות אסטרטגית וכלכלית</span>
-    </h1>
-
-    <div class="cover-sub">{{cover.subtitle_he}}</div>
-
-    <div class="cover-panel">
-      <div class="cover-panel-bar"></div>
-      <div class="cover-panel-txt">{{cover.framing_he}}</div>
-    </div>
-
-    <div class="cover-meta">
-      <div class="meta-cell">
-        <div class="meta-k">תאריך</div>
-        <div class="meta-v">{{meeting.date_he}}</div>
-      </div>
-      <div class="meta-cell">
-        <div class="meta-k">משתתפים</div>
-        <div class="meta-v">{{meeting.participants_he}}</div>
-      </div>
-      <div class="meta-cell last">
-        <div class="meta-k">פורמט</div>
-        <div class="meta-v">{{meeting.format_he}}</div>
-      </div>
-    </div>
+<!-- ========================= 1 — COVER ========================= -->
+<section class="slide slide-cover" data-title="שער" data-cap="מצגת פתיחה · אלון רותם">
+  <div class="kick">{{cover.eyebrow_he}}</div>
+  <div class="cv-rule"></div>
+  <h1 class="cv-head">הופכים רעיון למוצר עובד<em>בחינת היתכנות אסטרטגית וכלכלית</em></h1>
+  <div class="cv-lead">{{cover.subtitle_he}}</div>
+  <div class="cv-note">{{cover.framing_he}}</div>
+  <div class="cv-meta">
+    <div><div class="mk">תאריך</div><div class="mv">{{meeting.date_he}}</div></div>
+    <div><div class="mk">משתתפים</div><div class="mv">{{meeting.participants_he}}</div></div>
+    <div><div class="mk">פורמט</div><div class="mv">{{meeting.format_he}}</div></div>
   </div>
 </section>
 
-<!-- ============================ SLIDE 2 — ABOUT ============================ -->
-<section class="slide" id="s2" data-title="נעים להכיר">
-  <div class="s-head">
-    <div class="rule"></div>
-    <h2>{{headlines.s2}}</h2>
-  </div>
-
-  <div class="about-cols">
-    <div class="col col-personal">
-      <div class="col-tag">האדם</div>
-      {{BLOCK:portrait}}
-      <div class="bio-name">{{bio.name_he}}</div>
-      <div class="bio-fam">{{bio.family_he}}</div>
-      <div class="bio-note">משפחה קודמת לכל דבר אחר — וזו גם הסיבה שאני עובד בשקיפות מלאה על זמן, תקציב וציפיות.</div>
-    </div>
-
-    <div class="col col-pro">
-      <div class="col-tag">המקצוע</div>
-      {{BLOCK:creds}}
-      <div class="practice">
-        <div class="practice-num num">{{experience_years_min}}+</div>
-        <div>
-          <div class="practice-txt">{{bio.practice_he}}</div>
-          <div class="tagline"><span class="tagline-k">{{bio.disciplines_label_he}}:</span> {{bio.disciplines_he}}</div>
-          <div class="tagline"><span class="tagline-k">{{bio.sectors_label_he}}:</span> {{bio.sectors_he}}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout">
-    <div class="callout-bar"></div>
-    <div class="callout-txt">{{BLOCK:callout}}</div>
-  </div>
+<!-- ========================= 2 — ABOUT ========================= -->
+<section class="slide" data-title="נעים להכיר" data-cap="רקע מקצועי · אלון רותם">
+  <div class="kick">מי מלווה אתכם</div>
+  <h1 class="head">{{headlines.s2}}</h1>
+  <div class="sub">{{bio.callout_he}}</div>
+  <div class="band">{{BLOCK:about}}</div>
 </section>
 
-<!-- ========================= SLIDE 3 — METHODOLOGY ========================= -->
-<section class="slide" id="s3" data-title="מתודולוגיה">
-  <div class="s-head">
-    <div class="rule"></div>
-    <h2>{{headlines.s3}}</h2>
-    <div class="s-sub">{{headlines.s3_sub}}</div>
-  </div>
-
-  <div class="phases">{{BLOCK:phases}}</div>
-
-  <div class="meth-foot">
-    <div class="meth-foot-bar"></div>
-    <div class="meth-foot-txt">שלב ב' נפתח רק אם שלב א' מראה כדאיות — ההחלטה על המשך היא שלכם, בנקודת עצירה מוגדרת מראש.</div>
-  </div>
+<!-- ========================= 3 — DIVIDER 01 ========================= -->
+<section class="slide slide-div slide-dark" data-title="מתודולוגיה" data-cap="שלב א' ושלב ב'">
+  <div class="kick kick-dark">מתודולוגיה</div>
+  <div class="dv-num" dir="ltr">01</div>
+  <div class="dv-rule"></div>
+  <div class="dv-title">{{dividers.d1_title}}</div>
+  <div class="dv-cap">{{headlines.s3_sub}}</div>
 </section>
 
-<!-- ========================= SLIDE 4 — ALTERNATIVES ========================= -->
-<section class="slide" id="s4" data-title="חלופות">
-  <div class="s-head">
-    <div class="rule"></div>
-    <h2>{{headlines.s4}}</h2>
-    <div class="s-sub">{{headlines.s4_sub}}</div>
-  </div>
-
-  <div class="alts">{{BLOCK:alts}}</div>
+<!-- ========================= 4 — METHODOLOGY ========================= -->
+<section class="slide" data-title="מתודולוגיה" data-cap="תהליך מדורג עם נקודת עצירה מוגדרת">
+  <div class="kick">התהליך</div>
+  <h1 class="head">שני שלבים, ונקודת עצירה ביניהם</h1>
+  <div class="sub">{{headlines.s3_sub}}</div>
+  <div class="band">{{BLOCK:phases}}</div>
 </section>
 
-<!-- ========================= SLIDE 5 — DISCUSSION ========================= -->
-<section class="slide" id="s5" data-title="דיון וצעדים הבאים">
-  <div class="s-head">
-    <div class="rule"></div>
-    <h2>{{headlines.s5}}</h2>
-    <div class="s-sub">{{headlines.s5_sub}}</div>
-  </div>
+<!-- ========================= 5 — DIVIDER 02 ========================= -->
+<section class="slide slide-div slide-dark" data-title="חלופות" data-cap="שתי דרכים להתחיל">
+  <div class="kick kick-dark">חלופות עבודה</div>
+  <div class="dv-num" dir="ltr">02</div>
+  <div class="dv-rule"></div>
+  <div class="dv-title">{{dividers.d2_title}}</div>
+  <div class="dv-cap">{{headlines.s4_sub}}</div>
+</section>
 
-  <div class="qs">{{BLOCK:questions}}</div>
+<!-- ========================= 6 — COMPARISON TABLE ========================= -->
+<section class="slide" data-title="חלופות" data-cap="היקף, תוצרים והשקעה — טווחים, לא מחיר סופי">
+  <div class="kick">השוואה</div>
+  <h1 class="head">אותה מתודולוגיה, שני עומקים של בדיקה</h1>
+  <div class="sub">ההבדל בין החלופות הוא כמה ראיות חיצוניות נאספות לפני ההחלטה.</div>
+  <div class="band">{{BLOCK:table}}</div>
+</section>
 
-  <div class="next">
-    <div class="next-chip">הצעד הבא</div>
-    <div class="next-txt">{{BLOCK:next}}</div>
-    <div class="next-date">{{meeting.date_he}}</div>
-  </div>
+<!-- ========================= 7 — SMALL MULTIPLES ========================= -->
+<section class="slide" data-title="היקף והשקעה" data-cap="{{charts.source_he}}">
+  <div class="kick">סדרי גודל</div>
+  <h1 class="head">{{derived.scale_headline}}</h1>
+  <div class="sub">כל טווח מוצג כפי שנמסר — המינימום מלא, ההמשך עד לתקרה.</div>
+  <div class="band">{{BLOCK:charts}}</div>
+</section>
+
+<!-- ========================= 8 — DISCUSSION ========================= -->
+<section class="slide" data-title="דיון" data-cap="שלוש שאלות שקובעות את היקף שלב א'">
+  <div class="kick">לדיון</div>
+  <h1 class="head">{{headlines.s5}}</h1>
+  <div class="sub">{{headlines.s5_sub}}</div>
+  <div class="band band-split">{{BLOCK:questions}}{{BLOCK:next}}</div>
 </section>
 
 <script>
 /* ?flat=1 — strips page chrome so automation captures exact 1920x1080 blocks. */
 (function(){
-  var flat = new URLSearchParams(location.search).get('flat');
-  if (flat === '1' || flat === 'true') document.body.classList.add('flat');
+  var f = new URLSearchParams(location.search).get('flat');
+  if (f === '1' || f === 'true') document.body.classList.add('flat');
 })();
 </script>
 </body>
