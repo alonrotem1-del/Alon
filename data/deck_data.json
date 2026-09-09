@@ -1,0 +1,182 @@
+{
+  "_note": "Single source of truth for every figure and string that appears on a slide. build.py substitutes {{token}} placeholders in deck_template.html from this file. Nothing numeric is typed by hand into the markup. verify_figures.py re-derives every rendered figure from this file and diffs it against the built deck.html.",
+  "_provenance": {
+    "scope_and_pricing": "Supplied by Alon Rotem (the consultant) as his own engagement terms for this proposal. Not external research, not benchmarked against third-party data.",
+    "credentials": "Supplied by Alon Rotem about himself.",
+    "venture_facts": "Supplied by the client side (Ben / Ofek) — e.g. the 16-DJ roster and the incumbent tool iPlan.",
+    "external_market_data": "NONE. No market size, growth rate, competitor revenue, willingness-to-pay or adoption figure is asserted anywhere in this deck, because no sourced external dataset was supplied. Slide 5 deliberately poses willingness-to-pay as an open question rather than answering it.",
+    "bio_source": "Slide 7 of the presentation Alon supplied (fb2b3d7e-...pptx): role, degrees, disciplines, sectors, family and the portrait photograph are lifted from his own slide, not paraphrased.",
+    "conflicts": {
+      "experience_years": "The brief for this deck states 10+ years. Alon's supplied slide states 'למעלה מ-7 שנים'. These are not reconciled here: the brief's figure is used because it is the current instruction, and the supplied deck is demonstrably older (it lists the children as ages 7/5/3). Flagged rather than silently averaged.",
+      "children_ages": "The supplied slide gives ages 7/5/3. Those ages are stale by an unknown interval, so no age is printed — only the names.",
+      "institution_name": "The supplied slide says 'המרכז הבינתחומי הרצליה'. That institution is now Reichman University. Alon's own wording is kept."
+    }
+  },
+  "meeting": {
+    "date_he": "9 בספטמבר 2026",
+    "participants_he": "אלון רותם, בן, אופק",
+    "format_he": "פגישת היכרות · ללא התחייבות"
+  },
+  "roster": {
+    "dj_count": 16,
+    "unit_he": "תקליטנים"
+  },
+  "incumbent_tool": "iPlan",
+  "mvp": {
+    "features_min": 2,
+    "features_max": 3
+  },
+  "gtm": {
+    "first_users": 30
+  },
+  "experience_years_min": 10,
+  "alternatives": [
+    {
+      "id": "a",
+      "letter_he": "א'",
+      "index": "01",
+      "highlighted": true,
+      "name_he": "ספרינט תיקוף רזה",
+      "name_en": "Lean Validation",
+      "goal_he": "בדיקת שפיות מהירה וממוקדת, מבוססת על הידע הפנימי הקיים בחברה — 16 תקליטנים כמעבדת שטח.",
+      "sessions_min": 3,
+      "sessions_max": 4,
+      "hours_min": 15,
+      "hours_max": 20,
+      "weeks_min": 2,
+      "weeks_max": 3,
+      "deliverables_he": [
+        "מסמך אפיון MVP רזה",
+        "מודל כלכלי באקסל — רגישות מנויים ועלויות",
+        "מפת דרכים לשלבי הבדיקה"
+      ],
+      "fee_min": 9000,
+      "fee_max": 13000,
+      "currency": "₪",
+      "vat_he": "+ מע\"מ"
+    },
+    {
+      "id": "b",
+      "letter_he": "ב'",
+      "index": "02",
+      "highlighted": false,
+      "name_he": "מחקר שוק ותוכנית עסקית מקיפה",
+      "name_en": "Comprehensive Strategy",
+      "goal_he": "מחקר שוק חיצוני רחב ותוכנית עסקית מלאה — לגיוס שותפים, הלוואות או משקיעים.",
+      "scope_extra_he": "מחקר שטח יזום, סקרים וראיונות עומק עם תקליטנים עצמאיים וחברות.",
+      "hours_min": 45,
+      "hours_max": 60,
+      "weeks_min": 4,
+      "weeks_max": 6,
+      "deliverables_he": [
+        "כל תוצרי חלופה א'",
+        "דוח מחקר שוק ומתחרים",
+        "תוכנית עסקית מלאה — GTM, P&L, אסטרטגיית שיווק"
+      ],
+      "fee_min": 25000,
+      "fee_max": 38000,
+      "currency": "₪",
+      "vat_he": "+ מע\"מ"
+    }
+  ],
+  "phases": [
+    {
+      "index": "01",
+      "letter_he": "שלב א'",
+      "title_he": "בחינת היתכנות וכדאיות",
+      "title_en": "Validation & Viability",
+      "bullets": [
+        {
+          "head_he": "תיקוף הצורך בשוק",
+          "body_he": "מול חלופות קיימות — iPlan וכלים גנריים"
+        },
+        {
+          "head_he": "הגדרת ה-MVP",
+          "body_he": "זיהוי 2–3 הפיצ'רים הקריטיים שאי אפשר בלעדיהם"
+        },
+        {
+          "head_he": "מודל כלכלי",
+          "body_he": "תמחור מנוי, נקודת איזון (Break-even), עלות פיתוח מול תחזוקה"
+        }
+      ]
+    },
+    {
+      "index": "02",
+      "letter_he": "שלב ב'",
+      "title_he": "תוכנית פעולה ויישום",
+      "title_en": "Roadmap & Execution",
+      "bullets": [
+        {
+          "head_he": "בחירת מתווה טכנולוגי",
+          "body_he": "No-Code ואינטגרציות מול פיתוח מלא"
+        },
+        {
+          "head_he": "מפת דרכים ליישום",
+          "body_he": "אבני דרך מוגדרות ולוחות זמנים"
+        },
+        {
+          "head_he": "אסטרטגיית חדירה (GTM)",
+          "body_he": "גיוס 30 המשתמשים הראשונים"
+        }
+      ]
+    }
+  ],
+  "discussion": [
+    {
+      "index": "01",
+      "tag_he": "המוצר והשטח",
+      "q_he": "מה הרגע המתסכל ביותר כיום מול הזוגות, שחייב לקבל מענה כבר ביום הראשון?"
+    },
+    {
+      "index": "02",
+      "tag_he": "היתכנות כלכלית",
+      "q_he": "כמה תקליטן עצמאי ישלם בחודש על פתרון ייעודי — בלי להסס?"
+    },
+    {
+      "index": "03",
+      "tag_he": "הנכס הקיים",
+      "q_he": "איך רותמים את צוות 16 התקליטנים לבדיקת שטח מהירה, ללא עלות פיתוח?"
+    }
+  ],
+  "bio": {
+    "name_he": "אלון רותם",
+    "family_he": "נשוי לאירה, אבא של יולי, ליאו ורומי",
+    "role_he": "מנהל בייעוץ אסטרטגי",
+    "credentials": [
+      {
+        "label_he": "תפקיד ב-BDO",
+        "value_he": "מנג'ר ביחידת הייעוץ האסטרטגי"
+      },
+      {
+        "label_he": "M.B.A",
+        "value_he": "אוניברסיטת תל אביב, בהצטיינות"
+      },
+      {
+        "label_he": "B.A",
+        "value_he": "מנהל עסקים, המרכז הבינתחומי הרצליה — בהצטיינות יתרה"
+      }
+    ],
+    "practice_he": "שנים בפרויקטים אסטרטגיים מקומיים ובינלאומיים — צמיחה, מיפוי שווקים, בחינות היתכנות ובניית מודלים עסקיים.",
+    "callout_he": "התפקיד שלי בליווי: לא לקטול חלומות, אלא לשמש Devil's Advocate חיובי — לוודא שלא שורפים תקציבים על תוכנה שלא תתאים לשוק.",
+    "disciplines_label_he": "דיסציפלינות",
+    "disciplines_he": "אסטרטגיית צמיחה · אסטרטגיית פורטפוליו · אסטרטגיה דיגיטלית · בדיקות כלכליות",
+    "sectors_label_he": "מגזרים",
+    "sectors_he": "פיננסים · בריאות · תעשייה ביטחונית · לוגיסטיקה · תשתיות · תעשייה קיבוצית · חקלאות · פסולת · קנאביס רפואי"
+  },
+  "cover": {
+    "eyebrow_he": "בחינת היתכנות · CRM ופורטל לקוחות לתעשיית האירועים",
+    "headline_he": "הופכים רעיון למוצר עובד: בחינת היתכנות אסטרטגית וכלכלית",
+    "subtitle_he": "פגישת מיפוי, מתודולוגיית עבודה וקביעת הצעדים הבאים",
+    "framing_he": "פגישת היכרות וחשיבה משותפת — בגובה העיניים, בלי שיעורי בית, ועם מיקוד ביצירת ערך אמיתי לשטח."
+  },
+  "headlines": {
+    "s2": "נעים להכיר: שילוב של פרקטיקה עסקית ומתודולוגיה אסטרטגית",
+    "s3": "המתודולוגיה: מוודאים כדאיות לפני שכותבים שורת קוד אחת",
+    "s3_sub": "תהליך מובנה ומדורג המבטיח החזר השקעה וממזער סיכונים",
+    "s4": "שתי חלופות לבחירה: מותאם לעומס, לקצב ולתקציב שלכם",
+    "s4_sub": "אותה מתודולוגיה, שני עומקים של בדיקה — ההבדל הוא כמה ראיות חיצוניות נאספות",
+    "s5": "שאלות מפתח לדיון וסגירת צעדים הבאים",
+    "s5_sub": "שלוש שאלות שהתשובות עליהן קובעות את היקף שלב א'"
+  },
+  "next_step_he": "הצעד הבא: בחירת חלופת עבודה, תיאום לוחות זמנים והנעת שלב א'."
+}

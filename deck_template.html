@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>בחינת היתכנות אסטרטגית וכלכלית — מצגת פגישת פתיחה</title>
+<style>
+/* ==========================================================================
+   DESIGN TOKENS — Warm Executive Minimalist
+   Type floor: substantive text >= 24px (12pt). Meta/footnotes >= 20px (10pt).
+   1920px canvas => 1px = 0.5pt in the PPTX export.
+   No box-shadow and no ::before/::after decoration anywhere: neither survives
+   the PPTX export, so every visible element is a real DOM node.
+   ========================================================================== */
+:root{
+  --bg:#F9FAFB;
+  --card:#FFFFFF;
+  --ink:#0F172A;
+  --ink-2:#1E293B;
+  --ink-3:#475569;
+  --muted:#64748B;
+  --line:#E2E8F0;
+  --line-soft:#EDF1F5;
+  --accent:#C2410C;
+  --accent-bright:#EA580C;
+  --tint:#FFF7ED;
+  --tint-2:#FFEDD5;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#E7EAEE}
+body{
+  font-family:Arial,'Liberation Sans','Helvetica Neue',sans-serif;
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+  padding:40px 0;
+}
+body.flat{padding:0;background:#FFFFFF}
+
+.slide{
+  position:relative;
+  width:1920px;
+  height:1080px;
+  overflow:hidden;
+  background:var(--bg);
+  color:var(--ink);
+  padding:64px 88px 76px;
+  margin:0 auto 40px;
+  border:1px solid #D6DBE1;
+  display:flex;flex-direction:column;
+}
+body.flat .slide{margin:0;border:0}
+
+/* ---------- shared primitives ---------- */
+.rule{height:4px;width:56px;background:var(--accent);border-radius:2px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+.eyebrow{
+  font-size:24px;font-weight:600;letter-spacing:.01em;
+  color:var(--accent);
+}
+
+.s-head{margin-bottom:38px}
+.s-head .rule{margin-bottom:22px}
+h2{
+  font-size:52px;font-weight:700;line-height:1.16;
+  color:var(--ink);letter-spacing:-.01em;
+}
+.s-sub{
+  font-size:28px;font-weight:400;line-height:1.4;
+  color:var(--muted);margin-top:14px;max-width:1400px;
+}
+
+/* auto-generated footer (build.py) */
+.foot{
+  position:absolute;right:88px;left:88px;bottom:30px;
+  display:flex;align-items:center;gap:20px;
+}
+.foot-line{flex:1;height:1px;background:var(--line)}
+.foot-txt{font-size:20px;font-weight:400;color:#94A3B8;white-space:nowrap}
+.foot-pg{font-size:20px;font-weight:600;color:var(--ink-3);white-space:nowrap}
+
+/* ==========================================================================
+   SLIDE 1 — COVER
+   ========================================================================== */
+.cover{display:flex;flex-direction:column;flex:1}
+.cover-eyebrow{display:flex;align-items:center;gap:14px}
+.dot{width:12px;height:12px;border-radius:6px;background:var(--accent-bright)}
+
+.cover-h1{margin-top:auto;font-size:82px;font-weight:700;line-height:1.14;letter-spacing:-.015em}
+.cover-h1-a{color:var(--ink);display:block}
+.cover-h1-b{color:var(--accent);display:block}
+.cover-sub{
+  font-size:34px;font-weight:400;line-height:1.45;color:var(--ink-3);
+  margin-top:30px;max-width:1180px;
+}
+
+.cover-panel{
+  margin-top:52px;
+  background:var(--tint);
+  border:1px solid var(--tint-2);
+  border-radius:14px;
+  padding:34px 38px;
+  max-width:1500px;
+  display:flex;gap:26px;align-items:flex-start;
+}
+.cover-panel-bar{width:4px;align-self:stretch;background:var(--accent-bright);border-radius:2px;flex:none}
+.cover-panel-txt{font-size:29px;line-height:1.5;color:var(--ink-2);font-weight:500}
+
+.cover-meta{
+  margin-top:auto;
+  display:flex;align-items:stretch;gap:0;
+  border-top:1px solid var(--line);
+  padding-top:34px;
+}
+.meta-cell{padding-inline-end:64px;margin-inline-end:64px;border-inline-end:1px solid var(--line)}
+.meta-cell.last{border-inline-end:0;margin-inline-end:0;padding-inline-end:0}
+.meta-k{font-size:24px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-bottom:9px}
+.meta-v{font-size:28px;font-weight:600;color:var(--ink)}
+
+/* ==========================================================================
+   SLIDE 2 — ABOUT
+   ========================================================================== */
+.about-cols{display:flex;gap:34px;align-items:stretch}
+.creds{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+.col{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:38px 38px 30px;
+  display:flex;flex-direction:column;
+}
+.col-personal{width:660px;flex:none;background:var(--tint);border-color:var(--tint-2)}
+.col-pro{flex:1}
+
+.col-tag{font-size:24px;font-weight:700;letter-spacing:.05em;color:var(--accent);margin-bottom:24px}
+
+.portrait{
+  width:100%;aspect-ratio:19/10;border-radius:12px;
+  background:#FFFFFF;border:1px solid var(--tint-2);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:24px;overflow:hidden;
+}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.mono{font-size:88px;font-weight:700;color:var(--accent);letter-spacing:.04em;line-height:1}
+
+.bio-name{font-size:44px;font-weight:700;color:var(--ink);line-height:1.2}
+.bio-fam{font-size:26px;font-weight:400;color:var(--ink-3);line-height:1.5;margin-top:14px}
+.bio-note{
+  font-size:24px;line-height:1.5;color:var(--ink-2);font-weight:500;
+  margin-top:auto;padding-top:24px;border-top:1px solid var(--tint-2);
+}
+
+.cred{display:flex;align-items:flex-start;gap:22px;padding:22px 0;border-bottom:1px solid var(--line-soft)}
+.cred.first{padding-top:0}
+.cred:last-child{border-bottom:0}
+.cred-k{
+  width:214px;flex:none;font-size:24px;font-weight:700;color:var(--accent);
+  line-height:1.35;
+}
+.cred-v{font-size:28px;font-weight:500;color:var(--ink);line-height:1.35}
+.practice{
+  display:flex;gap:22px;align-items:flex-start;
+  margin-top:auto;padding-top:28px;border-top:1px solid var(--line);
+}
+.practice-num{
+  font-size:56px;font-weight:700;color:var(--accent);line-height:1;flex:none;
+  padding-top:2px;
+}
+.practice-txt{font-size:26px;line-height:1.5;color:var(--ink-2);font-weight:400}
+.tagline{font-size:24px;line-height:1.45;color:var(--ink-3);font-weight:400;margin-top:12px}
+.tagline-k{font-weight:700;color:var(--accent)}
+
+.callout{
+  margin-top:auto;
+  background:var(--ink);border-radius:16px;
+  padding:32px 34px;
+  display:flex;gap:26px;align-items:flex-start;
+}
+.callout-bar{width:4px;align-self:stretch;background:var(--accent-bright);border-radius:2px;flex:none}
+.callout-txt{font-size:27px;line-height:1.48;color:#F8FAFC;font-weight:500}
+.callout-txt b{color:#FDBA74;font-weight:700}
+
+/* ==========================================================================
+   SLIDE 3 — METHODOLOGY
+   ========================================================================== */
+.phases{display:flex;gap:30px;align-items:stretch;flex:1}
+.phase{
+  flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:36px 38px 34px;display:flex;flex-direction:column;
+}
+.phase-1{border-color:#FBD5B5}
+.phase-top{display:flex;align-items:flex-start;gap:22px;margin-bottom:26px}
+.phase-num{
+  font-size:52px;font-weight:700;color:var(--accent);line-height:1;flex:none;
+  width:78px;
+}
+.phase-titles{flex:1}
+.phase-chip{
+  display:inline-block;font-size:24px;font-weight:700;color:var(--accent);
+  background:var(--tint);border:1px solid var(--tint-2);border-radius:6px;
+  padding:4px 14px;margin-bottom:12px;letter-spacing:.02em;
+}
+.phase-t{font-size:36px;font-weight:700;color:var(--ink);line-height:1.22}
+.phase-t-en{font-size:22px;font-weight:600;color:#94A3B8;margin-top:7px;letter-spacing:.02em}
+
+.phase-sep{height:1px;background:var(--line);margin-bottom:8px}
+
+.bul{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line-soft)}
+.bul.last{border-bottom:0;padding-bottom:4px}
+.bul-dot{width:10px;height:10px;border-radius:5px;background:var(--accent-bright);flex:none;margin-top:12px}
+.bul-h{font-size:29px;font-weight:700;color:var(--ink);line-height:1.3}
+.bul-b{font-size:25px;font-weight:400;color:var(--ink-3);line-height:1.45;margin-top:7px}
+
+.flow{
+  display:flex;align-items:center;justify-content:center;
+  width:76px;flex:none;
+}
+.flow-arrow{
+  font-size:44px;font-weight:700;color:#CBD5E1;line-height:1;
+}
+.num{direction:ltr;unicode-bidi:isolate;text-align:right}
+
+.meth-foot{
+  margin-top:30px;display:flex;align-items:center;gap:22px;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:26px 34px;
+}
+.meth-foot-bar{width:4px;height:44px;background:var(--accent-bright);border-radius:2px;flex:none}
+.meth-foot-txt{font-size:26px;line-height:1.4;color:var(--ink-2);font-weight:500}
+
+/* ==========================================================================
+   SLIDE 4 — ALTERNATIVES
+   ========================================================================== */
+.alts{
+  display:grid;grid-template-columns:1fr 1fr;column-gap:34px;
+  grid-template-rows:auto auto auto 1fr auto;flex:1;
+}
+.alt{
+  grid-row:1 / -1;display:grid;grid-template-rows:subgrid;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+}
+.alt-hi{border:2px solid var(--accent)}
+.alt-band{padding:22px 34px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:20px}
+.alt-band-hi{background:var(--tint);border-bottom-color:var(--tint-2)}
+.alt-num{font-size:40px;font-weight:700;color:var(--accent);line-height:1.05;flex:none;width:64px}
+.alt-titles{flex:1}
+.alt-t{font-size:34px;font-weight:700;color:var(--ink);line-height:1.22}
+.alt-t-en{font-size:22px;font-weight:600;color:#94A3B8;margin-top:6px;letter-spacing:.02em}
+
+.row{padding:12px 34px;border-bottom:1px solid var(--line-soft)}
+.row-last{border-bottom:0}
+.row-k{font-size:24px;font-weight:700;color:var(--accent);letter-spacing:.04em;margin-bottom:10px}
+.row-v{font-size:25px;font-weight:400;color:var(--ink-2);line-height:1.45}
+.row-v b{font-weight:700;color:var(--ink)}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  font-size:24px;font-weight:600;color:var(--ink-2);
+  background:#F1F5F9;border:1px solid var(--line);border-radius:8px;padding:7px 14px;
+}
+
+.dl{display:flex;gap:14px;align-items:flex-start;margin-top:11px}
+.dl.first{margin-top:0}
+.dl-dot{width:8px;height:8px;border-radius:4px;background:var(--accent-bright);flex:none;margin-top:11px}
+.dl-t{font-size:25px;font-weight:400;color:var(--ink-2);line-height:1.4}
+
+.fee{
+  margin:0 34px 22px;
+  background:var(--tint);border:1px solid var(--tint-2);border-radius:12px;
+  padding:18px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.fee-hi{background:var(--accent);border-color:var(--accent)}
+.fee-k{font-size:24px;font-weight:700;letter-spacing:.04em;color:var(--accent)}
+.fee-hi .fee-k{color:#FFE8D6}
+.fee-right{text-align:start}
+.fee-num{font-size:44px;font-weight:700;color:var(--ink);line-height:1.1;white-space:nowrap}
+.fee-hi .fee-num{color:#FFFFFF}
+.fee-vat{font-size:20px;font-weight:600;color:var(--muted);margin-top:5px}
+.fee-hi .fee-vat{color:#FFD9BF}
+
+/* ==========================================================================
+   SLIDE 5 — DISCUSSION
+   ========================================================================== */
+.qs{display:flex;gap:30px;align-items:stretch;margin-top:auto}
+.q{
+  flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:34px 34px 36px;display:flex;flex-direction:column;
+}
+.q-num{font-size:34px;font-weight:700;color:#CBD5E1;line-height:1;margin-bottom:20px}
+.q-tag{
+  display:inline-block;align-self:flex-start;
+  font-size:24px;font-weight:700;letter-spacing:.04em;color:var(--accent);
+  background:var(--tint);border:1px solid var(--tint-2);border-radius:6px;padding:5px 14px;
+  margin-bottom:22px;
+}
+.q-sep{height:1px;background:var(--line);margin-bottom:22px}
+.q-txt{font-size:36px;font-weight:600;color:var(--ink);line-height:1.4}
+
+.next{
+  margin-top:30px;margin-bottom:auto;background:var(--ink);border-radius:16px;
+  padding:34px 40px;display:flex;align-items:center;gap:28px;
+}
+.next-chip{
+  font-size:24px;font-weight:700;letter-spacing:.05em;color:#0F172A;
+  background:#FDBA74;border-radius:8px;padding:8px 18px;flex:none;
+}
+.next-txt{font-size:31px;font-weight:600;color:#F8FAFC;line-height:1.35;flex:1}
+.next-date{font-size:24px;font-weight:600;color:#94A3B8;flex:none;white-space:nowrap}
+
+/* ==========================================================================
+   PRINT — one slide per page, exactly 1920x1080, no page chrome
+   ========================================================================== */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  html{background:#FFFFFF}
+  body{padding:0;background:#FFFFFF}
+  .slide{margin:0;border:0;break-after:page;page-break-after:always}
+  .slide:last-of-type{break-after:auto;page-break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ SLIDE 1 — COVER ============================ -->
+<section class="slide" id="s1" data-title="שער">
+  <div class="cover">
+    <div class="cover-eyebrow">
+      <div class="dot"></div>
+      <div class="eyebrow">{{cover.eyebrow_he}}</div>
+    </div>
+
+    <h1 class="cover-h1">
+      <span class="cover-h1-a">הופכים רעיון למוצר עובד:</span>
+      <span class="cover-h1-b">בחינת היתכנות אסטרטגית וכלכלית</span>
+    </h1>
+
+    <div class="cover-sub">{{cover.subtitle_he}}</div>
+
+    <div class="cover-panel">
+      <div class="cover-panel-bar"></div>
+      <div class="cover-panel-txt">{{cover.framing_he}}</div>
+    </div>
+
+    <div class="cover-meta">
+      <div class="meta-cell">
+        <div class="meta-k">תאריך</div>
+        <div class="meta-v">{{meeting.date_he}}</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-k">משתתפים</div>
+        <div class="meta-v">{{meeting.participants_he}}</div>
+      </div>
+      <div class="meta-cell last">
+        <div class="meta-k">פורמט</div>
+        <div class="meta-v">{{meeting.format_he}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SLIDE 2 — ABOUT ============================ -->
+<section class="slide" id="s2" data-title="נעים להכיר">
+  <div class="s-head">
+    <div class="rule"></div>
+    <h2>{{headlines.s2}}</h2>
+  </div>
+
+  <div class="about-cols">
+    <div class="col col-personal">
+      <div class="col-tag">האדם</div>
+      {{BLOCK:portrait}}
+      <div class="bio-name">{{bio.name_he}}</div>
+      <div class="bio-fam">{{bio.family_he}}</div>
+      <div class="bio-note">משפחה קודמת לכל דבר אחר — וזו גם הסיבה שאני עובד בשקיפות מלאה על זמן, תקציב וציפיות.</div>
+    </div>
+
+    <div class="col col-pro">
+      <div class="col-tag">המקצוע</div>
+      {{BLOCK:creds}}
+      <div class="practice">
+        <div class="practice-num num">{{experience_years_min}}+</div>
+        <div>
+          <div class="practice-txt">{{bio.practice_he}}</div>
+          <div class="tagline"><span class="tagline-k">{{bio.disciplines_label_he}}:</span> {{bio.disciplines_he}}</div>
+          <div class="tagline"><span class="tagline-k">{{bio.sectors_label_he}}:</span> {{bio.sectors_he}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-bar"></div>
+    <div class="callout-txt">{{BLOCK:callout}}</div>
+  </div>
+</section>
+
+<!-- ========================= SLIDE 3 — METHODOLOGY ========================= -->
+<section class="slide" id="s3" data-title="מתודולוגיה">
+  <div class="s-head">
+    <div class="rule"></div>
+    <h2>{{headlines.s3}}</h2>
+    <div class="s-sub">{{headlines.s3_sub}}</div>
+  </div>
+
+  <div class="phases">{{BLOCK:phases}}</div>
+
+  <div class="meth-foot">
+    <div class="meth-foot-bar"></div>
+    <div class="meth-foot-txt">שלב ב' נפתח רק אם שלב א' מראה כדאיות — ההחלטה על המשך היא שלכם, בנקודת עצירה מוגדרת מראש.</div>
+  </div>
+</section>
+
+<!-- ========================= SLIDE 4 — ALTERNATIVES ========================= -->
+<section class="slide" id="s4" data-title="חלופות">
+  <div class="s-head">
+    <div class="rule"></div>
+    <h2>{{headlines.s4}}</h2>
+    <div class="s-sub">{{headlines.s4_sub}}</div>
+  </div>
+
+  <div class="alts">{{BLOCK:alts}}</div>
+</section>
+
+<!-- ========================= SLIDE 5 — DISCUSSION ========================= -->
+<section class="slide" id="s5" data-title="דיון וצעדים הבאים">
+  <div class="s-head">
+    <div class="rule"></div>
+    <h2>{{headlines.s5}}</h2>
+    <div class="s-sub">{{headlines.s5_sub}}</div>
+  </div>
+
+  <div class="qs">{{BLOCK:questions}}</div>
+
+  <div class="next">
+    <div class="next-chip">הצעד הבא</div>
+    <div class="next-txt">{{BLOCK:next}}</div>
+    <div class="next-date">{{meeting.date_he}}</div>
+  </div>
+</section>
+
+<script>
+/* ?flat=1 — strips page chrome so automation captures exact 1920x1080 blocks. */
+(function(){
+  var flat = new URLSearchParams(location.search).get('flat');
+  if (flat === '1' || flat === 'true') document.body.classList.add('flat');
+})();
+</script>
+</body>
+</html>
