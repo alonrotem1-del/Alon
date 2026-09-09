@@ -340,6 +340,152 @@ def number_pages(html: str) -> tuple[str, int]:
     return "".join(out), total
 
 
+# --------------------------------------------------------------------------- #
+# web build — the same deck, as a hosted page
+# --------------------------------------------------------------------------- #
+WEB_OUT = DIST / "deck_web.html"
+
+# The Artifact host supplies <!doctype>, <html>, <head> and <body>, so the web
+# build is a body fragment: the deck's own <title> and <style>, its slides, and
+# a shell around them. The shell honours the deck's tokens rather than inventing
+# a second design system; it only adds what a hosted page needs that a printed
+# one does not — a viewport-relative scale, and a theme-aware ground so a dark
+# viewer is not flashbanged by the surround. The slides themselves stay in their
+# printed light world, exactly as they appear in the PDF.
+SHELL_CSS = """
+/* ===================== WEB SHELL ===================== */
+:root{
+  --shell-bg:#E7ECF1; --shell-ink:#0B2233; --shell-mute:#5B6E7E;
+  --shell-line:#CBD6DF; --shell-glow:rgba(11,34,51,.13);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --shell-bg:#0A1621; --shell-ink:#E9EFF4; --shell-mute:#8FA4B4;
+    --shell-line:#1D3244; --shell-glow:rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --shell-bg:#0A1621; --shell-ink:#E9EFF4; --shell-mute:#8FA4B4;
+  --shell-line:#1D3244; --shell-glow:rgba(0,0,0,.5);
+}
+html{background:var(--shell-bg)}
+body{background:var(--shell-bg);color:var(--shell-ink);padding:0;
+  font-family:var(--f-text);direction:rtl}
+
+.wrap{max-width:1560px;margin:0 auto;padding:0 clamp(16px,3vw,32px) 88px}
+.hd{padding:clamp(40px,6vw,72px) 0 clamp(26px,3vw,38px);
+  border-bottom:1px solid var(--shell-line);margin-bottom:clamp(26px,3.4vw,44px)}
+.hd-k{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.hd-t{font-family:var(--f-display);font-weight:700;line-height:1.12;
+  font-size:clamp(30px,4.4vw,54px);margin-top:14px;text-wrap:balance;color:var(--shell-ink)}
+.hd-m{display:flex;flex-wrap:wrap;gap:8px 30px;margin-top:20px;
+  font-size:clamp(14px,1.2vw,17px);color:var(--shell-mute)}
+.hd-m b{font-weight:700;color:var(--shell-ink)}
+.hd-h{margin-top:22px;font-size:14px;color:var(--shell-mute)}
+.hd-h kbd{font-family:var(--f-text);font-weight:700;font-size:13px;color:var(--shell-ink);
+  border:1px solid var(--shell-line);border-bottom-width:2px;padding:2px 7px;margin:0 2px}
+
+.deck{display:flex;flex-direction:column;gap:clamp(22px,2.6vw,38px)}
+/* Each slide keeps its exact 1920x1080 geometry and is scaled down to fit the
+   column. On a narrow screen a fitted slide would render 24px type at about
+   4px, so below a legibility floor the slide holds that floor and pans inside
+   its OWN stage — the page body still never scrolls sideways. The sizer carries
+   the scrollable width, because a transform does not change a layout box. */
+.stage{position:relative;width:100%;overflow-x:auto;overflow-y:hidden;
+  background:#FFFFFF;overscroll-behavior-x:contain;
+  box-shadow:0 1px 2px var(--shell-glow),0 14px 38px var(--shell-glow)}
+.sizer{width:calc(1920px * var(--s,1));height:calc(1080px * var(--s,1))}
+.stage .slide{position:absolute;top:0;left:0;margin:0;border:0;
+  transform-origin:top left;transform:scale(var(--s,1))}
+.pan{display:none;margin-top:12px;font-size:14px;color:var(--shell-mute)}
+.is-panning .pan{display:block}
+
+.ft{margin-top:clamp(30px,4vw,52px);padding-top:22px;border-top:1px solid var(--shell-line);
+  font-size:14px;line-height:1.6;color:var(--shell-mute);max-width:900px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+"""
+
+SHELL_JS = """
+(function(){
+  var deck = document.querySelector('.deck');
+  var stages = Array.prototype.slice.call(document.querySelectorAll('.stage'));
+  /* Slides are authored at 1920x1080. Fit them to the column, but never below
+     MIN_W: under that, 24px body type falls below ~11px and stops being
+     readable, so the slide holds MIN_W and pans inside its own stage instead. */
+  var MIN_W = 900;
+  function fit(){
+    var avail = deck.clientWidth;
+    var target = Math.max(avail, MIN_W);
+    deck.style.setProperty('--s', target / 1920);
+    document.body.classList.toggle('is-panning', target > avail + 1);
+  }
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(document.body);
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(dir){
+    var y = window.scrollY, best = null;
+    for (var i=0;i<stages.length;i++){
+      var t = stages[i].getBoundingClientRect().top + y - 24;
+      if (dir > 0 ? t > y + 4 : t < y - 4) {
+        if (best === null || (dir > 0 ? t < best : t > best)) best = t;
+      }
+    }
+    if (best !== null) window.scrollTo({top: best, behavior: reduce ? 'auto' : 'smooth'});
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+  });
+})();
+"""
+
+
+def build_web(html: str, d: dict, n_pages: int) -> int:
+    """Derive the hosted page from the very same generated deck."""
+    title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
+    style = re.search(r"<style>.*?</style>", html, re.S).group(0)
+    body = re.search(r"<body[^>]*>(.*?)</body>", html, re.S).group(1)
+    body = re.sub(r"<script>.*?</script>", "", body, flags=re.S)   # the ?flat= toggle is moot here
+
+    sections = re.findall(r"<section class=\"slide.*?</section>", body, re.S)
+    if len(sections) != n_pages:
+        print(f"ERROR: web build found {len(sections)} slides, expected {n_pages}", file=sys.stderr)
+        return 1
+    stages = "\n".join(
+        f'<div class="stage"><div class="sizer"></div>{s}</div>' for s in sections
+    )
+
+    m = d["meeting"]
+    page = (
+        f"<title>{esc(d['web']['title_he'])}</title>\n"
+        + style + f"<style>{SHELL_CSS}</style>\n"
+        '<div class="wrap">\n'
+        '  <header class="hd">\n'
+        f'    <div class="hd-k">{esc(d["web"]["kicker_he"])}</div>\n'
+        f'    <h1 class="hd-t">{esc(title.split("—")[0].strip())}</h1>\n'
+        '    <div class="hd-m">'
+        f'<span>תאריך <b>{esc(m["date_he"])}</b></span>'
+        f'<span>משתתפים <b>{esc(m["participants_he"])}</b></span>'
+        f'<span>שקפים <b><span dir="ltr">{n_pages}</span></b></span>'
+        "</div>\n"
+        '    <div class="hd-h">ניווט: <kbd>↓</kbd><kbd>↑</kbd> או גלילה רגילה.</div>\n'
+        '    <div class="pan">במסך צר — החליקו את השקף לצדדים כדי לראות אותו במלואו.</div>\n'
+        "  </header>\n"
+        f'  <div class="deck">{stages}</div>\n'
+        f'  <p class="ft">{esc(d["charts"]["source_he"])} {esc(d["web"]["note_he"])}</p>\n'
+        "</div>\n"
+        f"<script>{SHELL_JS}</script>\n"
+    )
+    WEB_OUT.write_text(page, encoding="utf-8")
+    print(f"       web -> {WEB_OUT.relative_to(ROOT)} "
+          f"({len(page.encode('utf-8')) / 1024:.0f} KB, {n_pages} stages)")
+    return 0
+
+
 def main() -> int:
     d = json.loads(DATA.read_text(encoding="utf-8"))
     d["derived"] = derive(d)
@@ -363,7 +509,8 @@ def main() -> int:
           f"{len(html.encode('utf-8')) / 1024:.0f} KB -> {OUT.relative_to(ROOT)}")
     for k, v in d["derived"].items():
         print(f"       derived {k}: {v}")
-    return 0
+
+    return build_web(html, d, n_pages)
 
 
 if __name__ == "__main__":
