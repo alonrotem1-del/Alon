@@ -43,6 +43,29 @@ def esc(s) -> str:
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+# A Latin run inside Hebrew — "iPlan", "M.B.A", "BDO", "Scope", "ICP", "DJs".
+# Isolating it with a real dir attribute stops the neutral characters around it
+# (hyphens, commas, brackets, the shekel sign) from being reordered by the bidi
+# algorithm, in the browser and, via the extractor, in PowerPoint.
+LATIN_RUN = re.compile(r"[A-Za-z][A-Za-z0-9.+]*(?:['’\-][A-Za-z0-9.+]+)*")
+
+
+def bidi(s) -> str:
+    """Escape, then wrap every Latin run in dir="ltr".
+
+    Each segment is escaped separately so the wrapper can never land inside an
+    entity such as &amp;.
+    """
+    s = str(s)
+    out, last = [], 0
+    for m in LATIN_RUN.finditer(s):
+        out.append(esc(s[last:m.start()]))
+        out.append(f'<span dir="ltr">{esc(m.group(0))}</span>')
+        last = m.end()
+    out.append(esc(s[last:]))
+    return "".join(out)
+
+
 def num(n) -> str:
     return f"{int(n):,}"
 
@@ -79,9 +102,9 @@ def block_arc(d: dict) -> str:
     """IDEA -> VALIDATION -> DECISION, as a rail with three stops."""
     cells = "".join(
         f'<div class="arc-c arc-{i + 1}"><div class="arc-dot"></div>'
-        f'<div class="arc-k">{esc(c["k"])}</div>'
-        f'<div class="arc-t">{esc(c["t"])}</div>'
-        f'<div class="arc-d">{esc(c["d"])}</div></div>'
+        f'<div class="arc-k">{bidi(c["k"])}</div>'
+        f'<div class="arc-t">{bidi(c["t"])}</div>'
+        f'<div class="arc-d">{bidi(c["d"])}</div></div>'
         for i, c in enumerate(d["cover"]["arc"])
     )
     return ('<div class="arc"><div class="arc-rail"></div><div class="arc-fill"></div>'
@@ -89,6 +112,8 @@ def block_arc(d: dict) -> str:
 
 
 def block_about(d: dict) -> str:
+    """A CV, not a bio paragraph: portrait and name, then experience, education
+    and sample engagements as three labelled sections."""
     bio = d["bio"]
     photo = ""
     for name in PORTRAIT_CANDIDATES:
@@ -100,18 +125,27 @@ def block_about(d: dict) -> str:
     if not photo:
         photo = '<div class="ab-photo"></div>'
 
-    items = "".join(
+    exp = "".join(
         f'<div class="ab-i"><div class="ab-b"></div>'
-        f'<div class="ab-t">{esc(t)}</div></div>'
-        for t in bio["focus_he"]
+        f'<div class="ab-t">{bidi(t)}</div></div>'
+        for t in bio["exp_he"]
     )
+    edu = "".join(f"<span>{bidi(t)}</span>" for t in bio["edu_he"])
+    proj = "".join(f'<div class="chip">{bidi(t)}</div>' for t in bio["proj_he"])
+
     return (
         '<div class="ab">'
-        f"<div>{photo}</div>"
+        "<div>" + photo
+        + f'<div class="ab-name">{bidi(bio["name_he"])}</div>'
+        f'<div class="ab-role">{bidi(bio["role_he"])}</div></div>'
         '<div class="ab-col">'
-        f'<div><div class="ab-lab">{esc(bio["focus_label_he"])}</div>'
-        f'<div class="ab-list">{items}</div></div>'
-        f'<div class="ab-pos">{esc(bio["positioning_he"])}</div>'
+        f'<div class="ab-sec"><div class="ab-lab">{bidi(bio["exp_label_he"])}</div>'
+        f'<div class="ab-lead">{bidi(bio["exp_lead_he"])}</div>'
+        f'<div class="ab-grid">{exp}</div></div>'
+        f'<div class="ab-sec"><div class="ab-lab">{bidi(bio["edu_label_he"])}</div>'
+        f'<div class="ab-edu">{edu}</div></div>'
+        f'<div class="ab-sec"><div class="ab-lab">{bidi(bio["proj_label_he"])}</div>'
+        f'<div class="ab-chips">{proj}</div></div>'
         "</div></div>"
     )
 
@@ -119,8 +153,8 @@ def block_about(d: dict) -> str:
 def block_proof(d: dict) -> str:
     rows = "".join(
         f'<div class="pf-r"><div class="pf-n" dir="ltr">{esc(b["n"])}</div>'
-        f'<div class="pf-t">{esc(b["t"])}</div>'
-        f'<div class="pf-q">' + "".join(f"<span>{esc(q)}</span>" for q in b["q"]) +
+        f'<div class="pf-t">{bidi(b["t"])}</div>'
+        f'<div class="pf-q">' + "".join(f"<span>{bidi(q)}</span>" for q in b["q"]) +
         "</div></div>"
         for b in d["proof"]
     )
@@ -128,62 +162,62 @@ def block_proof(d: dict) -> str:
 
 
 def block_flow(d: dict) -> str:
+    """Five stage tiles, each opening with a circular numbered badge."""
     tiles = []
     for i, st in enumerate(d["stages"], 1):
-        items = "".join(f"<span>{esc(x)}</span>" for x in st["items"])
-        note = f'<div class="st-note">{esc(st["note"])}</div>' if st.get("note") else ""
+        items = "".join(f"<span>{bidi(x)}</span>" for x in st["items"])
+        note = f'<div class="st-note">{bidi(st["note"])}</div>' if st.get("note") else ""
         tiles.append(
             f'<div class="st st-{i}">'
-            f'<div class="st-n" dir="ltr">{esc(st["n"])}</div>'
-            f'<div class="st-k">{esc(st["tag"])}</div>'
-            f'<div class="st-t">{esc(st["t"])}</div>'
-            f'<div class="st-l">{items}</div>{note}</div>'
+            '<div class="st-head">'
+            f'<div class="st-badge"><div class="st-n" dir="ltr">{esc(st["n"])}</div></div>'
+            f'<div class="st-k">{bidi(st["tag"])}</div>'
+            f'<div class="st-t">{bidi(st["t"])}</div>'
+            "</div>"
+            f'<div class="st-body"><div class="st-l">{items}</div>{note}</div>'
+            "</div>"
         )
     return f'<div class="flow">{"".join(tiles)}</div>'
 
 
 def block_flowfoot(d: dict) -> str:
-    """The iteration bracket sits under stages 1-3; the gates under stage 5."""
+    """The iteration bracket sits under stages 1-3; the gates under 4-5."""
     gates = "".join(f'<span class="gate" dir="ltr">{esc(g)}</span>' for g in d["gates_he"])
     return (
         '<div class="fl-foot">'
         '<div class="loop"><div class="loop-a" dir="ltr">&#8646;</div>'
-        f'<div class="loop-t">{esc(d["loop_he"])}</div></div>'
+        f'<div class="loop-t">{bidi(d["loop_he"])}</div></div>'
         f'<div class="gates"><div class="gate-row">{gates}</div>'
-        f'<div class="gates-c">{esc(d["gates_cap_he"])}</div></div>'
+        f'<div class="gates-c">{bidi(d["gates_cap_he"])}</div></div>'
         "</div>"
     )
 
 
 def block_options(d: dict) -> str:
-    r = d["rate"]
-    rate_v = f'<span dir="ltr">{r["amount"]}</span> {esc(r["currency"])} {esc(r["vat_he"])}'
+    """Two ways of running the same work. No commercial figure lives here —
+    the rate and the indicative hours are on the engagement-frame slide."""
     cards = []
     for o in d["options"]:
-        if "hours_min" in o:
-            right = (f'<div class="fee-r-k">{esc(o["hours_label_he"])}</div>'
-                     f'<div class="fee-r-v">כ-{rng(o["hours_min"], o["hours_max"])} שעות</div>'
-                     f'<div class="fee-r-c">{esc(o["hours_caveat_he"])}</div>')
-        else:
-            right = (f'<div class="fee-r-k">{esc(o["scope_label_he"])}</div>'
-                     f'<div class="fee-r-c" style="margin-top:6px">{esc(o["scope_he"])}</div>')
+        evals = (
+            '<div class="ev ev-pro">'
+            f'<div class="ev-k">{bidi(o["pro_label_he"])}</div>'
+            f'<div class="ev-t">{bidi(o["pro_he"])}</div></div>'
+            '<div class="ev ev-con">'
+            f'<div class="ev-k">{bidi(o["con_label_he"])}</div>'
+            f'<div class="ev-t">{bidi(o["con_he"])}</div></div>'
+        )
         cards.append(
             '<div class="op">'
-            f'<div class="op-h">חלופה {esc(o["letter_he"])} — {esc(o["name_he"])}</div>'
-            f'<div class="op-d">{esc(o["desc_he"])}</div>'
+            f'<div class="op-h">חלופה {bidi(o["letter_he"])} — {bidi(o["name_he"])}</div>'
+            f'<div class="op-d">{bidi(o["desc_he"])}</div>'
             '<div class="op-rows">'
-            f'<div class="op-row"><div class="op-k">{esc(o["alon_label_he"])}</div>'
-            f'<div class="op-v">{esc(o["alon_he"])}</div></div>'
-            f'<div class="op-row"><div class="op-k">{esc(o["founders_label_he"])}</div>'
-            f'<div class="op-v">{esc(o["founders_he"])}</div></div>'
+            f'<div class="op-row"><div class="op-k">{bidi(o["alon_label_he"])}</div>'
+            f'<div class="op-v">{bidi(o["alon_he"])}</div></div>'
+            f'<div class="op-row"><div class="op-k">{bidi(o["founders_label_he"])}</div>'
+            f'<div class="op-v">{bidi(o["founders_he"])}</div></div>'
             "</div>"
-            f'<div class="op-note"><div class="op-note-k">{esc(o["honest_label_he"])}</div>'
-            f'<div class="op-note-t">{esc(o["honest_he"])}</div></div>'
-            '<div class="op-fee">'
-            f'<div><div class="fee-v">{rate_v}</div>'
-            f'<div class="fee-k">{esc(r["unit_he"])}</div></div>'
-            f'<div class="fee-r">{right}</div>'
-            "</div></div>"
+            f'<div class="op-eval">{evals}</div>'
+            "</div>"
         )
     return f'<div class="opts">{"".join(cards)}</div>'
 
@@ -191,21 +225,62 @@ def block_options(d: dict) -> str:
 def block_questions(d: dict) -> str:
     rows = "".join(
         f'<div class="q-r"><div class="q-n" dir="ltr">{esc(q["n"])}</div>'
-        f'<div class="q-t">{esc(q["q"])}</div></div>'
+        f'<div class="q-t">{bidi(q["q"])}</div></div>'
         for q in d["discussion"]
     )
     return f'<div class="qs">{rows}</div>'
 
 
-def block_next(d: dict) -> str:
-    text = d["next_step_he"]
-    prefix = "בסיום המפגש:"
-    label = "בסיום המפגש"
-    if text.startswith(prefix):
-        text = text[len(prefix):].strip()
-    return ('<div class="next">'
-            f'<div class="next-k">{esc(label)}</div>'
-            f'<div class="next-t">{esc(text)}</div></div>')
+def block_commercial(d: dict) -> str:
+    """The only slide carrying a price. One rate, and what each track means for
+    scope — an indicative hour range where one exists, and an explicit "to be
+    set after the mapping meeting" where none does."""
+    c, r = d["commercial"], d["rate"]
+    by_id = {o["id"]: o for o in d["options"]}
+
+    cards = []
+    for t in c["tracks"]:
+        o = by_id[t["option_id"]]
+        if "hours_min" in t:
+            value = (f'<div class="trk-v">כ־{rng(t["hours_min"], t["hours_max"])} '
+                     f'{bidi(t["unit_he"])}</div>')
+        else:
+            value = f'<div class="trk-v trk-v-sm">{bidi(t["value_he"])}</div>'
+        cards.append(
+            '<div class="trk">'
+            f'<div class="trk-k">חלופה {bidi(o["letter_he"])} — {bidi(o["name_he"])}</div>'
+            f'<div class="trk-l">{bidi(t["label_he"])}</div>'
+            f"{value}"
+            f'<div class="trk-n">{bidi(t["note_he"])}</div>'
+            "</div>"
+        )
+
+    rate_v = f'{ltr(r["amount"])} {esc(r["currency"])} {esc(r["vat_he"])} {bidi(r["unit_he"])}'
+    return (
+        '<div class="cm">'
+        '<div class="rate">'
+        f'<div class="rate-k">{bidi(c["rate_label_he"])}</div>'
+        f'<div class="rate-v">{rate_v}</div>'
+        f'<div class="rate-n">{bidi(c["rate_note_he"])}</div>'
+        "</div>"
+        f'<div class="trks">{"".join(cards)}</div>'
+        f'<div class="cm-note">{bidi(c["bottom_he"])}</div>'
+        "</div>"
+    )
+
+
+def block_steps(d: dict) -> str:
+    cells = "".join(
+        f'<div class="sp"><div class="sp-n" dir="ltr">{esc(s["n"])}</div>'
+        f'<div class="sp-t">{bidi(s["t"])}</div>'
+        f'<div class="sp-d">{bidi(s["d"])}</div></div>'
+        for s in d["steps"]
+    )
+    return f'<div class="steps">{cells}</div>'
+
+
+def block_closing(d: dict) -> str:
+    return f'<div class="close">{bidi(d["closing_he"])}</div>'
 
 
 BLOCKS = {
@@ -216,7 +291,9 @@ BLOCKS = {
     "flowfoot": block_flowfoot,
     "options": block_options,
     "questions": block_questions,
-    "next": block_next,
+    "commercial": block_commercial,
+    "steps": block_steps,
+    "closing": block_closing,
 }
 
 

@@ -1,28 +1,26 @@
 {
   "_note": "Single source of truth. build.py substitutes {{token}} placeholders and expands {{BLOCK:name}} regions from this file. Nothing is typed by hand into the markup.",
   "_provenance": {
-    "approved_commercial_figures": "EXACTLY TWO figures may appear in this deck: (1) the hourly consulting rate, 450 ILS + VAT; (2) the indicative 30-45 consulting hours, which applies ONLY to the guided option and is labelled indicative on the slide. No total price appears anywhere.",
-    "founder_context": "The ~16-DJ business is context supplied by Ben, not independently verified market data. Where it appears it is attributed as such.",
+    "approved_commercial_figures": "TWO figures only: the 450 ILS + VAT hourly rate, and the indicative 20-40 hour range for the guided track. Both live on slide 7 (מסגרת התקשרות) alone. No total price anywhere, and no commercial figure on slide 5.",
+    "founder_context": "The ~16-DJ business is context supplied by Ben, not independently verified market data. It is not asserted anywhere in the deck.",
     "explicitly_absent": "No market size, no willingness-to-pay, no development budget, no adoption or interview targets, no claim about iPlan's capabilities or shortcomings, and no count of potential users. None was supplied and none is invented. The deck is about the process for answering those questions.",
-    "bio_source": "Role and focus areas supplied by Alon. The portrait is cropped from a photograph he supplied; no family members are named or shown.",
-    "iplan": "iPlan is named only as an incumbent alternative the founders themselves cited, and only inside questions to be answered — never with an asserted characteristic."
+    "iplan": "iPlan is named only as an incumbent alternative the founders themselves cited, and only inside a question to be answered — never with an asserted characteristic.",
+    "hours_revision": "The guided-track range was 30-45 in the previous draft; Alon revised it to 20-40. The deck shows 20-40.",
+    "experience_years": "Alon states ~10 years. An older deck of his said 7+; he has since confirmed 10, so the earlier conflict is resolved by his instruction.",
+    "client_list": "The sample-project names are supplied by Alon about his own engagements. Whether they may be named publicly is his call, not something verified here.",
+    "tamkin_reference": "The Tamkin/BDO proposal was read as a STRUCTURAL reference only: numbered circular stage badges over a titled band, and a full-width strip beneath the stage row. No BDO branding, logo, red, stock photography or corporate density was copied.",
+    "photo": "assets/headshot.png is data/אלון.png resampled by tools/prepare_photo.py (Lanczos, no retouching). The source is 141x142, so the frame is sized conservatively rather than blown up."
   },
   "meeting": {
     "date_he": "ספטמבר 2026",
     "participants_he": "אלון רותם · בן · אופק",
     "format_he": "פגישת היכרות ומיפוי"
   },
-  "rate": {
-    "amount": 450,
-    "currency": "₪",
-    "vat_he": "+ מע\"מ",
-    "unit_he": "לשעת ייעוץ"
-  },
   "web": {
     "title_he": "מרעיון למיזם בר־בחינה",
     "kicker_he": "פגישת היכרות ומיפוי · ספטמבר 2026",
     "note_he": "העמוד מתעדכן בכל בנייה מחדש של המצגת — הקישור נשאר זהה.",
-    "footnote_he": "המצגת מתארת תהליך, לא מסקנות. הנתון המסחרי היחיד המוצג הוא תעריף שעתי; היקף העבודה ייקבע לאחר פגישת המיפוי. אין במצגת נתוני שוק, נכונות לשלם או עלויות פיתוח — אלה בדיוק השאלות שהתהליך נועד לענות עליהן."
+    "footnote_he": "המצגת מתארת תהליך, לא מסקנות. הנתונים המסחריים היחידים המוצגים הם תעריף שעתי והיקף ראשוני משוער למסלול המונחה; היקף סופי ייקבע לאחר פגישת המיפוי. אין במצגת נתוני שוק, נכונות לשלם או עלויות פיתוח — אלה בדיוק השאלות שהתהליך נועד לענות עליהן."
   },
   "cover": {
     "kicker_he": "פגישת היכרות ומיפוי",
@@ -49,18 +47,35 @@
   },
   "bio": {
     "name_he": "אלון רותם",
-    "role_he": "יועץ אסטרטגי | מנהל ב-BDO",
-    "photo_cap_he": "אלון רותם",
-    "focus_label_he": "תחומי עיסוק",
-    "focus_he": [
-      "בחינת הזדמנויות עסקיות ומהלכי צמיחה",
-      "ניתוחי שוק וכדאיות",
+    "role_he": "יועץ אסטרטגי · מנהל ב־BDO",
+    "lead_he": "תפקידי בליווי: להביא מסגרת עבודה מסודרת לבחינת ההזדמנות — מה לבדוק, באיזה סדר, ומה נדרש כדי להחליט.",
+    "exp_label_he": "ניסיון",
+    "exp_lead_he": "כ־10 שנים בפרויקטים אסטרטגיים מקומיים ובינלאומיים:",
+    "exp_he": [
+      "אסטרטגיית צמיחה",
+      "בדיקות כדאיות וכניסה לשווקים",
       "מודלים עסקיים וכלכליים",
-      "תרגום שאלות אסטרטגיות לתוכנית פעולה"
+      "אסטרטגיה דיגיטלית",
+      "תרגום תובנות לתוכנית פעולה"
     ],
-    "positioning_he": "אתם מביאים את ההיכרות העמוקה עם הענף והשטח; התפקיד שלי הוא להוסיף מסגרת אסטרטגית, בדיקה שיטתית ונקודת מבט חיצונית וביקורתית."
+    "edu_label_he": "השכלה",
+    "edu_he": [
+      "M.B.A — אוניברסיטת תל אביב, בהצטיינות",
+      "B.A מנהל עסקים — המרכז הבינתחומי הרצליה, בהצטיינות יתרה"
+    ],
+    "proj_label_he": "פרויקטים לדוגמה",
+    "proj_he": [
+      "אלטשולר שחם",
+      "כללית",
+      "ענבי טלי",
+      "מטבחי רגבה",
+      "פלסן סאסא",
+      "מבושלת",
+      "אסטרטגיית דיגיטל לתמה"
+    ]
   },
   "headlines": {
+    "s2": "נעים להכיר",
     "s3": "לפני שבונים מערכת — יש כמה שאלות שצריכות לקבל תשובה",
     "s3_sub": "אלה לא מסקנות. אלה התחומים שהתהליך אמור לתת עליהם תשובה מבוססת.",
     "s4": "המתודולוגיה: מהנחות עבודה להחלטה עסקית",
@@ -68,7 +83,11 @@
     "s5": "שתי דרכים לבחון את ההזדמנות",
     "s5_sub": "אותה מסגרת אסטרטגית. ההבדל הוא מי מבצע את המחקר — ומכאן עומק הראיות ומידת עצמאותן.",
     "s6": "מה חשוב שנבין היום?",
-    "s6_sub": "חמש שאלות שיקבעו את מטרת העבודה ואת רמת הבדיקה המתאימה."
+    "s6_sub": "חמש שאלות שיקבעו את מטרת העבודה ואת רמת הבדיקה המתאימה.",
+    "s7": "מסגרת התקשרות",
+    "s7_sub": "תמחור שעתי שקוף. היקף העבודה נגזר מהמסלול שנבחר ומחלוקת המשימות בין הצדדים.",
+    "s8": "איך מתקדמים מכאן?",
+    "s8_sub": "ארבעה צעדים קצרים — בלי התחייבות בפגישה עצמה."
   },
   "proof": [
     {
@@ -104,7 +123,7 @@
     },
     {
       "n": "05",
-      "t": "יכולת ביצוע",
+      "t": "דרך לביצוע",
       "q": [
         "מה צריך לקרות לפני פיתוח?",
         "אילו משאבים, בעלוּת ואבני דרך נדרשים?"
@@ -173,7 +192,7 @@
       "note": ""
     }
   ],
-  "loop_he": "שלבים 1–3 מחזוריים: ראיות מהשוק מחזירות אותנו לחדד את ההנחות, את הלקוח ואת הגדרת המוצר.",
+  "loop_he": "שלבים 1–3 מחזוריים: ראיות מהשוק מחזירות אותנו לחדד את ההנחות ואת הגדרת המוצר.",
   "gates_he": [
     "GO",
     "ADJUST",
@@ -183,50 +202,33 @@
   "options": [
     {
       "id": "a",
-      "letter_he": "א'",
-      "name_he": "תהליך מונחה וממוקד",
-      "desc_he": "עבודה משותפת המבוססת על הידע הקיים ועל איסוף מידע בידי בן ואופק.",
-      "alon_label_he": "אלון",
-      "alon_he": "מסגרות ניתוח וראיון · ניתוח ממצאים · מודל כלכלי · הנחיית מפגשים · מסקנות ומפת דרכים",
-      "founders_label_he": "בן ואופק",
-      "founders_he": "מידע פנימי · איסוף מידע בשוק · שיחות עם לקוחות",
-      "honest_label_he": "מה חשוב לדעת",
-      "honest_he": "חסכוני יותר, אך עצמאות המחקר נמוכה יותר: ראיונות בהובלת היזמים אינם שקולים לראיון מקצועי מבחינת עומק חקירה, אחידות ונייטרליות.",
-      "fit_label_he": "מתאים כאשר",
-      "fit_he": [
-        "קיים ידע ענפי פנימי משמעותי",
-        "התקציב מוגבל יותר",
-        "היזמים פנויים לבצע חלק ניכר מהעבודה",
-        "המטרה היא הערכת היתכנות ראשונית חזקה"
-      ],
-      "hours_min": 30,
-      "hours_max": 45,
-      "hours_label_he": "היקף ייעוץ מוערך",
-      "hours_caveat_he": "טווח ראשוני — ייקבע לאחר הגדרת ההיקף."
+      "letter_he": "א׳",
+      "name_he": "ליווי אסטרטגי מונחה",
+      "desc_he": "אלון מוביל את המתודולוגיה, המסגרות, הניתוח והמודל הכלכלי; בן ואופק משלימים משימות בין המפגשים.",
+      "alon_label_he": "אלון מוביל",
+      "alon_he": "מתודולוגיה ומסגרות עבודה · אתגור הנחות · ניתוח ממצאים · מודל כלכלי · סינתזה ומסקנות",
+      "founders_label_he": "בן ואופק משלימים",
+      "founders_he": "נתונים פנימיים · מידע על השוק · חלק מהשיחות עם לקוחות · משימות תיקוף בין המפגשים",
+      "pro_label_he": "יתרון",
+      "pro_he": "תהליך חסכוני ומהיר יותר, הנשען על היכרות קיימת עם הענף.",
+      "con_label_he": "מגבלה",
+      "con_he": "רמת התיקוף החיצוני והעצמאי נמוכה יותר."
     },
     {
       "id": "b",
-      "letter_he": "ב'",
+      "letter_he": "ב׳",
       "name_he": "תהליך מחקר מלא",
-      "desc_he": "מחקר, ראיונות ואנליזה בהובלה מקצועית מלאה.",
-      "alon_label_he": "אלון",
-      "alon_he": "ניתוח שוק וחלופות · עיצוב המחקר · ראיונות לקוחות ומומחים · סינתזת ראיות · מודל כלכלי · מפת דרכים",
-      "founders_label_he": "בן ואופק",
-      "founders_he": "גישה ונתונים פנימיים · הקשר ענפי · הפניות",
-      "honest_label_he": "מה זה נותן",
-      "honest_he": "עצמאות, עומק ואיכות ראיות גבוהות יותר: ראיונות מאתגרים הנחות, מאפשרים חקירת המשך והשוואה עקבית בין ראיונות, והניתוח חשוף פחות להטיית אישוש.",
-      "fit_label_he": "מתאים כאשר",
-      "fit_he": [
-        "נדרשת ראיה חיצונית בלתי תלויה",
-        "ההחלטה כרוכה בהשקעה משמעותית",
-        "יש כמה סגמנטים לבחון",
-        "נדרש בסיס ראיות לשותפים או למממנים"
-      ],
-      "scope_label_he": "היקף ועלות",
-      "scope_he": "יוגדרו לאחר פגישת המיפוי, לפי עומק המחקר, מספר הסגמנטים והיקף עבודת השטח."
+      "desc_he": "אלון מוביל את המחקר והניתוח מקצה לקצה — עיצוב המחקר, עבודת השטח והראיונות מול לקוחות ומומחים.",
+      "alon_label_he": "אלון מוביל",
+      "alon_he": "מיפוי שוק · ניתוח חלופות ומתחרים · עיצוב המחקר · ראיונות עומק · סינתזת ראיות · מודל כלכלי · מפת דרכים",
+      "founders_label_he": "בן ואופק מספקים",
+      "founders_he": "גישה ונתונים פנימיים · הקשר ענפי · הפניות · שותפות בהחלטות",
+      "pro_label_he": "יתרון",
+      "pro_he": "רמת עומק, עצמאות ואיכות ראיות גבוהה יותר.",
+      "con_label_he": "מגבלה",
+      "con_he": "היקף עבודה גדול יותר, ולכן גם לוח זמנים ארוך יותר."
     }
   ],
-  "options_bottom_he": "אותה מסגרת אסטרטגית — רמת עומק ואיכות ראיות שונה.",
   "discussion": [
     {
       "n": "01",
@@ -242,12 +244,61 @@
     },
     {
       "n": "04",
-      "q": "מהי השאיפה העסקית — כלי טוב יותר לפעילות הקיימת, עסק SaaS עצמאי ורווחי, או חברה שניתן להרחיב משמעותית?"
+      "q": "מה אתם רוצים שהמיזם הזה יהיה בעוד 3–5 שנים — ומה מבחינתכם ייחשב הצלחה?"
     },
     {
       "n": "05",
       "q": "מה הייתם רוצים לדעת בסוף תהליך הבדיקה כדי להרגיש בנוח לקבל החלטה על ההשקעה הבאה?"
     }
   ],
-  "next_step_he": "בסיום המפגש: נחדד את מטרת העבודה, נבחר את רמת הבדיקה המתאימה ונגדיר Scope ותמחור בהתאם."
+  "commercial": {
+    "rate_label_he": "תעריף",
+    "rate_note_he": "התעריף זהה בשני המסלולים.",
+    "tracks": [
+      {
+        "option_id": "a",
+        "label_he": "היקף ראשוני משוער",
+        "hours_min": 20,
+        "hours_max": 40,
+        "unit_he": "שעות",
+        "note_he": "טווח אינדיקטיבי בלבד — תלוי בהגדרת ההיקף ובחלוקת המשימות."
+      },
+      {
+        "option_id": "b",
+        "label_he": "היקף ועלות",
+        "value_he": "ייקבעו לאחר פגישת המיפוי",
+        "note_he": "בהתאם לעומק המחקר, מספר הסגמנטים והיקף עבודת השטח. לא ניתן להעריך זאת לפני מיפוי."
+      }
+    ],
+    "bottom_he": "לאחר הפגישה ניתן יהיה לגבש Scope, הערכת שעות והצעת עבודה מסודרת."
+  },
+  "steps": [
+    {
+      "n": "01",
+      "t": "מחדדים את מטרת העבודה",
+      "d": "מה צריך להיות ידוע בסוף התהליך."
+    },
+    {
+      "n": "02",
+      "t": "בוחרים את מודל העבודה",
+      "d": "מונחה או מחקר מלא, לפי עומק התיקוף הנדרש."
+    },
+    {
+      "n": "03",
+      "t": "מגדירים Scope והערכת שעות",
+      "d": "תוצרים, חלוקת משימות ולוח זמנים."
+    },
+    {
+      "n": "04",
+      "t": "יוצאים לשלב הבדיקה",
+      "d": "עבודה מול אבני דרך ושערי החלטה."
+    }
+  ],
+  "closing_he": "גם אם תחליטו שלא להמשיך — הפגישה עצמה אמורה להשאיר בידיכם מיפוי ברור יותר של השאלות שדורשות תשובה.",
+  "rate": {
+    "amount": 450,
+    "currency": "₪",
+    "vat_he": "+ מע\"מ",
+    "unit_he": "לשעת ייעוץ"
+  }
 }

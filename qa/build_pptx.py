@@ -131,28 +131,42 @@ SINGLE_LINE_HEADROOM = 1.12
 SINGLE_LINE_PAD_PX = 8
 
 
-def fit_single_line(it: dict) -> tuple[float, float]:
-    """Return (x, w) for this text block, widened if it is a single line."""
-    x, w = it["x"], it["w"]
+def fit_single_line(it: dict) -> tuple[float, float, float]:
+    """Return (x, w, h) for this text block, widened if it is a single line.
+
+    Hebrew is wider in Arial than in Assistant, so a block that sits on one
+    line on screen can need more room here. Widen it — but never past the
+    container it is drawn inside. An over-wide box grows into its neighbour and
+    the two texts overprint; a capped box merely wraps, which is the graceful
+    failure. Where the cap bites, hand back the height Arial actually needs so
+    the box still describes the text it holds.
+    """
+    x, w, h = it["x"], it["w"], it["h"]
     lh = it.get("lineHeight") or 0
-    lines = round(it["h"] / lh) if lh > 0 else 1
+    lines = round(h / lh) if lh > 0 else 1
     if lines > 1:
-        return x, w
+        return x, w, h
     need = (it.get("nowrapW") or 0) * SINGLE_LINE_HEADROOM + SINGLE_LINE_PAD_PX
     if need <= w:
-        return x, w
-    extra = need - w
-    align = it.get("align", "right")
-    if align == "right":
-        return x - extra, w + extra          # grow leftwards; right edge fixed
-    if align == "center":
-        return x - extra / 2, w + extra
-    return x, w + extra                      # left-aligned: grow rightwards
+        return x, w, h
+
+    grown = min(need, max(w, it.get("containerW") or w))
+    extra = grown - w
+    if extra > 0:
+        align = it.get("align", "right")
+        if align == "right":
+            x -= extra                       # grow leftwards; right edge fixed
+        elif align == "center":
+            x -= extra / 2
+        w = grown                            # left-aligned: grows rightwards
+    if grown < need:
+        h = max(h, it.get("arialH") or h)    # it will wrap; own up to the height
+    return x, w, h
 
 
 def add_text(slide, it: dict):
-    tx, tw = fit_single_line(it)
-    box = slide.shapes.add_textbox(px(tx), px(it["y"]), px(tw), px(it["h"]))
+    tx, tw, th = fit_single_line(it)
+    box = slide.shapes.add_textbox(px(tx), px(it["y"]), px(tw), px(th))
     tf = box.text_frame
     tf.word_wrap = True
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0

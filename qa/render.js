@@ -38,9 +38,8 @@ const CAPTION_CLASSES = [
   'f-cap', 'f-pg',                       // footer furniture
   'kick',                                // uppercase kicker
   'arc-k', 'ab-lab', 'st-k', 'op-k',     // small uppercase labels
-  'op-note-k', 'fee-r-k', 'next-k',
-  'fee-k', 'gates-c', 'st-note',         // captions under a figure or tile
-  'fee-r-c',                             // the indicative-scope footnote
+  'ev-k', 'rate-k', 'trk-l',
+  'gates-c', 'st-note',                  // captions under a figure or tile
   'gate',                                // GO / ADJUST / STOP chips
 ];
 
@@ -50,8 +49,7 @@ const GUTTER_CLASSES = ['sr-v', 'gl-t'];
 
 /* Every one of these must start on the shared side margin. */
 const EDGE_SELECTOR =
-  '.kick, h1.head, .sub, .band, .f-rule, .f-cap, .cv-rule, .cv-head, .cv-lead,' +
-  '.cv-note, .cv-meta, .dv-num, .dv-rule, .dv-title, .dv-cap';
+  '.kick, h1.head, .sub, .band, .f-rule, .f-cap, .cv-rule, .cv-head, .cv-lead, .cv-note';
 
 const TOL = 1.0;
 

@@ -308,8 +308,21 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
   console.log(`extract -> ${path.relative(ROOT, OUT)}`);
   console.log(`  slides: ${data.slides.length}`);
   console.log(`  items : ${Object.entries(counts).map(([k, v]) => `${k}=${v}`).join('  ')}`);
-  console.log(`  single-line blocks with <4% spare width inside their container (spill risk): ${tight.length}`);
+  console.log(`  single-line blocks with <4% spare width inside their container: ${tight.length}`);
   for (const t of tight) {
     console.log(`    slide ${t.slide}  headroom ${(t.headroom * 100).toFixed(1)}%  "${t.text}"`);
+  }
+
+  /* Negative headroom means the line is already wider than its container in
+     Arial. build_pptx.py caps the box at the container so the text wraps
+     instead of overprinting its neighbour — but a line that wraps in the PPTX
+     and not in the PDF is a difference between the two deliverables, so it
+     fails the build rather than being noted and forgotten. */
+  const spill = tight.filter((t) => t.headroom < 0);
+  if (spill.length) {
+    console.error(`\nFAIL: ${spill.length} single-line block(s) do not fit their container in Arial;`);
+    console.error('      they would wrap in the PPTX but not in the PDF. Shorten the string or');
+    console.error('      step the size down one stop in the type scale.');
+    process.exit(1);
   }
 })().catch((e) => { console.error(e); process.exit(2); });

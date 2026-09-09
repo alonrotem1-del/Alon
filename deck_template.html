@@ -99,6 +99,9 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   width:var(--w);height:var(--band-h)}
 .band-rows{display:grid;grid-template-rows:1fr auto;gap:30px}
 .band-flow{display:grid;grid-template-rows:auto auto;gap:30px;align-content:space-between}
+/* the closing slide carries the least material of any slide; centring the
+   group keeps the air deliberate instead of dumping it under the content */
+.band-mid{display:flex;flex-direction:column;justify-content:center;gap:46px}
 
 /* ---------- footer ---------- */
 .f-rule{position:absolute;top:var(--rule-y);right:var(--m);width:var(--w);height:1px;
@@ -139,107 +142,154 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   line-height:1.4;margin-top:12px}
 
 /* ===========================================================================
-   2 — ABOUT
+   2 — ABOUT (CV-style)
    =========================================================================== */
-.ab{display:grid;grid-template-columns:310px 1fr;gap:72px;height:100%}
-.ab-photo{width:310px;height:420px;overflow:hidden;background:var(--n-100)}
+.ab{display:grid;grid-template-columns:300px 1fr;gap:64px;height:100%}
+.ab-photo{width:200px;height:200px;overflow:hidden;background:var(--n-100);
+  border:1px solid var(--n-200)}
 .ab-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .ab-name{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
-  color:var(--p-900);line-height:1.2}
+  color:var(--p-900);line-height:1.2;margin-top:24px}
 .ab-role{font-size:var(--t-body);font-weight:500;color:var(--accent);margin-top:8px}
 .ab-lab{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;
   color:var(--n-500);text-transform:uppercase}
-.ab-list{display:flex;flex-direction:column;gap:16px;margin-top:18px}
-.ab-i{display:grid;grid-template-columns:10px 1fr;gap:20px;align-items:start}
-.ab-b{width:10px;height:10px;background:var(--accent);margin-top:11px}
-.ab-t{font-size:var(--t-body);font-weight:400;color:var(--p-700);line-height:1.35}
-.ab-pos{margin-top:auto;background:var(--p-900);padding:30px 34px;
-  font-size:var(--t-body);line-height:1.5;color:#F3F5F6;font-weight:400}
-.ab-col{display:flex;flex-direction:column;height:100%}
+.ab-col{display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.ab-sec{border-top:1px solid var(--n-200);padding-top:16px}
+.ab-sec:first-child{border-top:0;padding-top:0}
+.ab-lead{font-size:var(--t-small);color:var(--p-700);line-height:1.35;margin-top:10px}
+.ab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px 34px;margin-top:12px}
+.ab-i{display:grid;grid-template-columns:9px 1fr;gap:16px;align-items:start}
+.ab-b{width:9px;height:9px;background:var(--accent);margin-top:10px}
+.ab-t{font-size:var(--t-small);font-weight:400;color:var(--p-700);line-height:1.3}
+.ab-edu{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+.ab-edu span{font-size:var(--t-small);color:var(--p-700);line-height:1.3}
+.ab-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.chip{font-size:var(--t-small);font-weight:500;color:var(--p-700);
+  background:var(--n-100);border:1px solid var(--n-200);padding:6px 14px}
 
 /* ===========================================================================
    3 — WHAT NEEDS PROVING
    =========================================================================== */
-.pf{display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.pf{display:grid;grid-template-rows:repeat(5,1fr);height:100%}
 .pf-r{display:grid;grid-template-columns:74px 300px 1fr;gap:26px;align-items:start;
-  padding-bottom:18px;border-bottom:1px solid var(--n-200)}
-.pf-r:last-child{border-bottom:0;padding-bottom:0}
+  align-content:center;border-bottom:1px solid var(--n-200)}
+.pf-r:last-child{border-bottom:0}
 .pf-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
-  color:var(--accent);line-height:1.25}
+  color:var(--accent);line-height:1.25;text-align:right}
 .pf-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25}
 .pf-q{display:flex;flex-direction:column;gap:7px}
 .pf-q span{font-size:var(--t-small);font-weight:400;color:var(--n-700);line-height:1.35}
 
 /* ===========================================================================
    4 — METHODOLOGY
+   Five stage tiles. Each opens with a circular numbered badge over a titled
+   head band; stages 1-3 carry the accent because they are the ones that loop.
+   The strip beneath spans the row: the iteration bracket under 1-3, the
+   decision gates under 4-5.
    =========================================================================== */
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
-.st{background:var(--n-0);border-top:4px solid var(--n-300);padding:24px 22px 22px;
-  display:flex;flex-direction:column;height:100%}
-.st-1,.st-2,.st-3{border-top-color:var(--accent)}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.st{background:var(--n-0);border:1px solid var(--n-200);display:flex;
+  flex-direction:column;height:100%}
+.st-head{background:var(--n-100);border-bottom:1px solid var(--n-200);
+  padding:14px 12px 12px;display:flex;flex-direction:column;align-items:center;gap:9px}
+.st-1 .st-head,.st-2 .st-head,.st-3 .st-head{background:var(--accent-soft);
+  border-bottom-color:#EBD3C7}
+.st-badge{width:52px;height:52px;border-radius:26px;background:var(--n-0);
+  border:2px solid var(--n-300);display:flex;align-items:center;justify-content:center}
+.st-1 .st-badge,.st-2 .st-badge,.st-3 .st-badge{border-color:var(--accent)}
 .st-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
-  color:var(--accent);line-height:1}
-.st-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;
-  color:var(--n-500);text-transform:uppercase;margin-top:14px}
-.st-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.24;margin-top:6px}
-.st-l{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+  color:var(--n-500);line-height:1}
+.st-1 .st-n,.st-2 .st-n,.st-3 .st-n{color:var(--accent)}
+.st-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--n-500);
+  text-transform:uppercase}
+.st-t{font-size:var(--t-body);font-weight:700;color:var(--p-900);line-height:1.22;
+  text-align:center}
+.st-body{padding:16px 12px;display:flex;flex-direction:column;flex:1}
+.st-l{display:flex;flex-direction:column;gap:8px}
 .st-l span{font-size:var(--t-small);font-weight:400;color:var(--n-700);line-height:1.3}
-.st-note{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:auto;padding-top:14px}
+.st-note{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:auto;padding-top:12px}
 
-.fl-foot{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:start}
+.fl-foot{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:start}
 .loop{grid-column:1 / span 3;border-top:2px solid var(--accent);padding-top:14px;
   display:flex;gap:14px;align-items:flex-start}
-.loop-a{font-size:var(--t-small);color:var(--accent);font-weight:700;line-height:1.3;flex:none}
+.loop-a{font-size:var(--t-small);color:var(--accent);font-weight:700;line-height:1.35;flex:none}
 .loop-t{font-size:var(--t-small);color:var(--p-700);line-height:1.35}
-.gates{grid-column:4 / span 2;border-top:2px solid var(--n-300);padding-top:14px}
-.gate-row{display:flex;gap:8px;flex-wrap:wrap}
+.gates{grid-column:4 / span 2;border-top:2px solid var(--n-300);padding-top:14px;
+  display:grid;grid-template-columns:auto 1fr;gap:10px 20px;align-items:center}
+.gate-row{display:flex;gap:8px}
 .gate{font-size:var(--t-cap);font-weight:700;letter-spacing:.06em;color:var(--p-900);
   background:var(--n-100);border:1px solid var(--n-200);padding:6px 12px}
-.gates-c{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:10px}
+.gates-c{font-size:var(--t-cap);color:var(--n-500);line-height:1.35}
 
 /* ===========================================================================
    5 — TWO ENGAGEMENT MODELS
    =========================================================================== */
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:32px;height:100%}
 .op{background:var(--n-0);border:1px solid var(--n-200);border-top:4px solid var(--p-500);
-  padding:20px 30px 18px;display:flex;flex-direction:column;height:100%}
+  padding:22px 32px 20px;display:flex;flex-direction:column;height:100%}
 .op-h{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25}
-.op-d{font-size:var(--t-small);color:var(--n-700);line-height:1.35;margin-top:7px;
-  padding-bottom:14px;border-bottom:1px solid var(--n-200)}
-.op-rows{display:flex;flex-direction:column;gap:12px;margin-top:12px}
-.op-row{display:grid;grid-template-columns:112px 1fr;gap:18px;align-items:start}
+.op-d{font-size:var(--t-small);color:var(--n-700);line-height:1.35;margin-top:9px;
+  padding-bottom:16px;border-bottom:1px solid var(--n-200)}
+.op-rows{display:flex;flex-direction:column;gap:14px;margin-top:18px}
 .op-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
-  text-transform:uppercase;padding-top:3px}
-.op-v{font-size:var(--t-small);color:var(--p-700);line-height:1.35}
-.op-note{margin-top:12px;background:var(--n-100);padding:14px 18px;
-  border-inline-start:4px solid var(--accent)}
-.op-note-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--accent);
   text-transform:uppercase}
-.op-note-t{font-size:var(--t-small);color:var(--p-700);line-height:1.35;margin-top:7px}
-.op-fee{margin-top:auto;padding-top:14px;border-top:1px solid var(--n-200);
-  display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-.fee-v{font-size:var(--t-small);font-weight:700;color:var(--p-900);line-height:1.4;white-space:nowrap}
-.fee-k{font-size:var(--t-cap);color:var(--n-500);margin-top:3px;white-space:nowrap}
-.fee-r{text-align:start;max-width:440px}
-.fee-r-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
-  text-transform:uppercase}
-.fee-r-v{font-size:var(--t-small);font-weight:700;color:var(--p-900);margin-top:5px;line-height:1.3}
-.fee-r-c{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:5px}
+.op-v{font-size:var(--t-small);color:var(--p-700);line-height:1.35;margin-top:6px}
+.op-eval{margin-top:auto;padding-top:16px;display:flex;flex-direction:column;gap:12px}
+.ev{display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:start;
+  border-top:1px solid var(--n-200);padding-top:12px}
+.ev-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ev-pro .ev-k{color:var(--p-700)}
+.ev-con .ev-k{color:var(--n-500)}
+.ev-t{font-size:var(--t-small);color:var(--p-700);line-height:1.35}
 
 /* ===========================================================================
-   6 — TODAY'S DISCUSSION
+   6 — DISCUSSION
    =========================================================================== */
-.qs{display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.qs{display:grid;grid-template-rows:repeat(5,1fr);height:100%}
 .q-r{display:grid;grid-template-columns:74px 1fr;gap:26px;align-items:baseline;
-  padding-bottom:16px;border-bottom:1px solid var(--n-200)}
-.q-r:last-child{border-bottom:0;padding-bottom:0}
-.q-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;color:var(--n-300);line-height:1.25}
+  align-content:center;border-bottom:1px solid var(--n-200)}
+.q-r:last-child{border-bottom:0}
+.q-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;color:var(--n-300);
+  line-height:1.25;text-align:right}
 .q-t{font-size:var(--t-body);font-weight:500;color:var(--p-900);line-height:1.35}
-.next{background:var(--accent-soft);border-inline-start:4px solid var(--accent);
-  padding:22px 28px;display:flex;gap:24px;align-items:baseline}
-.next-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--accent);
-  text-transform:uppercase;white-space:nowrap}
-.next-t{font-size:var(--t-body);font-weight:500;color:var(--p-900);line-height:1.35}
+
+/* ===========================================================================
+   7 — COMMERCIAL FRAME
+   =========================================================================== */
+.cm{display:grid;grid-template-rows:auto 1fr auto;gap:28px;height:100%}
+.rate{background:var(--p-900);padding:28px 36px;display:flex;align-items:baseline;gap:28px}
+.rate-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;
+  color:rgba(255,255,255,.66);text-transform:uppercase;white-space:nowrap}
+.rate-v{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+  color:var(--n-0);line-height:1.3;white-space:nowrap}
+.rate-n{font-size:var(--t-small);color:rgba(255,255,255,.72);margin-inline-start:auto;
+  text-align:start}
+.trks{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.trk{background:var(--n-0);border:1px solid var(--n-200);padding:26px 30px;
+  display:flex;flex-direction:column}
+.trk-k{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25;
+  padding-bottom:16px;border-bottom:1px solid var(--n-200)}
+.trk-l{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
+  text-transform:uppercase;margin-top:18px}
+.trk-v{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+  color:var(--accent);line-height:1.25;margin-top:8px}
+.trk-v-sm{font-size:var(--t-h3);color:var(--p-900)}
+.trk-n{font-size:var(--t-small);color:var(--n-700);line-height:1.35;margin-top:auto;padding-top:16px}
+.cm-note{background:var(--accent-soft);border-inline-start:4px solid var(--accent);
+  padding:20px 26px;font-size:var(--t-body);color:var(--p-900);line-height:1.35}
+
+/* ===========================================================================
+   8 — NEXT STEPS
+   =========================================================================== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.close{border-top:1px solid var(--n-200);padding-top:22px;
+  font-size:var(--t-body);font-weight:400;color:var(--p-700);line-height:1.35}
+.sp{display:flex;flex-direction:column;gap:14px;border-top:3px solid var(--accent);
+  padding-top:22px}
+.sp-n{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+  color:var(--accent);line-height:1;text-align:right}
+.sp-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25}
+.sp-d{font-size:var(--t-small);color:var(--n-700);line-height:1.35}
 </style>
 </head>
 <body>
@@ -254,11 +304,11 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   {{BLOCK:arc}}
 </section>
 
-<!-- ===================== 2 — ABOUT ===================== -->
-<section class="slide" data-title="נעים להכיר" data-cap="רקע מקצועי ותפקיד בליווי">
+<!-- ===================== 2 — ABOUT (CV) ===================== -->
+<section class="slide" data-title="נעים להכיר" data-cap="רקע מקצועי · התפקיד בליווי">
   <div class="kick">מי מלווה אתכם</div>
-  <h1 class="head">נעים להכיר</h1>
-  <div class="sub">{{bio.name_he}} — {{bio.role_he}}</div>
+  <h1 class="head">{{headlines.s2}}</h1>
+  <div class="sub">{{bio.lead_he}}</div>
   <div class="band">{{BLOCK:about}}</div>
 </section>
 
@@ -279,7 +329,7 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 </section>
 
 <!-- ===================== 5 — ENGAGEMENT MODELS ===================== -->
-<section class="slide" data-title="דרכי עבודה" data-cap="תמחור שעתי · היקף ייקבע לאחר פגישת המיפוי">
+<section class="slide" data-title="דרכי עבודה" data-cap="אותה מסגרת אסטרטגית · הבדל בעומק התיקוף">
   <div class="kick">דרכי עבודה</div>
   <h1 class="head">{{headlines.s5}}</h1>
   <div class="sub">{{headlines.s5_sub}}</div>
@@ -291,7 +341,23 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   <div class="kick">לדיון</div>
   <h1 class="head">{{headlines.s6}}</h1>
   <div class="sub">{{headlines.s6_sub}}</div>
-  <div class="band band-rows">{{BLOCK:questions}}{{BLOCK:next}}</div>
+  <div class="band">{{BLOCK:questions}}</div>
+</section>
+
+<!-- ===================== 7 — COMMERCIAL FRAME ===================== -->
+<section class="slide" data-title="מסגרת התקשרות" data-cap="תעריף שעתי · היקף ייקבע לאחר פגישת המיפוי">
+  <div class="kick">תעריף והיקף</div>
+  <h1 class="head">{{headlines.s7}}</h1>
+  <div class="sub">{{headlines.s7_sub}}</div>
+  <div class="band">{{BLOCK:commercial}}</div>
+</section>
+
+<!-- ===================== 8 — NEXT STEPS ===================== -->
+<section class="slide" data-title="איך מתקדמים" data-cap="אין החלטה נדרשת בפגישה עצמה">
+  <div class="kick">צעדים הבאים</div>
+  <h1 class="head">{{headlines.s8}}</h1>
+  <div class="sub">{{headlines.s8_sub}}</div>
+  <div class="band band-mid">{{BLOCK:steps}}{{BLOCK:closing}}</div>
 </section>
 
 <script>
