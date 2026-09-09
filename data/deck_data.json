@@ -1,196 +1,253 @@
 {
-  "_note": "Single source of truth for every figure and string that appears on a slide. build.py substitutes {{token}} placeholders in deck_template.html from this file. Nothing numeric is typed by hand into the markup. verify_figures.py re-derives every rendered figure from this file and diffs it against the built deck.html.",
+  "_note": "Single source of truth. build.py substitutes {{token}} placeholders and expands {{BLOCK:name}} regions from this file. Nothing is typed by hand into the markup.",
   "_provenance": {
-    "scope_and_pricing": "Supplied by Alon Rotem (the consultant) as his own engagement terms for this proposal. Not external research, not benchmarked against third-party data.",
-    "credentials": "Supplied by Alon Rotem about himself.",
-    "venture_facts": "Supplied by the client side (Ben / Ofek) — e.g. the 16-DJ roster and the incumbent tool iPlan.",
-    "external_market_data": "NONE. No market size, growth rate, competitor revenue, willingness-to-pay or adoption figure is asserted anywhere in this deck, because no sourced external dataset was supplied. Slide 5 deliberately poses willingness-to-pay as an open question rather than answering it.",
-    "bio_source": "Slide 7 of the presentation Alon supplied (fb2b3d7e-...pptx): role, degrees, disciplines, sectors, family and the portrait photograph are lifted from his own slide, not paraphrased.",
-    "conflicts": {
-      "experience_years": "The brief for this deck states 10+ years. Alon's supplied slide states 'למעלה מ-7 שנים'. These are not reconciled here: the brief's figure is used because it is the current instruction, and the supplied deck is demonstrably older (it lists the children as ages 7/5/3). Flagged rather than silently averaged.",
-      "children_ages": "The supplied slide gives ages 7/5/3. Those ages are stale by an unknown interval, so no age is printed — only the names.",
-      "institution_name": "The supplied slide says 'המרכז הבינתחומי הרצליה'. That institution is now Reichman University. Alon's own wording is kept."
-    },
-    "charts": "The three small multiples plot ONLY the scope and pricing ranges in this file. No external benchmark, market rate or industry average is plotted anywhere, because none was supplied. Bar geometry and the slide-7 headline ratios are computed by build.py from these fields, never typed."
+    "approved_commercial_figures": "EXACTLY TWO figures may appear in this deck: (1) the hourly consulting rate, 450 ILS + VAT; (2) the indicative 30-45 consulting hours, which applies ONLY to the guided option and is labelled indicative on the slide. No total price appears anywhere.",
+    "founder_context": "The ~16-DJ business is context supplied by Ben, not independently verified market data. Where it appears it is attributed as such.",
+    "explicitly_absent": "No market size, no willingness-to-pay, no development budget, no adoption or interview targets, no claim about iPlan's capabilities or shortcomings, and no count of potential users. None was supplied and none is invented. The deck is about the process for answering those questions.",
+    "bio_source": "Role and focus areas supplied by Alon. The portrait is cropped from a photograph he supplied; no family members are named or shown.",
+    "iplan": "iPlan is named only as an incumbent alternative the founders themselves cited, and only inside questions to be answered — never with an asserted characteristic."
   },
   "meeting": {
-    "date_he": "9 בספטמבר 2026",
-    "participants_he": "אלון רותם, בן, אופק",
-    "format_he": "פגישת היכרות · ללא התחייבות"
+    "date_he": "ספטמבר 2026",
+    "participants_he": "אלון רותם · בן · אופק",
+    "format_he": "פגישת היכרות ומיפוי"
   },
-  "roster": {
-    "dj_count": 16,
-    "unit_he": "תקליטנים"
+  "rate": {
+    "amount": 450,
+    "currency": "₪",
+    "vat_he": "+ מע\"מ",
+    "unit_he": "לשעת ייעוץ"
   },
-  "incumbent_tool": "iPlan",
-  "mvp": {
-    "features_min": 2,
-    "features_max": 3
+  "web": {
+    "title_he": "מרעיון למיזם בר־בחינה",
+    "kicker_he": "פגישת היכרות ומיפוי · ספטמבר 2026",
+    "note_he": "העמוד מתעדכן בכל בנייה מחדש של המצגת — הקישור נשאר זהה.",
+    "footnote_he": "המצגת מתארת תהליך, לא מסקנות. הנתון המסחרי היחיד המוצג הוא תעריף שעתי; היקף העבודה ייקבע לאחר פגישת המיפוי. אין במצגת נתוני שוק, נכונות לשלם או עלויות פיתוח — אלה בדיוק השאלות שהתהליך נועד לענות עליהן."
   },
-  "gtm": {
-    "first_users": 30
+  "cover": {
+    "kicker_he": "פגישת היכרות ומיפוי",
+    "headline_he": "מרעיון למיזם בר־בחינה",
+    "subtitle_he": "בחינת ההזדמנות, תיקוף ההנחות והגדרת הדרך קדימה",
+    "framing_he": "המטרה היא לא להחליט היום אם לפתח — אלא להבין מה צריך להיות נכון כדי שהמיזם יהיה כדאי, ואיך נכון לבדוק זאת.",
+    "arc": [
+      {
+        "k": "היום",
+        "t": "רעיון",
+        "d": "ניסיון ענפי והנחות עבודה"
+      },
+      {
+        "k": "התהליך",
+        "t": "בחינה",
+        "d": "תיקוף מול שוק, לקוחות וכלכלה"
+      },
+      {
+        "k": "התוצר",
+        "t": "החלטה",
+        "d": "מבוססת ראיות, עם תוכנית פעולה"
+      }
+    ]
   },
-  "experience_years_min": 10,
-  "alternatives": [
+  "bio": {
+    "name_he": "אלון רותם",
+    "role_he": "יועץ אסטרטגי | מנהל ב-BDO",
+    "photo_cap_he": "אלון רותם",
+    "focus_label_he": "תחומי עיסוק",
+    "focus_he": [
+      "בחינת הזדמנויות עסקיות ומהלכי צמיחה",
+      "ניתוחי שוק וכדאיות",
+      "מודלים עסקיים וכלכליים",
+      "תרגום שאלות אסטרטגיות לתוכנית פעולה"
+    ],
+    "positioning_he": "אתם מביאים את ההיכרות העמוקה עם הענף והשטח; התפקיד שלי הוא להוסיף מסגרת אסטרטגית, בדיקה שיטתית ונקודת מבט חיצונית וביקורתית."
+  },
+  "headlines": {
+    "s3": "לפני שבונים מערכת — יש כמה שאלות שצריכות לקבל תשובה",
+    "s3_sub": "אלה לא מסקנות. אלה התחומים שהתהליך אמור לתת עליהם תשובה מבוססת.",
+    "s4": "המתודולוגיה: מהנחות עבודה להחלטה עסקית",
+    "s4_sub": "התהליך אינו ליניארי — ממצאים מהשוק חוזרים ומחדדים את ההנחות ואת הגדרת ההזדמנות.",
+    "s5": "שתי דרכים לבחון את ההזדמנות",
+    "s5_sub": "אותה מסגרת אסטרטגית. ההבדל הוא מי מבצע את המחקר — ומכאן עומק הראיות ומידת עצמאותן.",
+    "s6": "מה חשוב שנבין היום?",
+    "s6_sub": "חמש שאלות שיקבעו את מטרת העבודה ואת רמת הבדיקה המתאימה."
+  },
+  "proof": [
+    {
+      "n": "01",
+      "t": "שוק ולקוח",
+      "q": [
+        "מי הלקוח הראשון האמיתי — DJ עצמאי, חברת DJs, או סגמנט אחר?",
+        "כמה גדול ונגיש השוק הרלוונטי?"
+      ]
+    },
+    {
+      "n": "02",
+      "t": "הבעיה",
+      "q": [
+        "איזו בעיה כואבת ותכופה מספיק כדי להצדיק מעבר לפתרון חדש?"
+      ]
+    },
+    {
+      "n": "03",
+      "t": "מוצר ובידול",
+      "q": [
+        "מה המוצר הראשון באמת צריך לפתור?",
+        "מדוע יהיה עדיף על iPlan או על החלופות הקיימות?"
+      ]
+    },
+    {
+      "n": "04",
+      "t": "כלכלה",
+      "q": [
+        "מי משלם, וכמה ריאלי שישלם?",
+        "איזה היקף פעילות נדרש כדי שזה יהיה עסק אטרקטיבי?"
+      ]
+    },
+    {
+      "n": "05",
+      "t": "יכולת ביצוע",
+      "q": [
+        "מה צריך לקרות לפני פיתוח?",
+        "אילו משאבים, בעלוּת ואבני דרך נדרשים?"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "n": "01",
+      "t": "הנחות עבודה ראשוניות",
+      "tag": "נקודת המוצא",
+      "items": [
+        "לקוח יעד ובעיה",
+        "תהליך העבודה כיום",
+        "רעיון המוצר והחלופות",
+        "נכונות לשלם וצמיחה"
+      ],
+      "note": "מנוסחות מהידע הענפי שלכם — כהנחות, לא כמסקנות."
+    },
+    {
+      "n": "02",
+      "t": "בדיקת השוק והלקוחות",
+      "tag": "איסוף ראיות",
+      "items": [
+        "מיפוי שוק וגודלו",
+        "ניתוח חלופות ומתחרים",
+        "ראיונות לקוחות ומומחים",
+        "חסמי מעבר ונכונות לשלם"
+      ],
+      "note": ""
+    },
+    {
+      "n": "03",
+      "t": "חידוד ההזדמנות והמוצר",
+      "tag": "מיקוד",
+      "items": [
+        "לקוח יעד מוגדר (ICP)",
+        "הבעיה המרכזית",
+        "הצעת הערך והבידול",
+        "גבולות המוצר הראשון"
+      ],
+      "note": ""
+    },
+    {
+      "n": "04",
+      "t": "בחינת הכדאיות הכלכלית",
+      "tag": "מודל",
+      "items": [
+        "שוק נגיש ותמחור אפשרי",
+        "הנחות אימוץ",
+        "עלויות פיתוח ותפעול",
+        "תרחישים ורגישויות"
+      ],
+      "note": ""
+    },
+    {
+      "n": "05",
+      "t": "החלטה ותוכנית פעולה",
+      "tag": "מסקנה",
+      "items": [
+        "אבני דרך ושערי החלטה",
+        "שלבי בדיקה ופיתוח",
+        "דרך ראשונית לשוק",
+        "אחריות וצעדים הבאים"
+      ],
+      "note": ""
+    }
+  ],
+  "loop_he": "שלבים 1–3 מחזוריים: ראיות מהשוק מחזירות אותנו לחדד את ההנחות, את הלקוח ואת הגדרת המוצר.",
+  "gates_he": [
+    "GO",
+    "ADJUST",
+    "STOP"
+  ],
+  "gates_cap_he": "שלב 5 נפתח באחת משלוש התוצאות — כולן לגיטימיות.",
+  "options": [
     {
       "id": "a",
       "letter_he": "א'",
-      "index": "01",
-      "highlighted": true,
-      "name_he": "ספרינט תיקוף רזה",
-      "name_en": "Lean Validation",
-      "goal_he": "בדיקת שפיות מהירה וממוקדת, מבוססת על הידע הפנימי הקיים בחברה — 16 תקליטנים כמעבדת שטח.",
-      "sessions_min": 3,
-      "sessions_max": 4,
-      "hours_min": 15,
-      "hours_max": 20,
-      "weeks_min": 2,
-      "weeks_max": 3,
-      "deliverables_he": [
-        "מסמך אפיון MVP רזה",
-        "מודל כלכלי באקסל — רגישות מנויים ועלויות",
-        "מפת דרכים לשלבי הבדיקה"
+      "name_he": "תהליך מונחה וממוקד",
+      "desc_he": "עבודה משותפת המבוססת על הידע הקיים ועל איסוף מידע בידי בן ואופק.",
+      "alon_label_he": "אלון",
+      "alon_he": "מסגרות ניתוח וראיון · ניתוח ממצאים · מודל כלכלי · הנחיית מפגשים · מסקנות ומפת דרכים",
+      "founders_label_he": "בן ואופק",
+      "founders_he": "מידע פנימי · איסוף מידע בשוק · שיחות עם לקוחות",
+      "honest_label_he": "מה חשוב לדעת",
+      "honest_he": "חסכוני יותר, אך עצמאות המחקר נמוכה יותר: ראיונות בהובלת היזמים אינם שקולים לראיון מקצועי מבחינת עומק חקירה, אחידות ונייטרליות.",
+      "fit_label_he": "מתאים כאשר",
+      "fit_he": [
+        "קיים ידע ענפי פנימי משמעותי",
+        "התקציב מוגבל יותר",
+        "היזמים פנויים לבצע חלק ניכר מהעבודה",
+        "המטרה היא הערכת היתכנות ראשונית חזקה"
       ],
-      "fee_min": 9000,
-      "fee_max": 13000,
-      "currency": "₪",
-      "vat_he": "+ מע\"מ"
+      "hours_min": 30,
+      "hours_max": 45,
+      "hours_label_he": "היקף ייעוץ מוערך",
+      "hours_caveat_he": "טווח ראשוני — ייקבע לאחר הגדרת ההיקף."
     },
     {
       "id": "b",
       "letter_he": "ב'",
-      "index": "02",
-      "highlighted": false,
-      "name_he": "מחקר שוק ותוכנית עסקית מקיפה",
-      "name_en": "Comprehensive Strategy",
-      "goal_he": "מחקר שוק חיצוני רחב ותוכנית עסקית מלאה — לגיוס שותפים, הלוואות או משקיעים.",
-      "scope_extra_he": "מחקר שטח יזום, סקרים וראיונות עומק עם תקליטנים עצמאיים וחברות.",
-      "hours_min": 45,
-      "hours_max": 60,
-      "weeks_min": 4,
-      "weeks_max": 6,
-      "deliverables_he": [
-        "כל תוצרי חלופה א'",
-        "דוח מחקר שוק ומתחרים",
-        "תוכנית עסקית מלאה — GTM, P&L, אסטרטגיית שיווק"
+      "name_he": "תהליך מחקר מלא",
+      "desc_he": "מחקר, ראיונות ואנליזה בהובלה מקצועית מלאה.",
+      "alon_label_he": "אלון",
+      "alon_he": "ניתוח שוק וחלופות · עיצוב המחקר · ראיונות לקוחות ומומחים · סינתזת ראיות · מודל כלכלי · מפת דרכים",
+      "founders_label_he": "בן ואופק",
+      "founders_he": "גישה ונתונים פנימיים · הקשר ענפי · הפניות",
+      "honest_label_he": "מה זה נותן",
+      "honest_he": "עצמאות, עומק ואיכות ראיות גבוהות יותר: ראיונות מאתגרים הנחות, מאפשרים חקירת המשך והשוואה עקבית בין ראיונות, והניתוח חשוף פחות להטיית אישוש.",
+      "fit_label_he": "מתאים כאשר",
+      "fit_he": [
+        "נדרשת ראיה חיצונית בלתי תלויה",
+        "ההחלטה כרוכה בהשקעה משמעותית",
+        "יש כמה סגמנטים לבחון",
+        "נדרש בסיס ראיות לשותפים או למממנים"
       ],
-      "fee_min": 25000,
-      "fee_max": 38000,
-      "currency": "₪",
-      "vat_he": "+ מע\"מ"
+      "scope_label_he": "היקף ועלות",
+      "scope_he": "יוגדרו לאחר פגישת המיפוי, לפי עומק המחקר, מספר הסגמנטים והיקף עבודת השטח."
     }
   ],
-  "phases": [
-    {
-      "index": "01",
-      "letter_he": "שלב א'",
-      "title_he": "בחינת היתכנות וכדאיות",
-      "title_en": "Validation & Viability",
-      "bullets": [
-        {
-          "head_he": "תיקוף הצורך בשוק",
-          "body_he": "מול חלופות קיימות — iPlan וכלים גנריים"
-        },
-        {
-          "head_he": "הגדרת ה-MVP",
-          "body_he": "זיהוי 2–3 הפיצ'רים הקריטיים שאי אפשר בלעדיהם"
-        },
-        {
-          "head_he": "מודל כלכלי",
-          "body_he": "תמחור מנוי, נקודת איזון (Break-even), עלות פיתוח מול תחזוקה"
-        }
-      ]
-    },
-    {
-      "index": "02",
-      "letter_he": "שלב ב'",
-      "title_he": "תוכנית פעולה ויישום",
-      "title_en": "Roadmap & Execution",
-      "bullets": [
-        {
-          "head_he": "בחירת מתווה טכנולוגי",
-          "body_he": "No-Code ואינטגרציות מול פיתוח מלא"
-        },
-        {
-          "head_he": "מפת דרכים ליישום",
-          "body_he": "אבני דרך מוגדרות ולוחות זמנים"
-        },
-        {
-          "head_he": "אסטרטגיית חדירה (GTM)",
-          "body_he": "גיוס 30 המשתמשים הראשונים"
-        }
-      ]
-    }
-  ],
+  "options_bottom_he": "אותה מסגרת אסטרטגית — רמת עומק ואיכות ראיות שונה.",
   "discussion": [
     {
-      "index": "01",
-      "tag_he": "המוצר והשטח",
-      "q_he": "מה הרגע המתסכל ביותר כיום מול הזוגות, שחייב לקבל מענה כבר ביום הראשון?"
+      "n": "01",
+      "q": "מה בדיוק במצב הקיים גרם לכם לומר: \"צריך לבנות לזה פתרון אחר\"?"
     },
     {
-      "index": "02",
-      "tag_he": "היתכנות כלכלית",
-      "q_he": "כמה תקליטן עצמאי ישלם בחודש על פתרון ייעודי — בלי להסס?"
+      "n": "02",
+      "q": "למי אתם חושבים שהמוצר הראשון מיועד — ומה גורם לכם לחשוב שזה הלקוח הנכון?"
     },
     {
-      "index": "03",
-      "tag_he": "הנכס הקיים",
-      "q_he": "איך רותמים את צוות 16 התקליטנים לבדיקת שטח מהירה, ללא עלות פיתוח?"
+      "n": "03",
+      "q": "מה כבר עשיתם עד היום: אפיון, שיחות עם לקוחות, נתונים, הצעות פיתוח או בדיקות אחרות?"
+    },
+    {
+      "n": "04",
+      "q": "מהי השאיפה העסקית — כלי טוב יותר לפעילות הקיימת, עסק SaaS עצמאי ורווחי, או חברה שניתן להרחיב משמעותית?"
+    },
+    {
+      "n": "05",
+      "q": "מה הייתם רוצים לדעת בסוף תהליך הבדיקה כדי להרגיש בנוח לקבל החלטה על ההשקעה הבאה?"
     }
   ],
-  "bio": {
-    "name_he": "אלון רותם",
-    "family_he": "נשוי לאירה, אבא של יולי, ליאו ורומי",
-    "role_he": "מנהל בייעוץ אסטרטגי",
-    "credentials": [
-      {
-        "label_he": "תפקיד ב-BDO",
-        "value_he": "מנג'ר ביחידת הייעוץ האסטרטגי"
-      },
-      {
-        "label_he": "M.B.A",
-        "value_he": "אוניברסיטת תל אביב, בהצטיינות"
-      },
-      {
-        "label_he": "B.A",
-        "value_he": "מנהל עסקים, המרכז הבינתחומי הרצליה — בהצטיינות יתרה"
-      }
-    ],
-    "practice_he": "שנים בפרויקטים אסטרטגיים מקומיים ובינלאומיים",
-    "callout_he": "התפקיד שלי בליווי: לא לקטול חלומות, אלא לשמש Devil's Advocate חיובי — לוודא שלא שורפים תקציבים על תוכנה שלא תתאים לשוק.",
-    "disciplines_label_he": "דיסציפלינות",
-    "disciplines_he": "אסטרטגיית צמיחה · אסטרטגיית פורטפוליו · אסטרטגיה דיגיטלית · בדיקות כלכליות",
-    "sectors_label_he": "מגזרים",
-    "sectors_he": "פיננסים · בריאות · תעשייה ביטחונית · לוגיסטיקה · תשתיות · תעשייה קיבוצית · חקלאות · פסולת · קנאביס רפואי",
-    "photo_cap_he": "אלון, אירה, יולי, ליאו ורומי."
-  },
-  "cover": {
-    "eyebrow_he": "בחינת היתכנות · CRM ופורטל לקוחות לתעשיית האירועים",
-    "headline_he": "הופכים רעיון למוצר עובד: בחינת היתכנות אסטרטגית וכלכלית",
-    "subtitle_he": "פגישת מיפוי, מתודולוגיית עבודה וקביעת הצעדים הבאים",
-    "framing_he": "פגישת היכרות וחשיבה משותפת — בגובה העיניים, בלי שיעורי בית, ועם מיקוד ביצירת ערך אמיתי לשטח."
-  },
-  "headlines": {
-    "s2": "נעים להכיר: שילוב של פרקטיקה עסקית ומתודולוגיה אסטרטגית",
-    "s3": "המתודולוגיה: מוודאים כדאיות לפני שכותבים שורת קוד אחת",
-    "s3_sub": "תהליך מובנה ומדורג המבטיח החזר השקעה וממזער סיכונים",
-    "s4": "שתי חלופות לבחירה: מותאם לעומס, לקצב ולתקציב שלכם",
-    "s4_sub": "אותה מתודולוגיה, שני עומקים של בדיקה — ההבדל הוא כמה ראיות חיצוניות נאספות",
-    "s5": "שאלות מפתח לדיון וסגירת צעדים הבאים",
-    "s5_sub": "שלוש שאלות שהתשובות עליהן קובעות את היקף שלב א'"
-  },
-  "next_step_he": "הצעד הבא: בחירת חלופת עבודה, תיאום לוחות זמנים והנעת שלב א'.",
-  "charts": {
-    "source_he": "מקור: טווחי היקף ותמחור כפי שנמסרו על ידי אלון רותם עבור הצעה זו. אינם בנצ'מרק שוק."
-  },
-  "dividers": {
-    "d1_title": "מוודאים כדאיות לפני שכותבים שורת קוד",
-    "d2_title": "שתי חלופות — לפי עומס, קצב ותקציב"
-  },
-  "web": {
-    "title_he": "היתכנות CRM לתעשיית האירועים",
-    "kicker_he": "פגישת פתיחה · ספטמבר 2026",
-    "note_he": "העמוד מתעדכן בכל בנייה מחדש של המצגת — הקישור נשאר זהה."
-  }
+  "next_step_he": "בסיום המפגש: נחדד את מטרת העבודה, נבחר את רמת הבדיקה המתאימה ונגדיר Scope ותמחור בהתאם."
 }

@@ -6,11 +6,11 @@
  *
  * Writes dist/deck_extract.json.
  *
- * Because the PPTX is written in Arial (the only sans face guaranteed to carry
- * Hebrew on both Windows and macOS) while the HTML is set in Assistant, every
- * text block is ALSO measured in Arial metrics. Liberation Sans is metrically
- * identical to Arial, so that measurement is exact, and build_pptx.py uses it to
- * size the text frames. Blocks that would need more height in Arial are reported.
+ * The HTML is set in Frank Ruhl Libre + Assistant, neither of which the
+ * recipient is guaranteed to have. The PPTX is therefore written in Times New
+ * Roman + Arial, which do carry Hebrew on both Windows and macOS. Every block is
+ * measured here against Liberation Serif / Liberation Sans — metric stand-ins for
+ * those two — so build_pptx.py can size each text frame for the face it names.
  */
 
 const path = require('path');
@@ -46,6 +46,14 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
       'position:absolute;left:-99999px;top:0;visibility:hidden;white-space:normal;';
     document.body.appendChild(probe);
 
+    /* Which of the two faces is this element set in? The stack's FIRST family is
+       the one in use; testing the whole string would match the "sans-serif"
+       fallback and mark every run as serif. */
+    const isSerifFace = (cs) => {
+      const first = (cs.fontFamily || '').split(',')[0].replace(/["']/g, '').trim().toLowerCase();
+      return /frank ruhl|times|georgia/.test(first);
+    };
+
     const nowrap = document.createElement('div');
     nowrap.style.cssText =
       'position:absolute;left:-99999px;top:0;visibility:hidden;white-space:nowrap;display:inline-block;';
@@ -54,7 +62,9 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
     /* width this block needs to stay on a single line, in Arial metrics */
     const arialNowrapW = (el) => {
       const cs = getComputedStyle(el);
-      nowrap.style.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize}/${cs.lineHeight} 'Liberation Sans', Arial, sans-serif`;
+      var fam = isSerifFace(cs)
+        ? "'Liberation Serif', 'Times New Roman', serif" : "'Liberation Sans', Arial, sans-serif";
+      nowrap.style.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize}/${cs.lineHeight} ${fam}`;
       nowrap.style.letterSpacing = cs.letterSpacing;
       nowrap.style.direction = cs.direction;
       nowrap.innerHTML = el.innerHTML;
@@ -64,7 +74,9 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
     const arialHeight = (el, widthPx) => {
       const cs = getComputedStyle(el);
       probe.style.width = widthPx + 'px';
-      probe.style.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize}/${cs.lineHeight} 'Liberation Sans', Arial, sans-serif`;
+      var fam2 = isSerifFace(cs)
+        ? "'Liberation Serif', 'Times New Roman', serif" : "'Liberation Sans', Arial, sans-serif";
+      probe.style.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize}/${cs.lineHeight} ${fam2}`;
       probe.style.letterSpacing = cs.letterSpacing;
       probe.style.direction = cs.direction;
       probe.style.textAlign = cs.textAlign;
@@ -107,6 +119,8 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
             size: parseFloat(cs.fontSize),
             bold: parseInt(cs.fontWeight, 10) >= 600,
             color: hex(cs.color) || '#000000',
+            // Frank Ruhl Libre -> Times New Roman, Assistant -> Arial in the PPTX
+            serif: isSerifFace(cs),
             // mirrors unicode-bidi:isolate on .ltr / .num — the PPTX writer
             // re-applies it with Unicode isolate marks, so a numeric range is
             // never reordered into "13,000 - 9,000" inside an RTL paragraph
@@ -179,6 +193,16 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
             cs.borderTopWidth === cs.borderLeftWidth &&
             cs.borderTopStyle !== 'none';
 
+          if (fill || uniformBorder) {
+            items.push({
+              kind: 'rect',
+              ...g,
+              fill,
+              stroke: uniformBorder ? { color: bc, width: bw } : null,
+              radius: parseFloat(cs.borderTopLeftRadius) || 0,
+            });
+          }
+
           /* a border on one edge only (rules/dividers) becomes its own thin bar */
           const edges = [
             ['Top', 'borderTopWidth', 'borderTopColor'],
@@ -199,16 +223,6 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
                 : { x: g.x + g.w - w, y: g.y, w: w, h: g.h };
               items.push({ kind: 'rect', ...bar, fill: col, stroke: null, radius: 0 });
             }
-          }
-
-          if (fill || uniformBorder) {
-            items.push({
-              kind: 'rect',
-              ...g,
-              fill,
-              stroke: uniformBorder ? { color: bc, width: bw } : null,
-              radius: parseFloat(cs.borderTopLeftRadius) || 0,
-            });
           }
 
           /* text */

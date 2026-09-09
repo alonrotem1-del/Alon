@@ -4,8 +4,6 @@ build.py — renders deck_template.html + data/deck_data.json into dist/deck.htm
 
   * substitutes {{dotted.path}} tokens from the JSON, so no figure is ever typed
     by hand into the markup;
-  * computes {{derived.*}} values (ratios, chart scales, bar geometry) rather
-    than letting a headline or a bar length drift away from the source;
   * expands {{BLOCK:name}} regions;
   * inlines fonts and images as base64 data URIs — dist/deck.html is one
     self-contained file;
@@ -31,11 +29,6 @@ DATA = ROOT / "data" / "deck_data.json"
 DIST = ROOT / "dist"
 OUT = DIST / "deck.html"
 PORTRAIT_CANDIDATES = ("portrait.jpg", "portrait.jpeg", "portrait.png", "portrait.webp")
-
-# width reserved at the end of every chart track for its value label, matching
-# .sr-track / .mc-grid { right: 196px } in the stylesheet
-LABEL_GUTTER_PX = 196
-
 
 # --------------------------------------------------------------------------- #
 # helpers
@@ -74,210 +67,148 @@ def data_uri(path: Path) -> str:
 
 
 # --------------------------------------------------------------------------- #
-# derived values — computed from source, never asserted
+# block builders — every string below comes from data/deck_data.json
 # --------------------------------------------------------------------------- #
-def derive(d: dict) -> dict:
-    a, b = d["alternatives"]
-
-    def ratio(lo_k, hi_k):
-        return b[lo_k] / a[lo_k], b[hi_k] / a[hi_k]
-
-    h_lo, h_hi = ratio("hours_min", "hours_max")
-    f_lo, f_hi = ratio("fee_min", "fee_max")
-
-    def fmt(x):
-        return f"{x:.0f}" if abs(x - round(x)) < 0.05 else f"{x:.1f}"
-
-    hours_word = f"פי {fmt(h_lo)}" if abs(h_lo - h_hi) < 0.05 else f"פי {fmt(h_lo)}–{fmt(h_hi)}"
-    fee_word = f"פי {fmt(f_lo)}" if abs(f_lo - f_hi) < 0.05 else f"פי {fmt(f_lo)} עד {fmt(f_hi)}"
-
-    return {
-        "hours_ratio": hours_word,
-        "fee_ratio": fee_word,
-        # the finding, stated at exactly the precision the data supports
-        "scale_headline": f"חלופה ב' מכפילה את שעות העבודה {hours_word}, ואת ההשקעה {fee_word}",
-    }
+def block_arc(d: dict) -> str:
+    """IDEA -> VALIDATION -> DECISION, as a rail with three stops."""
+    cells = "".join(
+        f'<div class="arc-c arc-{i + 1}"><div class="arc-dot"></div>'
+        f'<div class="arc-k">{esc(c["k"])}</div>'
+        f'<div class="arc-t">{esc(c["t"])}</div>'
+        f'<div class="arc-d">{esc(c["d"])}</div></div>'
+        for i, c in enumerate(d["cover"]["arc"])
+    )
+    return ('<div class="arc"><div class="arc-rail"></div><div class="arc-fill"></div>'
+            f'<div class="arc-cells">{cells}</div></div>')
 
 
-# --------------------------------------------------------------------------- #
-# block builders
-# --------------------------------------------------------------------------- #
 def block_about(d: dict) -> str:
     bio = d["bio"]
-
     photo = ""
     for name in PORTRAIT_CANDIDATES:
         if (ROOT / "assets" / name).exists():
-            photo = (
-                f'<div class="ab-photo"><img src="assets/{name}" '
-                f'alt="{esc(bio["name_he"])}"></div>'
-            )
+            photo = (f'<div class="ab-photo"><img src="assets/{name}" '
+                     f'alt="{esc(bio["name_he"])}"></div>')
             break
+    # No photograph supplied: leave the frame empty rather than invent a face.
     if not photo:
-        # No photograph supplied. We do not substitute a stock or generated face.
         photo = '<div class="ab-photo"></div>'
 
-    creds = "".join(
-        f'<div class="cr"><div class="cr-k">{esc(c["label_he"])}</div>'
-        f'<div class="cr-v">{esc(c["value_he"])}</div></div>'
-        for c in bio["credentials"]
+    items = "".join(
+        f'<div class="ab-i"><div class="ab-b"></div>'
+        f'<div class="ab-t">{esc(t)}</div></div>'
+        for t in bio["focus_he"]
     )
-
-    sectors = "".join(
-        f'<span class="chip">{esc(s.strip())}</span>'
-        for s in bio["sectors_he"].split("·")
-    )
-
     return (
         '<div class="ab">'
-        f'<div>{photo}<div class="ab-cap">{esc(bio["photo_cap_he"])}</div>'
-        f'<div class="bn" style="margin-top:24px">'
-        f'<div class="bn-v" dir="ltr">{d["experience_years_min"]}+</div>'
-        f'<div class="bn-k">{esc(bio["practice_he"])}</div></div></div>'
-        f'<div class="ab-rows">{creds}'
-        f'<div><div class="ab-lab">{esc(bio["sectors_label_he"])}</div>'
-        f'<div class="ab-chips">{sectors}</div></div></div>'
+        f"<div>{photo}</div>"
+        '<div class="ab-col">'
+        f'<div><div class="ab-lab">{esc(bio["focus_label_he"])}</div>'
+        f'<div class="ab-list">{items}</div></div>'
+        f'<div class="ab-pos">{esc(bio["positioning_he"])}</div>'
+        "</div></div>"
+    )
+
+
+def block_proof(d: dict) -> str:
+    rows = "".join(
+        f'<div class="pf-r"><div class="pf-n" dir="ltr">{esc(b["n"])}</div>'
+        f'<div class="pf-t">{esc(b["t"])}</div>'
+        f'<div class="pf-q">' + "".join(f"<span>{esc(q)}</span>" for q in b["q"]) +
+        "</div></div>"
+        for b in d["proof"]
+    )
+    return f'<div class="pf">{rows}</div>'
+
+
+def block_flow(d: dict) -> str:
+    tiles = []
+    for i, st in enumerate(d["stages"], 1):
+        items = "".join(f"<span>{esc(x)}</span>" for x in st["items"])
+        note = f'<div class="st-note">{esc(st["note"])}</div>' if st.get("note") else ""
+        tiles.append(
+            f'<div class="st st-{i}">'
+            f'<div class="st-n" dir="ltr">{esc(st["n"])}</div>'
+            f'<div class="st-k">{esc(st["tag"])}</div>'
+            f'<div class="st-t">{esc(st["t"])}</div>'
+            f'<div class="st-l">{items}</div>{note}</div>'
+        )
+    return f'<div class="flow">{"".join(tiles)}</div>'
+
+
+def block_flowfoot(d: dict) -> str:
+    """The iteration bracket sits under stages 1-3; the gates under stage 5."""
+    gates = "".join(f'<span class="gate" dir="ltr">{esc(g)}</span>' for g in d["gates_he"])
+    return (
+        '<div class="fl-foot">'
+        '<div class="loop"><div class="loop-a" dir="ltr">&#8646;</div>'
+        f'<div class="loop-t">{esc(d["loop_he"])}</div></div>'
+        f'<div class="gates"><div class="gate-row">{gates}</div>'
+        f'<div class="gates-c">{esc(d["gates_cap_he"])}</div></div>'
         "</div>"
     )
 
 
-def block_phases(d: dict) -> str:
-    out = []
-    for i, ph in enumerate(d["phases"]):
-        bullets = "".join(
-            f'<div class="ph-b"><div class="ph-dot"></div><div>'
-            f'<div class="ph-h">{esc(b["head_he"])}</div>'
-            f'<div class="ph-d">{esc(b["body_he"])}</div></div></div>'
-            for b in ph["bullets"]
+def block_options(d: dict) -> str:
+    r = d["rate"]
+    rate_v = f'<span dir="ltr">{r["amount"]}</span> {esc(r["currency"])} {esc(r["vat_he"])}'
+    cards = []
+    for o in d["options"]:
+        if "hours_min" in o:
+            right = (f'<div class="fee-r-k">{esc(o["hours_label_he"])}</div>'
+                     f'<div class="fee-r-v">כ-{rng(o["hours_min"], o["hours_max"])} שעות</div>'
+                     f'<div class="fee-r-c">{esc(o["hours_caveat_he"])}</div>')
+        else:
+            right = (f'<div class="fee-r-k">{esc(o["scope_label_he"])}</div>'
+                     f'<div class="fee-r-c" style="margin-top:6px">{esc(o["scope_he"])}</div>')
+        cards.append(
+            '<div class="op">'
+            f'<div class="op-h">חלופה {esc(o["letter_he"])} — {esc(o["name_he"])}</div>'
+            f'<div class="op-d">{esc(o["desc_he"])}</div>'
+            '<div class="op-rows">'
+            f'<div class="op-row"><div class="op-k">{esc(o["alon_label_he"])}</div>'
+            f'<div class="op-v">{esc(o["alon_he"])}</div></div>'
+            f'<div class="op-row"><div class="op-k">{esc(o["founders_label_he"])}</div>'
+            f'<div class="op-v">{esc(o["founders_he"])}</div></div>'
+            "</div>"
+            f'<div class="op-note"><div class="op-note-k">{esc(o["honest_label_he"])}</div>'
+            f'<div class="op-note-t">{esc(o["honest_he"])}</div></div>'
+            '<div class="op-fee">'
+            f'<div><div class="fee-v">{rate_v}</div>'
+            f'<div class="fee-k">{esc(r["unit_he"])}</div></div>'
+            f'<div class="fee-r">{right}</div>'
+            "</div></div>"
         )
-        out.append(
-            f'<div class="ph{" ph-2" if i else ""}">'
-            f'<div class="ph-top">'
-            f'<div class="tile-k">{esc(ph["letter_he"])} · {esc(ph["title_en"])}</div>'
-            f'<div class="tile-h">{esc(ph["title_he"])}</div></div>'
-            f'<div class="ph-list">{bullets}</div></div>'
-        )
-    return '<div class="ph-row">' + "".join(out) + "</div>"
-
-
-def block_table(d: dict) -> str:
-    a, b = d["alternatives"]
-
-    def scope(alt):
-        chips = []
-        if "sessions_min" in alt:
-            chips.append(f'<span class="chip">{rng(alt["sessions_min"], alt["sessions_max"])} מפגשים</span>')
-        chips.append(f'<span class="chip">{rng(alt["hours_min"], alt["hours_max"])} שעות</span>')
-        chips.append(f'<span class="chip">{rng(alt["weeks_min"], alt["weeks_max"])} שבועות</span>')
-        return f'<div class="ab-chips">{"".join(chips)}</div>'
-
-    def deliverables(alt):
-        return "<br>".join(esc(t) for t in alt["deliverables_he"])
-
-    def fee(alt):
-        return (
-            f'<div class="fee">{ltr(num(alt["fee_min"]) + " – " + num(alt["fee_max"]))} '
-            f'{esc(alt["currency"])}</div>'
-            f'<div class="fee-vat">{esc(alt["vat_he"])}</div>'
-        )
-
-    def head(alt, cls=""):
-        return (
-            f'<th class="{cls}">חלופה {esc(alt["letter_he"])} — {esc(alt["name_he"])}</th>'
-        )
-
-    rows = [
-        ("מטרה", esc(a["goal_he"]), esc(b["goal_he"])),
-        ("היקף", scope(a), (f'<div style="margin-bottom:12px">{esc(b["scope_extra_he"])}</div>' + scope(b))),
-        ("תוצרים", deliverables(a), deliverables(b)),
-        ("השקעה", fee(a), fee(b)),
-    ]
-    body = "".join(
-        f'<tr><td class="k">{esc(k)}</td><td>{va}</td><td>{vb}</td></tr>'
-        for k, va, vb in rows
-    )
-    return (
-        '<table class="tbl"><thead><tr><th style="width:196px"></th>'
-        + head(a, "th-a") + head(b) +
-        f"</tr></thead><tbody>{body}</tbody></table>"
-    )
-
-
-def block_charts(d: dict) -> str:
-    """Three small multiples. Bar geometry is computed here, not eyeballed."""
-    a, b = d["alternatives"]
-    specs = [
-        ("שעות עבודה", "שעות", "hours_min", "hours_max", lambda v: f"{v:g}"),
-        ("משך", "שבועות", "weeks_min", "weeks_max", lambda v: f"{v:g}"),
-        ("השקעה", 'שקלים, לפני מע"מ', "fee_min", "fee_max", lambda v: f"{v:,.0f}"),
-    ]
-
-    charts = []
-    for title, unit, lo_k, hi_k, fmt in specs:
-        # scale to the largest value in the pair; the label gutter guarantees the
-        # value text still has room even when a bar reaches 100%
-        scale = max(a[hi_k], b[hi_k])
-
-        series = []
-        for alt, cls in ((a, "sr-a"), (b, "sr-b")):
-            lo, hi = alt[lo_k], alt[hi_k]
-            lo_pct = lo / scale * 100
-            hi_pct = hi / scale * 100
-            series.append(
-                f'<div class="sr {cls}">'
-                f'<div class="sr-lab">חלופה {esc(alt["letter_he"])}</div>'
-                f'<div class="sr-track">'
-                f'<div class="bar-min" style="width:{lo_pct:.3f}%"></div>'
-                f'<div class="bar-rng" style="left:{lo_pct:.3f}%;width:{hi_pct - lo_pct:.3f}%"></div>'
-                f'<div class="sr-v" style="left:calc({hi_pct:.3f}% + 14px)">'
-                f'{ltr(fmt(lo) + "–" + fmt(hi))}</div>'
-                f"</div></div>"
-            )
-
-        grid = "".join(
-            f'<div class="gl{" gl-0" if p == 0 else ""}" style="left:{p}%"></div>'
-            for p in (0, 25, 50, 75, 100)
-        )
-        axis = (
-            f'<div class="gl-t" style="left:0">{ltr("0")}</div>'
-            f'<div class="gl-t" style="left:100%">{ltr(fmt(scale))}</div>'
-        )
-        charts.append(
-            '<figure class="mc"><figcaption>'
-            f'<div class="mc-t">{esc(title)}</div>'
-            f'<div class="mc-u">{esc(unit)}</div></figcaption>'
-            f'<div class="mc-plot"><div class="mc-grid">{grid}{axis}</div>'
-            f'<div class="mc-series">{"".join(series)}</div></div></figure>'
-        )
-    return '<div class="mc-row">' + "".join(charts) + "</div>"
+    return f'<div class="opts">{"".join(cards)}</div>'
 
 
 def block_questions(d: dict) -> str:
     rows = "".join(
-        f'<div class="q-row"><div class="q-n" dir="ltr">{esc(q["index"])}</div>'
-        f'<div><div class="q-k">{esc(q["tag_he"])}</div>'
-        f'<div class="q-t">{esc(q["q_he"])}</div></div></div>'
+        f'<div class="q-r"><div class="q-n" dir="ltr">{esc(q["n"])}</div>'
+        f'<div class="q-t">{esc(q["q"])}</div></div>'
         for q in d["discussion"]
     )
-    return f'<div class="q-list">{rows}</div>'
+    return f'<div class="qs">{rows}</div>'
 
 
 def block_next(d: dict) -> str:
     text = d["next_step_he"]
-    prefix = "הצעד הבא:"
+    prefix = "בסיום המפגש:"
+    label = "בסיום המפגש"
     if text.startswith(prefix):
         text = text[len(prefix):].strip()
-    return (
-        '<div class="next"><div class="next-k">הצעד הבא</div>'
-        f'<div class="next-t">{esc(text)}</div></div>'
-    )
+    return ('<div class="next">'
+            f'<div class="next-k">{esc(label)}</div>'
+            f'<div class="next-t">{esc(text)}</div></div>')
 
 
 BLOCKS = {
+    "arc": block_arc,
     "about": block_about,
-    "phases": block_phases,
-    "table": block_table,
-    "charts": block_charts,
+    "proof": block_proof,
+    "flow": block_flow,
+    "flowfoot": block_flowfoot,
+    "options": block_options,
     "questions": block_questions,
     "next": block_next,
 }
@@ -476,7 +407,7 @@ def build_web(html: str, d: dict, n_pages: int) -> int:
         '    <div class="pan">במסך צר — החליקו את השקף לצדדים כדי לראות אותו במלואו.</div>\n'
         "  </header>\n"
         f'  <div class="deck">{stages}</div>\n'
-        f'  <p class="ft">{esc(d["charts"]["source_he"])} {esc(d["web"]["note_he"])}</p>\n'
+        f'  <p class="ft">{esc(d["web"]["footnote_he"])} {esc(d["web"]["note_he"])}</p>\n'
         "</div>\n"
         f"<script>{SHELL_JS}</script>\n"
     )
@@ -488,7 +419,6 @@ def build_web(html: str, d: dict, n_pages: int) -> int:
 
 def main() -> int:
     d = json.loads(DATA.read_text(encoding="utf-8"))
-    d["derived"] = derive(d)
 
     html = TEMPLATE.read_text(encoding="utf-8")
     html = expand_blocks(html, d)
@@ -507,9 +437,6 @@ def main() -> int:
 
     print(f"build: {n_pages} slides, {n_assets} assets inlined, "
           f"{len(html.encode('utf-8')) / 1024:.0f} KB -> {OUT.relative_to(ROOT)}")
-    for k, v in d["derived"].items():
-        print(f"       derived {k}: {v}")
-
     return build_web(html, d, n_pages)
 
 

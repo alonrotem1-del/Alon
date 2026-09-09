@@ -2,15 +2,13 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<title>בחינת היתכנות אסטרטגית וכלכלית — מצגת פגישת פתיחה</title>
+<title>מרעיון למיזם בר־בחינה — פגישת היכרות ומיפוי</title>
 <style>
 /* ===========================================================================
    TYPEFACES — build.py inlines these as base64 data URIs.
-   Display : Frank Ruhl Libre — a Hebrew serif, for headlines and oversized
-             numerals. It carries the voice.
-   Text    : Assistant — a Hebrew sans, for body, tables, chart labels and
-             every figure. It carries the information.
-   Both SIL OFL 1.1. Real fallback stacks below.
+   Display : Frank Ruhl Libre — a Hebrew serif, for headlines. Carries the voice.
+   Text    : Assistant — a Hebrew sans, for body and labels. Carries the detail.
+   Both SIL OFL 1.1, with real fallback stacks.
    =========================================================================== */
 @font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:300 900;font-display:block;
   src:url('assets/fonts/frankruhl-hebrew.woff2') format('woff2');
@@ -29,342 +27,271 @@
    TOKENS
    =========================================================================== */
 :root{
-  /* --- type scale. Every size in the deck is one of these. No one-offs. --- */
-  --t-num:   240px;  /* divider numeral                                   */
-  --t-disp:   96px;  /* cover headline                                    */
-  --t-big:    76px;  /* big-number tile                                   */
-  --t-h1:     60px;  /* slide headline                                    */
-  --t-h2:     40px;  /* divider title, tile title                         */
-  --t-lead:   32px;  /* subhead, lead line                                */
-  --t-h3:     30px;  /* row heading inside a block                        */
-  --t-body:   26px;  /* body                                              */
-  --t-small:  24px;  /* small body — FLOOR for substantive text (12pt)    */
-  --t-kick:   22px;  /* uppercase kicker                                  */
-  --t-cap:    20px;  /* caption / source / footnote — HARD FLOOR (10pt)   */
+  /* type scale — every size in the deck is one of these. No one-offs. */
+  --t-disp:   88px;  /* cover headline                                     */
+  --t-h1:     56px;  /* slide headline                                     */
+  --t-h2:     36px;  /* card title, arc word                               */
+  --t-lead:   32px;  /* subhead / lead                                     */
+  --t-h3:     28px;  /* block heading, stage title                         */
+  --t-body:   26px;  /* body                                               */
+  --t-small:  24px;  /* small body — FLOOR for substantive text (12pt)     */
+  --t-kick:   22px;  /* uppercase kicker                                   */
+  --t-cap:    20px;  /* caption / label / footnote — HARD FLOOR (10pt)     */
 
-  --f-display:'Frank Ruhl Libre','Times New Roman',Georgia,'Noto Serif Hebrew',serif;
-  --f-text:'Assistant','Helvetica Neue',Arial,'Noto Sans Hebrew',sans-serif;
+  --f-display:'Frank Ruhl Libre','Times New Roman',Georgia,serif;
+  --f-text:'Assistant','Helvetica Neue',Arial,sans-serif;
 
-  /* --- colour. One primary, one accent spent sparingly, a neutral ramp
-         carrying a slight blue bias toward the primary. --- */
-  --p-900:#0B2233;
-  --p-700:#12374E;
-  --p-500:#1E5170;
-  --accent:#BF4B22;
-  --accent-soft:#F7E7DE;
+  /* colour — one primary, one accent used sparingly, neutrals biased warm-cool
+     toward the primary so nothing reads as unconsidered mid-grey */
+  --p-900:#132433;
+  --p-700:#24394B;
+  --p-500:#41586C;
+  --accent:#B84A22;
+  --accent-soft:#F6E6DE;
 
   --n-0:#FFFFFF;
-  --n-50:#F6F8FA;
-  --n-100:#EBF0F4;
-  --n-200:#DAE2E9;
-  --n-300:#BECAD4;
-  --n-500:#78899A;
-  --n-700:#3C5162;
+  --n-50:#FAFAF8;
+  --n-100:#F1F1EE;
+  --n-200:#E1E2DF;
+  --n-300:#C6C9C6;
+  --n-500:#7C8489;
+  --n-700:#4A555D;
 
-  /* semantic — deliberately separate from the accent */
-  --pos:#2E7A5C;
-  --cau:#A8891C;
-  --neg:#A63A2E;
-
-  /* --- layout constants. Every block is positioned from these. --- */
-  --m:120px;              /* side margin, identical on every slide        */
-  --w:1680px;             /* content width = 1920 - 2*120                 */
-  --kick-y:92px;          /* kicker top                                   */
-  --head-y:136px;         /* headline top                                 */
-  --sub-y:298px;          /* subhead top                                  */
-  --band-y:392px;         /* content band top                             */
-  --band-h:508px;         /* content band height -> bottom at 900         */
-  --rule-y:946px;         /* footer hairline                              */
-  --foot-y:964px;         /* footer text top                              */
+  /* layout constants — every block is positioned from these */
+  --m:120px;              /* side margin, identical on every slide */
+  --w:1680px;             /* content width = 1920 - 2*120          */
+  --kick-y:92px;
+  --head-y:136px;
+  --sub-y:288px;
+  --band-y:376px;
+  --band-h:524px;         /* band bottom at 900                    */
+  --rule-y:946px;
+  --foot-y:964px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--n-200)}
-body{
-  font-family:var(--f-text);
-  direction:rtl;
-  color:var(--p-900);
-  -webkit-font-smoothing:antialiased;
-  padding:48px 0;
-}
+body{font-family:var(--f-text);direction:rtl;color:var(--p-900);
+  -webkit-font-smoothing:antialiased;padding:48px 0}
 body.flat{padding:0;background:var(--n-0)}
 
-.slide{
-  position:relative;
-  width:1920px;height:1080px;
-  overflow:hidden;
-  background:var(--n-50);
-  margin:0 auto 48px;
-}
+.slide{position:relative;width:1920px;height:1080px;overflow:hidden;
+  background:var(--n-50);margin:0 auto 48px}
 body.flat .slide{margin:0}
 
-/* Latin runs inside Hebrew: real dir="ltr", so numbers, product names and
-   units read correctly without dragging the paragraph with them. */
+/* Latin runs inside Hebrew carry a real dir="ltr", so CRM, SaaS, iPlan, MVP,
+   ICP, GO/ADJUST/STOP, digits and the shekel sign never reorder. */
 [dir="ltr"]{unicode-bidi:isolate}
 
 /* ---------- header ---------- */
-.kick{
-  position:absolute;top:var(--kick-y);right:var(--m);
+.kick{position:absolute;top:var(--kick-y);right:var(--m);
   font-size:var(--t-kick);font-weight:700;letter-spacing:.16em;
-  color:var(--accent);text-transform:uppercase;
-}
-.kick-dark{color:#E9A683}
-h1.head{
-  position:absolute;top:var(--head-y);right:var(--m);width:1400px;
+  color:var(--accent);text-transform:uppercase}
+h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   font-family:var(--f-display);font-size:var(--t-h1);font-weight:700;
-  line-height:1.2;letter-spacing:-.005em;color:var(--p-900);
-  text-wrap:balance;
-}
-.sub{
-  position:absolute;top:var(--sub-y);right:var(--m);width:1300px;
+  line-height:1.2;letter-spacing:-.005em;color:var(--p-900);text-wrap:balance}
+.sub{position:absolute;top:var(--sub-y);right:var(--m);width:1360px;
   font-size:var(--t-lead);font-weight:400;line-height:1.35;color:var(--n-700);
-  text-wrap:balance;
-}
+  text-wrap:balance}
 
-/* ---------- content band ---------- */
-.band{
-  position:absolute;top:var(--band-y);right:var(--m);
-  width:var(--w);height:var(--band-h);
-}
-.band-split{display:grid;grid-template-rows:1fr auto;gap:36px}
+/* ---------- band ---------- */
+.band{position:absolute;top:var(--band-y);right:var(--m);
+  width:var(--w);height:var(--band-h)}
+.band-rows{display:grid;grid-template-rows:1fr auto;gap:30px}
+.band-flow{display:grid;grid-template-rows:auto auto;gap:30px;align-content:space-between}
 
 /* ---------- footer ---------- */
-.f-rule{position:absolute;top:var(--rule-y);right:var(--m);width:var(--w);height:1px;background:var(--n-300)}
+.f-rule{position:absolute;top:var(--rule-y);right:var(--m);width:var(--w);height:1px;
+  background:var(--n-300)}
 .f-cap{position:absolute;top:var(--foot-y);right:var(--m);
   font-size:var(--t-cap);font-weight:400;color:var(--n-500);letter-spacing:.02em}
 .f-pg{position:absolute;top:var(--foot-y);left:var(--m);
   font-size:var(--t-cap);font-weight:700;color:var(--n-700);letter-spacing:.06em}
-.slide-dark .f-rule{background:rgba(255,255,255,.22)}
-.slide-dark .f-cap{color:rgba(255,255,255,.62)}
-.slide-dark .f-pg{color:rgba(255,255,255,.85)}
 
 /* ===========================================================================
-   COVER
+   1 — COVER
    =========================================================================== */
 .slide-cover{background:var(--n-0)}
 .cv-rule{position:absolute;top:184px;right:var(--m);width:104px;height:6px;background:var(--accent)}
-.cv-head{
-  position:absolute;top:246px;right:var(--m);width:1500px;
+.cv-head{position:absolute;top:242px;right:var(--m);width:1560px;
   font-family:var(--f-display);font-size:var(--t-disp);font-weight:700;
-  line-height:1.14;letter-spacing:-.01em;color:var(--p-900);
-}
-.cv-head em{font-style:normal;color:var(--accent);display:block}
-.cv-lead{
-  position:absolute;top:536px;right:var(--m);width:1180px;
-  font-size:var(--t-lead);font-weight:400;line-height:1.4;color:var(--n-700);
-}
-.cv-note{
-  position:absolute;top:648px;right:var(--m);width:1180px;
-  padding-inline-start:26px;border-inline-start:4px solid var(--accent);
-  font-size:var(--t-body);font-weight:400;line-height:1.5;color:var(--p-700);
-}
-.cv-meta{
-  position:absolute;top:800px;right:var(--m);width:var(--w);height:104px;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:56px;
-  border-top:1px solid var(--n-200);padding-top:30px;
-}
-.mk{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--n-500);text-transform:uppercase}
-.mv{font-size:var(--t-body);font-weight:600;color:var(--p-900);margin-top:10px}
+  line-height:1.14;letter-spacing:-.01em;color:var(--p-900)}
+.cv-lead{position:absolute;top:392px;right:var(--m);width:1300px;
+  font-size:var(--t-lead);font-weight:400;line-height:1.4;color:var(--n-700)}
+.cv-note{position:absolute;top:486px;right:var(--m);width:1280px;
+  padding-inline-start:28px;border-inline-start:4px solid var(--accent);
+  font-size:var(--t-body);font-weight:400;line-height:1.5;color:var(--p-700)}
+
+/* IDEA -> VALIDATION -> DECISION, as a rail with three stops */
+.arc{position:absolute;top:664px;right:var(--m);width:var(--w);height:228px}
+.arc-rail{position:absolute;top:12px;right:0;width:100%;height:2px;background:var(--n-200)}
+.arc-fill{position:absolute;top:12px;right:0;width:33.333%;height:2px;background:var(--accent)}
+.arc-cells{position:absolute;top:0;right:0;width:100%;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
+.arc-dot{width:26px;height:26px;border-radius:13px;background:var(--n-0);
+  border:2px solid var(--n-300);margin-bottom:26px}
+.arc-1 .arc-dot{background:var(--accent);border-color:var(--accent)}
+.arc-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;
+  color:var(--n-500);text-transform:uppercase}
+.arc-t{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+  color:var(--p-900);line-height:1.2;margin-top:10px}
+.arc-d{font-size:var(--t-small);font-weight:400;color:var(--n-700);
+  line-height:1.4;margin-top:12px}
 
 /* ===========================================================================
-   SECTION DIVIDER — full-bleed primary, oversized numeral
+   2 — ABOUT
    =========================================================================== */
-.slide-div{background:var(--p-900)}
-.dv-num{
-  position:absolute;top:250px;right:var(--m);
-  font-family:var(--f-display);font-size:var(--t-num);font-weight:700;
-  line-height:.86;color:rgba(255,255,255,.13);letter-spacing:-.02em;
-}
-.dv-rule{position:absolute;top:560px;right:var(--m);width:104px;height:6px;background:var(--accent)}
-.dv-title{
-  position:absolute;top:614px;right:var(--m);width:1400px;
-  font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
-  line-height:1.2;color:var(--n-0);
-}
-.dv-cap{
-  position:absolute;top:700px;right:var(--m);width:1180px;
-  font-size:var(--t-body);font-weight:400;line-height:1.45;color:rgba(255,255,255,.68);
-}
+.ab{display:grid;grid-template-columns:310px 1fr;gap:72px;height:100%}
+.ab-photo{width:310px;height:420px;overflow:hidden;background:var(--n-100)}
+.ab-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.ab-name{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+  color:var(--p-900);line-height:1.2}
+.ab-role{font-size:var(--t-body);font-weight:500;color:var(--accent);margin-top:8px}
+.ab-lab{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;
+  color:var(--n-500);text-transform:uppercase}
+.ab-list{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.ab-i{display:grid;grid-template-columns:10px 1fr;gap:20px;align-items:start}
+.ab-b{width:10px;height:10px;background:var(--accent);margin-top:11px}
+.ab-t{font-size:var(--t-body);font-weight:400;color:var(--p-700);line-height:1.35}
+.ab-pos{margin-top:auto;background:var(--p-900);padding:30px 34px;
+  font-size:var(--t-body);line-height:1.5;color:#F3F5F6;font-weight:400}
+.ab-col{display:flex;flex-direction:column;height:100%}
 
 /* ===========================================================================
-   COMPONENTS
+   3 — WHAT NEEDS PROVING
    =========================================================================== */
+.pf{display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.pf-r{display:grid;grid-template-columns:74px 300px 1fr;gap:26px;align-items:start;
+  padding-bottom:18px;border-bottom:1px solid var(--n-200)}
+.pf-r:last-child{border-bottom:0;padding-bottom:0}
+.pf-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
+  color:var(--accent);line-height:1.25}
+.pf-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25}
+.pf-q{display:flex;flex-direction:column;gap:7px}
+.pf-q span{font-size:var(--t-small);font-weight:400;color:var(--n-700);line-height:1.35}
 
-/* --- tile: one accent edge, flat fill, no radius, no shadow --- */
-.tile{background:var(--n-0);border-inline-start:5px solid var(--accent);padding:34px 38px}
-.tile-q{background:var(--n-0);border-inline-start:5px solid var(--n-300);padding:34px 38px}
-.tile-h{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;line-height:1.22;color:var(--p-900)}
-.tile-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+/* ===========================================================================
+   4 — METHODOLOGY
+   =========================================================================== */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.st{background:var(--n-0);border-top:4px solid var(--n-300);padding:24px 22px 22px;
+  display:flex;flex-direction:column;height:100%}
+.st-1,.st-2,.st-3{border-top-color:var(--accent)}
+.st-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
+  color:var(--accent);line-height:1}
+.st-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;
+  color:var(--n-500);text-transform:uppercase;margin-top:14px}
+.st-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.24;margin-top:6px}
+.st-l{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+.st-l span{font-size:var(--t-small);font-weight:400;color:var(--n-700);line-height:1.3}
+.st-note{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:auto;padding-top:14px}
 
-/* --- big-number tile --- */
-.bn{background:var(--p-900);padding:30px 34px;display:flex;align-items:center;gap:26px}
-.bn-v{font-family:var(--f-display);font-size:var(--t-big);font-weight:700;line-height:1.1;color:var(--n-0);flex:none}
-.bn-k{font-size:var(--t-small);font-weight:500;line-height:1.35;color:rgba(255,255,255,.72)}
+.fl-foot{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:start}
+.loop{grid-column:1 / span 3;border-top:2px solid var(--accent);padding-top:14px;
+  display:flex;gap:14px;align-items:flex-start}
+.loop-a{font-size:var(--t-small);color:var(--accent);font-weight:700;line-height:1.3;flex:none}
+.loop-t{font-size:var(--t-small);color:var(--p-700);line-height:1.35}
+.gates{grid-column:4 / span 2;border-top:2px solid var(--n-300);padding-top:14px}
+.gate-row{display:flex;gap:8px;flex-wrap:wrap}
+.gate{font-size:var(--t-cap);font-weight:700;letter-spacing:.06em;color:var(--p-900);
+  background:var(--n-100);border:1px solid var(--n-200);padding:6px 12px}
+.gates-c{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:10px}
 
-/* --- chip --- */
-.chip{
-  display:inline-block;font-size:var(--t-cap);font-weight:700;letter-spacing:.04em;
-  color:var(--p-700);background:var(--n-100);padding:7px 15px;
-}
-.chip-a{color:var(--accent);background:var(--accent-soft)}
+/* ===========================================================================
+   5 — TWO ENGAGEMENT MODELS
+   =========================================================================== */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:32px;height:100%}
+.op{background:var(--n-0);border:1px solid var(--n-200);border-top:4px solid var(--p-500);
+  padding:20px 30px 18px;display:flex;flex-direction:column;height:100%}
+.op-h{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25}
+.op-d{font-size:var(--t-small);color:var(--n-700);line-height:1.35;margin-top:7px;
+  padding-bottom:14px;border-bottom:1px solid var(--n-200)}
+.op-rows{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.op-row{display:grid;grid-template-columns:112px 1fr;gap:18px;align-items:start}
+.op-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
+  text-transform:uppercase;padding-top:3px}
+.op-v{font-size:var(--t-small);color:var(--p-700);line-height:1.35}
+.op-note{margin-top:12px;background:var(--n-100);padding:14px 18px;
+  border-inline-start:4px solid var(--accent)}
+.op-note-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--accent);
+  text-transform:uppercase}
+.op-note-t{font-size:var(--t-small);color:var(--p-700);line-height:1.35;margin-top:7px}
+.op-fee{margin-top:auto;padding-top:14px;border-top:1px solid var(--n-200);
+  display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.fee-v{font-size:var(--t-small);font-weight:700;color:var(--p-900);line-height:1.4;white-space:nowrap}
+.fee-k{font-size:var(--t-cap);color:var(--n-500);margin-top:3px;white-space:nowrap}
+.fee-r{text-align:start;max-width:440px}
+.fee-r-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
+  text-transform:uppercase}
+.fee-r-v{font-size:var(--t-small);font-weight:700;color:var(--p-900);margin-top:5px;line-height:1.3}
+.fee-r-c{font-size:var(--t-cap);color:var(--n-500);line-height:1.35;margin-top:5px}
 
-/* --- table: header band in primary, white hairline separators, no grid --- */
-.tbl{width:100%;border-collapse:collapse;table-layout:fixed}
-.tbl thead th{
-  background:var(--p-900);color:var(--n-0);
-  font-size:var(--t-small);font-weight:700;letter-spacing:.06em;
-  text-align:start;padding:17px 24px;vertical-align:middle;
-}
-.tbl thead th.th-a{background:var(--accent)}
-.tbl tbody td{
-  background:var(--n-0);
-  border-bottom:2px solid var(--n-50);
-  padding:14px 24px;vertical-align:top;
-  font-size:var(--t-small);font-weight:400;line-height:1.36;color:var(--p-700);
-}
-.tbl tbody tr:last-child td{border-bottom:0}
-.tbl td.k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
-  background:var(--n-50);text-transform:uppercase;width:196px}
-.tbl td strong{font-weight:700;color:var(--p-900)}
-.fee{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.3}
-.fee-vat{font-size:var(--t-cap);font-weight:500;color:var(--n-500);margin-top:6px}
-
-/* --- small multiples --- */
-.mc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:52px;height:100%}
-.mc{display:flex;flex-direction:column}
-.mc-t{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.2}
-.mc-u{font-size:var(--t-cap);font-weight:500;color:var(--n-500);margin-top:6px}
-.mc-plot{position:relative;direction:ltr;margin-top:28px;flex:1}
-.mc-grid{position:absolute;left:0;right:196px;top:0;bottom:0}
-.gl{position:absolute;top:0;bottom:34px;width:1px;background:var(--n-200)}
-.gl-0{background:var(--n-300)}
-.gl-t{position:absolute;bottom:0;font-size:var(--t-cap);font-weight:500;color:var(--n-500);white-space:nowrap}
-.mc-series{position:absolute;left:0;right:0;top:0;bottom:34px;display:flex;flex-direction:column;justify-content:center;gap:24px}
-.sr{position:relative;height:100px}
-.sr-lab{position:absolute;left:0;top:0;direction:rtl;font-size:var(--t-small);font-weight:700;color:var(--n-700)}
-.sr-track{position:absolute;left:0;right:196px;top:48px;height:28px}
-.bar-min{position:absolute;top:0;height:28px;background:var(--p-500);left:0}
-.bar-rng{position:absolute;top:0;height:28px;background:var(--n-300)}
-.sr-a .bar-min{background:var(--accent)}
-.sr-a .bar-rng{background:var(--accent-soft)}
-.sr-v{position:absolute;top:1px;font-size:var(--t-small);font-weight:700;color:var(--p-900);white-space:nowrap}
-
-/* --- numbered question rows — hairline, not a card --- */
-.q-list{display:grid;grid-template-rows:repeat(3,1fr);height:100%}
-.q-row{display:grid;grid-template-columns:104px 1fr;gap:30px;align-items:center;
-  border-top:1px solid var(--n-200)}
-.q-row:first-child{border-top:0}
-.q-n{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;color:var(--n-300);line-height:1}
-.q-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
-.q-t{font-size:var(--t-h3);font-weight:600;line-height:1.35;color:var(--p-900);margin-top:8px}
-
-/* --- about slide --- */
-.ab{display:grid;grid-template-columns:640px 1fr;gap:64px;height:100%}
-.ab-photo{width:100%;height:296px;overflow:hidden;background:var(--n-100)}
-.ab-photo img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block}
-.ab-cap{font-size:var(--t-cap);font-weight:500;color:var(--n-500);margin-top:14px;line-height:1.4}
-.ab-rows{display:flex;flex-direction:column;gap:22px}
-.cr{display:grid;grid-template-columns:220px 1fr;gap:26px;align-items:baseline;
-  padding-bottom:20px;border-bottom:1px solid var(--n-200)}
-.cr-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);text-transform:uppercase}
-.cr-v{font-size:var(--t-body);font-weight:600;color:var(--p-900);line-height:1.3}
-.ab-chips{display:flex;flex-wrap:wrap;gap:10px}
-.ab-lab{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
-  text-transform:uppercase;margin-bottom:12px}
-
-/* --- phase tiles --- */
-.ph-row{display:grid;grid-template-columns:1fr 1fr;gap:44px;height:100%}
-.ph{background:var(--n-0);border-inline-start:5px solid var(--accent);padding:36px 40px;
-  display:flex;flex-direction:column;gap:24px}
-.ph-2{border-inline-start-color:var(--p-500)}
-.ph-2 .tile-k{color:var(--p-500)}
-.ph-top{display:flex;flex-direction:column;gap:10px}
-.ph-b{display:grid;grid-template-columns:14px 1fr;gap:20px;align-items:start}
-.ph-dot{width:14px;height:14px;background:var(--accent);margin-top:11px}
-.ph-2 .ph-dot{background:var(--p-500)}
-.ph-h{font-size:var(--t-body);font-weight:700;color:var(--p-900);line-height:1.3}
-.ph-d{font-size:var(--t-small);font-weight:400;color:var(--n-700);line-height:1.4;margin-top:5px}
-.ph-list{display:flex;flex-direction:column;gap:22px;flex:1;justify-content:space-evenly}
-
-/* --- next-step bar --- */
-.next{background:var(--accent);padding:30px 40px;display:flex;align-items:center;gap:30px}
-.next-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.8);
+/* ===========================================================================
+   6 — TODAY'S DISCUSSION
+   =========================================================================== */
+.qs{display:flex;flex-direction:column;height:100%;justify-content:space-between}
+.q-r{display:grid;grid-template-columns:74px 1fr;gap:26px;align-items:baseline;
+  padding-bottom:16px;border-bottom:1px solid var(--n-200)}
+.q-r:last-child{border-bottom:0;padding-bottom:0}
+.q-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;color:var(--n-300);line-height:1.25}
+.q-t{font-size:var(--t-body);font-weight:500;color:var(--p-900);line-height:1.35}
+.next{background:var(--accent-soft);border-inline-start:4px solid var(--accent);
+  padding:22px 28px;display:flex;gap:24px;align-items:baseline}
+.next-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.12em;color:var(--accent);
   text-transform:uppercase;white-space:nowrap}
-.next-t{font-size:var(--t-h3);font-weight:700;color:#FFFFFF;line-height:1.3}
+.next-t{font-size:var(--t-body);font-weight:500;color:var(--p-900);line-height:1.35}
 </style>
 </head>
 <body>
 
-<!-- ========================= 1 — COVER ========================= -->
-<section class="slide slide-cover" data-title="שער" data-cap="מצגת פתיחה · אלון רותם">
-  <div class="kick">{{cover.eyebrow_he}}</div>
+<!-- ===================== 1 — COVER ===================== -->
+<section class="slide slide-cover" data-title="שער" data-cap="{{meeting.participants_he}} · {{meeting.date_he}}">
+  <div class="kick">{{cover.kicker_he}}</div>
   <div class="cv-rule"></div>
-  <h1 class="cv-head">הופכים רעיון למוצר עובד<em>בחינת היתכנות אסטרטגית וכלכלית</em></h1>
+  <h1 class="cv-head">{{cover.headline_he}}</h1>
   <div class="cv-lead">{{cover.subtitle_he}}</div>
   <div class="cv-note">{{cover.framing_he}}</div>
-  <div class="cv-meta">
-    <div><div class="mk">תאריך</div><div class="mv">{{meeting.date_he}}</div></div>
-    <div><div class="mk">משתתפים</div><div class="mv">{{meeting.participants_he}}</div></div>
-    <div><div class="mk">פורמט</div><div class="mv">{{meeting.format_he}}</div></div>
-  </div>
+  {{BLOCK:arc}}
 </section>
 
-<!-- ========================= 2 — ABOUT ========================= -->
-<section class="slide" data-title="נעים להכיר" data-cap="רקע מקצועי · אלון רותם">
+<!-- ===================== 2 — ABOUT ===================== -->
+<section class="slide" data-title="נעים להכיר" data-cap="רקע מקצועי ותפקיד בליווי">
   <div class="kick">מי מלווה אתכם</div>
-  <h1 class="head">{{headlines.s2}}</h1>
-  <div class="sub">{{bio.callout_he}}</div>
+  <h1 class="head">נעים להכיר</h1>
+  <div class="sub">{{bio.name_he}} — {{bio.role_he}}</div>
   <div class="band">{{BLOCK:about}}</div>
 </section>
 
-<!-- ========================= 3 — DIVIDER 01 ========================= -->
-<section class="slide slide-div slide-dark" data-title="מתודולוגיה" data-cap="שלב א' ושלב ב'">
-  <div class="kick kick-dark">מתודולוגיה</div>
-  <div class="dv-num" dir="ltr">01</div>
-  <div class="dv-rule"></div>
-  <div class="dv-title">{{dividers.d1_title}}</div>
-  <div class="dv-cap">{{headlines.s3_sub}}</div>
-</section>
-
-<!-- ========================= 4 — METHODOLOGY ========================= -->
-<section class="slide" data-title="מתודולוגיה" data-cap="תהליך מדורג עם נקודת עצירה מוגדרת">
-  <div class="kick">התהליך</div>
-  <h1 class="head">שני שלבים, ונקודת עצירה ביניהם</h1>
+<!-- ===================== 3 — WHAT NEEDS PROVING ===================== -->
+<section class="slide" data-title="מה צריך להוכיח" data-cap="תחומים לתיקוף — לא מסקנות">
+  <div class="kick">מסגרת הדיון</div>
+  <h1 class="head">{{headlines.s3}}</h1>
   <div class="sub">{{headlines.s3_sub}}</div>
-  <div class="band">{{BLOCK:phases}}</div>
+  <div class="band">{{BLOCK:proof}}</div>
 </section>
 
-<!-- ========================= 5 — DIVIDER 02 ========================= -->
-<section class="slide slide-div slide-dark" data-title="חלופות" data-cap="שתי דרכים להתחיל">
-  <div class="kick kick-dark">חלופות עבודה</div>
-  <div class="dv-num" dir="ltr">02</div>
-  <div class="dv-rule"></div>
-  <div class="dv-title">{{dividers.d2_title}}</div>
-  <div class="dv-cap">{{headlines.s4_sub}}</div>
+<!-- ===================== 4 — METHODOLOGY ===================== -->
+<section class="slide" data-title="מתודולוגיה" data-cap="תהליך מחזורי — לא ליניארי">
+  <div class="kick">התהליך</div>
+  <h1 class="head">{{headlines.s4}}</h1>
+  <div class="sub">{{headlines.s4_sub}}</div>
+  <div class="band band-flow">{{BLOCK:flow}}{{BLOCK:flowfoot}}</div>
 </section>
 
-<!-- ========================= 6 — COMPARISON TABLE ========================= -->
-<section class="slide" data-title="חלופות" data-cap="היקף, תוצרים והשקעה — טווחים, לא מחיר סופי">
-  <div class="kick">השוואה</div>
-  <h1 class="head">אותה מתודולוגיה, שני עומקים של בדיקה</h1>
-  <div class="sub">ההבדל בין החלופות הוא כמה ראיות חיצוניות נאספות לפני ההחלטה.</div>
-  <div class="band">{{BLOCK:table}}</div>
-</section>
-
-<!-- ========================= 7 — SMALL MULTIPLES ========================= -->
-<section class="slide" data-title="היקף והשקעה" data-cap="{{charts.source_he}}">
-  <div class="kick">סדרי גודל</div>
-  <h1 class="head">{{derived.scale_headline}}</h1>
-  <div class="sub">כל טווח מוצג כפי שנמסר — המינימום מלא, ההמשך עד לתקרה.</div>
-  <div class="band">{{BLOCK:charts}}</div>
-</section>
-
-<!-- ========================= 8 — DISCUSSION ========================= -->
-<section class="slide" data-title="דיון" data-cap="שלוש שאלות שקובעות את היקף שלב א'">
-  <div class="kick">לדיון</div>
+<!-- ===================== 5 — ENGAGEMENT MODELS ===================== -->
+<section class="slide" data-title="דרכי עבודה" data-cap="תמחור שעתי · היקף ייקבע לאחר פגישת המיפוי">
+  <div class="kick">דרכי עבודה</div>
   <h1 class="head">{{headlines.s5}}</h1>
   <div class="sub">{{headlines.s5_sub}}</div>
-  <div class="band band-split">{{BLOCK:questions}}{{BLOCK:next}}</div>
+  <div class="band">{{BLOCK:options}}</div>
+</section>
+
+<!-- ===================== 6 — TODAY'S DISCUSSION ===================== -->
+<section class="slide" data-title="לדיון היום" data-cap="{{meeting.format_he}}">
+  <div class="kick">לדיון</div>
+  <h1 class="head">{{headlines.s6}}</h1>
+  <div class="sub">{{headlines.s6_sub}}</div>
+  <div class="band band-rows">{{BLOCK:questions}}{{BLOCK:next}}</div>
 </section>
 
 <script>

@@ -35,12 +35,13 @@ const PDF = path.join(ROOT, 'dist', 'deck.pdf');
 const FLOOR_SUBSTANTIVE = 24;
 const FLOOR_CAPTION = 20;
 const CAPTION_CLASSES = [
-  'f-cap', 'f-pg',       // footer furniture
-  'kick',                // uppercase kicker
-  'mk', 'ab-lab', 'cr-k', 'tile-k', 'q-k', 'next-k', 'k', // small labels
-  'mc-u', 'gl-t',        // chart unit line and axis text
-  'chip',                // status chips
-  'fee-vat', 'ab-cap',   // footnote under a figure / photo caption
+  'f-cap', 'f-pg',                       // footer furniture
+  'kick',                                // uppercase kicker
+  'arc-k', 'ab-lab', 'st-k', 'op-k',     // small uppercase labels
+  'op-note-k', 'fee-r-k', 'next-k',
+  'fee-k', 'gates-c', 'st-note',         // captions under a figure or tile
+  'fee-r-c',                             // the indicative-scope footnote
+  'gate',                                // GO / ADJUST / STOP chips
 ];
 
 /* Elements that deliberately sit in the reserved label gutter beside a chart

@@ -45,55 +45,64 @@ def sanity_checks(d: dict) -> list[str]:
     print("=" * 78)
 
     tables = {
-        "alternatives": (d["alternatives"], "id", 2),
-        "phases": (d["phases"], "index", 2),
-        "discussion": (d["discussion"], "index", 3),
-        "bio.credentials": (d["bio"]["credentials"], "label_he", 3),
+        "cover.arc": (d["cover"]["arc"], "t", 3),
+        "proof": (d["proof"], "n", 5),
+        "stages": (d["stages"], "n", 5),
+        "options": (d["options"], "id", 2),
+        "discussion": (d["discussion"], "n", 5),
+        "bio.focus_he": ([{"v": x} for x in d["bio"]["focus_he"]], "v", 4),
     }
     for name, (rows, key, expected_n) in tables.items():
         n = len(rows)
-        keys = [r[key] for r in rows]
-        distinct = len(set(keys))
-        dupes = [k for k, c in Counter(json.dumps(r, sort_keys=True, ensure_ascii=False) for r in rows).items() if c > 1]
+        distinct = len({r[key] for r in rows})
+        dupes = [k for k, c in Counter(
+            json.dumps(r, sort_keys=True, ensure_ascii=False) for r in rows).items() if c > 1]
         ok = n == expected_n and distinct == n and not dupes
-        print(f"  {name:<20} rows={n:<3} expected={expected_n:<3} distinct {key}={distinct:<3} exact-dupes={len(dupes)}  {'ok' if ok else 'FAIL'}")
+        print(f"  {name:<18} rows={n:<3} expected={expected_n:<3} "
+              f"distinct {key}={distinct:<3} exact-dupes={len(dupes)}  {'ok' if ok else 'FAIL'}")
         if n != expected_n:
             errs.append(f"{name}: {n} rows, expected {expected_n}")
         if distinct != n:
-            errs.append(f"{name}: {key} not unique ({distinct} distinct of {n})")
+            errs.append(f"{name}: {key} not unique")
         if dupes:
             errs.append(f"{name}: {len(dupes)} exact duplicate row(s)")
 
-    for ph in d["phases"]:
-        n = len(ph["bullets"])
-        print(f"  phase {ph['index']} bullets  n={n}  {'ok' if n == 3 else 'FAIL'}")
-        if n != 3:
-            errs.append(f"phase {ph['index']}: {n} bullets, expected 3")
+    for st in d["stages"]:
+        n = len(st["items"])
+        print(f"  stage {st['n']} items    n={n}  {'ok' if n == 4 else 'FAIL'}")
+        if n != 4:
+            errs.append(f"stage {st['n']}: {n} items, expected 4")
 
     print()
-    for alt in d["alternatives"]:
-        for lo_k, hi_k in (("fee_min", "fee_max"), ("hours_min", "hours_max"),
-                           ("weeks_min", "weeks_max"), ("sessions_min", "sessions_max")):
-            if lo_k not in alt:
-                continue
-            lo, hi = alt[lo_k], alt[hi_k]
-            ok = lo < hi
-            print(f"  alt {alt['id']}  {lo_k.split('_')[0]:<9} {lo:>7,} < {hi:>7,}   {'ok' if ok else 'FAIL'}")
-            if not ok:
-                errs.append(f"alt {alt['id']}: {lo_k}={lo} not < {hi_k}={hi}")
-
-    a, b = d["alternatives"]
-    for k in ("hours_min", "hours_max", "fee_min", "fee_max"):
-        ok = b[k] > a[k]
-        print(f"  alt b {k:<10} {b[k]:>7,} > alt a {a[k]:>7,}   {'ok' if ok else 'FAIL'}")
-        if not ok:
-            errs.append(f"alternative b {k} ({b[k]}) is not greater than alternative a ({a[k]})")
-
-    mvp = d["mvp"]
-    ok = mvp["features_min"] < mvp["features_max"]
-    print(f"  mvp features   {mvp['features_min']} < {mvp['features_max']}   {'ok' if ok else 'FAIL'}")
+    # The commercial surface of this deck is deliberately tiny. Assert it stays so.
+    a, b = d["options"]
+    ok = a["hours_min"] < a["hours_max"]
+    print(f"  option a hours     {a['hours_min']} < {a['hours_max']}   {'ok' if ok else 'FAIL'}")
     if not ok:
-        errs.append("mvp: features_min not < features_max")
+        errs.append("option a: hours_min not < hours_max")
+
+    ok = "hours_min" not in b and "hours_max" not in b
+    print(f"  option b carries NO hour estimate      {'ok' if ok else 'FAIL'}")
+    if not ok:
+        errs.append("option b must not carry an hour estimate")
+
+    ok = a["hours_caveat_he"].strip() != ""
+    print(f"  option a hours are labelled indicative {'ok' if ok else 'FAIL'}")
+    if not ok:
+        errs.append("option a: the indicative-range caveat is missing")
+
+    ok = isinstance(d["rate"]["amount"], int) and d["rate"]["amount"] > 0
+    print(f"  hourly rate present  {d['rate']['amount']} {d['rate']['currency']}  {'ok' if ok else 'FAIL'}")
+    if not ok:
+        errs.append("rate.amount missing or invalid")
+
+    banned = ("fee_min", "fee_max", "total", "price", "market_size",
+              "willingness", "dev_budget", "users", "interviews")
+    blob = json.dumps(d, ensure_ascii=False)
+    hits = [k for k in banned if f'"{k}"' in blob]
+    print(f"  no banned commercial/market fields     {'ok' if not hits else 'FAIL ' + str(hits)}")
+    if hits:
+        errs.append(f"banned field(s) present in source: {hits}")
 
     return errs
 
@@ -101,49 +110,27 @@ def sanity_checks(d: dict) -> list[str]:
 def expected_figures(d: dict) -> dict[str, list[str]]:
     """Independently derive every figure that should be visible, from source.
 
-    A token can legitimately have more than one source — "2-3" is both the MVP
-    feature count and alternative A's duration in weeks — so provenance is a
-    list. Collapsing it to one string would quietly hide the second meaning.
+    This deck is methodological: the only commercial figures approved for
+    display are the hourly rate and the indicative hour range for option A.
     """
     exp: dict[str, list[str]] = {}
 
-    def put(token: str, src: str) -> None:
+    def put(token, src: str) -> None:
         exp.setdefault(str(token), []).append(src)
 
-    put(d["roster"]["dj_count"], "roster.dj_count")
-    put(d["gtm"]["first_users"], "gtm.first_users")
-    put(f'{d["experience_years_min"]}+', "experience_years_min")
-    put(f'{d["mvp"]["features_min"]}–{d["mvp"]["features_max"]}', "mvp.features_min/max")
+    put(d["rate"]["amount"], "rate.amount (approved: hourly rate)")
 
-    for alt in d["alternatives"]:
-        i = alt["id"]
-        if "sessions_min" in alt:
-            put(f'{alt["sessions_min"]}–{alt["sessions_max"]}', f"alternatives[{i}].sessions")
-        put(f'{alt["hours_min"]}–{alt["hours_max"]}', f"alternatives[{i}].hours")
-        put(f'{alt["weeks_min"]}–{alt["weeks_max"]}', f"alternatives[{i}].weeks")
-        # thousands separators are produced here, exactly as build.py produces them
-        put(f'{alt["fee_min"]:,}', f"alternatives[{i}].fee_min")
-        put(f'{alt["fee_max"]:,}', f"alternatives[{i}].fee_max")
-        # the chart value label prints the pair as a single range token
-        put(f'{alt["fee_min"]:,}–{alt["fee_max"]:,}', f"alternatives[{i}].fee range")
+    a = d["options"][0]
+    put(f'{a["hours_min"]}–{a["hours_max"]}', "options[a].hours (approved: indicative range)")
 
-    # the slide-7 headline states ratios; re-derive them here independently
-    a, b = d["alternatives"]
-    def fmt(x):
-        return f"{x:.0f}" if abs(x - round(x)) < 0.05 else f"{x:.1f}"
-    for lo_k, hi_k, name in (("hours_min", "hours_max", "hours"), ("fee_min", "fee_max", "fee")):
-        put(fmt(b[lo_k] / a[lo_k]), f"derived ratio b/a {name} (min)")
-        put(fmt(b[hi_k] / a[hi_k]), f"derived ratio b/a {name} (max)")
-    # chart axis maxima are the larger of the pair, printed on the axis
-    for hi_k, f in (("hours_max", lambda v: f"{v:g}"), ("weeks_max", lambda v: f"{v:g}"),
-                    ("fee_max", lambda v: f"{v:,.0f}")):
-        put(f(max(a[hi_k], b[hi_k])), f"chart axis max ({hi_k})")
-    put("0", "chart axis zero")
+    # structural numerals that appear as prose in the methodology slide
+    put(f'{d["stages"][0]["n"].lstrip("0")}–{d["stages"][2]["n"].lstrip("0")}',
+        "loop_he: the iterating stage span")
+    put(d["stages"][4]["n"].lstrip("0"), "gates_cap_he: the decision stage")
 
-    m = re.search(r"(\d+)\s+\S+\s+(\d{4})", d["meeting"]["date_he"])
+    m = re.search(r"(\d{4})", d["meeting"]["date_he"])
     if m:
-        put(m.group(1), "meeting.date_he (day)")
-        put(m.group(2), "meeting.date_he (year)")
+        put(m.group(1), "meeting.date_he (year)")
 
     return exp
 

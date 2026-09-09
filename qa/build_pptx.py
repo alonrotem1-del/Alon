@@ -42,7 +42,11 @@ EMU_PER_PX = 6350          # 1920 px -> 13.333 in
 PT_PER_PX = 0.5
 LRI = "\u2066"          # LEFT-TO-RIGHT ISOLATE
 PDI = "\u2069"          # POP DIRECTIONAL ISOLATE
-FONT = "Arial"             # the only sans face that carries Hebrew on Windows and macOS
+# Faces that carry Hebrew on both Windows and macOS. The web deck's Frank Ruhl
+# Libre / Assistant pairing is mapped onto the nearest guaranteed pair, keeping
+# the serif-display / sans-text contrast that the design depends on.
+FONT_DISPLAY = "Times New Roman"
+FONT_TEXT = "Arial"
 
 ALIGN = {"right": PP_ALIGN.RIGHT, "left": PP_ALIGN.LEFT, "center": PP_ALIGN.CENTER}
 
@@ -171,7 +175,8 @@ def add_text(slide, it: dict):
             text = LRI + text + PDI
         run.text = text
         f = run.font
-        f.name = FONT
+        face = FONT_DISPLAY if r.get("serif") else FONT_TEXT
+        f.name = face
         f.size = pt(r["size"])
         f.bold = bool(r["bold"])
         f.color.rgb = rgb(r["color"])
@@ -185,7 +190,7 @@ def add_text(slide, it: dict):
             if el is None:
                 el = rPr.makeelement(qn(tag), {})
                 rPr.append(el)
-            el.set("typeface", FONT)
+            el.set("typeface", face)
     return box
 
 
@@ -217,7 +222,7 @@ def add_table(slide, it: dict):
             set_rtl(para, True)
             strip_autofit(cell.text_frame)
             for run in para.runs:
-                run.font.name = FONT
+                run.font.name = FONT_TEXT
                 run.font.size = pt(cell_data["size"])
                 run.font.bold = bool(cell_data["bold"])
                 run.font.color.rgb = rgb(cell_data["color"])

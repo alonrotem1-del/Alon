@@ -1,0 +1,4040 @@
+{
+ "canvas": {
+  "w": 1920,
+  "h": 1080
+ },
+ "slides": [
+  {
+   "n": 1,
+   "id": "",
+   "title": "שער",
+   "items": [
+    {
+     "kind": "text",
+     "x": 1558.109375,
+     "y": 92,
+     "w": 241.890625,
+     "h": 28,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 26.4,
+     "runs": [
+      {
+       "t": "פגישת היכרות ומיפוי",
+       "size": 22,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 52,
+     "nowrapW": 268.90625,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1696,
+     "y": 184,
+     "w": 104,
+     "h": 6,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 240,
+     "y": 242,
+     "w": 1560,
+     "h": 100.3125,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 100.32,
+     "runs": [
+      {
+       "t": "מרעיון למיזם בר־בחינה",
+       "size": 88,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 100.3125,
+     "nowrapW": 750.71875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 500,
+     "y": 392,
+     "w": 1300,
+     "h": 44.796875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 44.8,
+     "runs": [
+      {
+       "t": "בחינת ההזדמנות, תיקוף ההנחות והגדרת הדרך קדימה",
+       "size": 32,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 44.796875,
+     "nowrapW": 716.453125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1796,
+     "y": 486,
+     "w": 4,
+     "h": 39,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 520,
+     "y": 486,
+     "w": 1248,
+     "h": 39,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 39,
+     "runs": [
+      {
+       "t": "המטרה היא לא להחליט היום אם לפתח — אלא להבין מה צריך להיות נכון כדי שהמיזם יהיה כדאי, ואיך נכון לבדוק זאת.",
+       "size": 26,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 78,
+     "nowrapW": 1263.96875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 676,
+     "w": 1680,
+     "h": 2,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1240.015625,
+     "y": 676,
+     "w": 559.984375,
+     "h": 2,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1774,
+     "y": 664,
+     "w": 26,
+     "h": 26,
+     "fill": "#B84A22",
+     "stroke": {
+      "color": "#B84A22",
+      "width": 2
+     },
+     "radius": 13
+    },
+    {
+     "kind": "text",
+     "x": 1277.34375,
+     "y": 716,
+     "w": 522.65625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "היום",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 51.203125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1277.34375,
+     "y": 752,
+     "w": 522.65625,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "רעיון",
+       "size": 36,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 65.890625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1277.34375,
+     "y": 807.1875,
+     "w": 522.65625,
+     "h": 33.59375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 33.6,
+     "runs": [
+      {
+       "t": "ניסיון ענפי והנחות עבודה",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 33.59375,
+     "nowrapW": 245.484375,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1195.34375,
+     "y": 664,
+     "w": 26,
+     "h": 26,
+     "fill": "#FFFFFF",
+     "stroke": {
+      "color": "#C6C9C6",
+      "width": 2
+     },
+     "radius": 13
+    },
+    {
+     "kind": "text",
+     "x": 698.671875,
+     "y": 716,
+     "w": 522.671875,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "התהליך",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 86.78125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 698.671875,
+     "y": 752,
+     "w": 522.671875,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "בחינה",
+       "size": 36,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 80.515625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 698.671875,
+     "y": 807.1875,
+     "w": 522.671875,
+     "h": 33.59375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 33.6,
+     "runs": [
+      {
+       "t": "תיקוף מול שוק, לקוחות וכלכלה",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 33.59375,
+     "nowrapW": 306.484375,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 616.671875,
+     "y": 664,
+     "w": 26,
+     "h": 26,
+     "fill": "#FFFFFF",
+     "stroke": {
+      "color": "#C6C9C6",
+      "width": 2
+     },
+     "radius": 13
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 716,
+     "w": 522.671875,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "התוצר",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 71.609375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 752,
+     "w": 522.671875,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "החלטה",
+       "size": 36,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 101.3125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 807.1875,
+     "w": 522.671875,
+     "h": 33.59375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 33.6,
+     "runs": [
+      {
+       "t": "מבוססת ראיות, עם תוכנית פעולה",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 33.59375,
+     "nowrapW": 334.578125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 946,
+     "w": 1680,
+     "h": 1,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1516.984375,
+     "y": 964,
+     "w": 283.015625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "אלון רותם · בן · אופק · ספטמבר 2026",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 332.8125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 964,
+     "w": 63.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "01 / 06",
+       "size": 20,
+       "bold": true,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 69.5625,
+     "containerW": 1744
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "id": "",
+   "title": "נעים להכיר",
+   "items": [
+    {
+     "kind": "text",
+     "x": 1624.234375,
+     "y": 92,
+     "w": 175.765625,
+     "h": 28,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 26.4,
+     "runs": [
+      {
+       "t": "מי מלווה אתכם",
+       "size": 22,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 52,
+     "nowrapW": 195.90625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 300,
+     "y": 136,
+     "w": 1500,
+     "h": 67.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 67.2,
+     "runs": [
+      {
+       "t": "נעים להכיר",
+       "size": 56,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.203125,
+     "nowrapW": 238.703125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 440,
+     "y": 288,
+     "w": 1360,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "אלון רותם — יועץ אסטרטגי | מנהל ב-BDO",
+       "size": 32,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 568.140625,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1490,
+     "y": 376,
+     "w": 310,
+     "h": 420,
+     "fill": "#F1F1EE",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "image",
+     "x": 1490,
+     "y": 376,
+     "w": 310,
+     "h": 420,
+     "src": "data:image/jpeg;base64,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"
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 376,
+     "w": 1298,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "תחומי עיסוק",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 142.390625,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1408,
+     "y": 431,
+     "w": 10,
+     "h": 10,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 420,
+     "w": 1268,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "בחינת הזדמנויות עסקיות ומהלכי צמיחה",
+       "size": 26,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 427.25,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1408,
+     "y": 482.09375,
+     "w": 10,
+     "h": 10,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 471.09375,
+     "w": 1268,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "ניתוחי שוק וכדאיות",
+       "size": 26,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 203.0625,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1408,
+     "y": 533.1875,
+     "w": 10,
+     "h": 10,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 522.1875,
+     "w": 1268,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "מודלים עסקיים וכלכליים",
+       "size": 26,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 259.921875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1408,
+     "y": 584.28125,
+     "w": 10,
+     "h": 10,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 573.28125,
+     "w": 1268,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "תרגום שאלות אסטרטגיות לתוכנית פעולה",
+       "size": 26,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 444.6875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 762,
+     "w": 1298,
+     "h": 138,
+     "fill": "#132433",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 154,
+     "y": 792,
+     "w": 1230,
+     "h": 78,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 39,
+     "runs": [
+      {
+       "t": "אתם מביאים את ההיכרות העמוקה עם הענף והשטח; התפקיד שלי הוא להוסיף מסגרת אסטרטגית, בדיקה שיטתית ונקודת מבט חיצונית וביקורתית.",
+       "size": 26,
+       "bold": false,
+       "color": "#F3F5F6",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 78,
+     "nowrapW": 1566.03125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 946,
+     "w": 1680,
+     "h": 1,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1605.390625,
+     "y": 964,
+     "w": 194.609375,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "רקע מקצועי ותפקיד בליווי",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 220.890625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 964,
+     "w": 63.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "02 / 06",
+       "size": 20,
+       "bold": true,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 69.5625,
+     "containerW": 1744
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "id": "",
+   "title": "מה צריך להוכיח",
+   "items": [
+    {
+     "kind": "text",
+     "x": 1653.265625,
+     "y": 92,
+     "w": 146.734375,
+     "h": 28,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 26.4,
+     "runs": [
+      {
+       "t": "מסגרת הדיון",
+       "size": 22,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 52,
+     "nowrapW": 162.109375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 300,
+     "y": 136,
+     "w": 1500,
+     "h": 67.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 67.2,
+     "runs": [
+      {
+       "t": "לפני שבונים מערכת — יש כמה שאלות שצריכות לקבל תשובה",
+       "size": 56,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.203125,
+     "nowrapW": 1301.09375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 440,
+     "y": 288,
+     "w": 1360,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "אלה לא מסקנות. אלה התחומים שהתהליך אמור לתת עליהם תשובה מבוססת.",
+       "size": 32,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 1030.125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 465.78125,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 376,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "01",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1400,
+     "y": 376,
+     "w": 300,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "שוק ולקוח",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 127.640625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 376,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מי הלקוח הראשון האמיתי — DJ עצמאי, חברת DJs, או סגמנט אחר?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 685.34375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 415.390625,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "כמה גדול ונגיש השוק הרלוונטי?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 313.78125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 551.25,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 498.25,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "02",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1400,
+     "y": 498.25,
+     "w": 300,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "הבעיה",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 80.40625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 498.25,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "איזו בעיה כואבת ותכופה מספיק כדי להצדיק מעבר לפתרון חדש?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 639.9375,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 673.5,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 583.71875,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "03",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1400,
+     "y": 583.71875,
+     "w": 300,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "מוצר ובידול",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 145.328125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 583.71875,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מה המוצר הראשון באמת צריך לפתור?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 384.3125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 623.109375,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מדוע יהיה עדיף על iPlan או על החלופות הקיימות?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 502.71875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 795.75,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 705.96875,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "04",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1400,
+     "y": 705.96875,
+     "w": 300,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "כלכלה",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 79.6875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 705.96875,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מי משלם, וכמה ריאלי שישלם?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 304.609375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 745.359375,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "איזה היקף פעילות נדרש כדי שזה יהיה עסק אטרקטיבי?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 542.0625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 828.21875,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "05",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1400,
+     "y": 828.21875,
+     "w": 300,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "יכולת ביצוע",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 144.34375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 828.21875,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מה צריך לקרות לפני פיתוח?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 279.921875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 867.609375,
+     "w": 1254,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "אילו משאבים, בעלוּת ואבני דרך נדרשים?",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 406.6875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 946,
+     "w": 1680,
+     "h": 1,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1573,
+     "y": 964,
+     "w": 227,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "תחומים לתיקוף — לא מסקנות",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 263.78125,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 964,
+     "w": 63.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "03 / 06",
+       "size": 20,
+       "bold": true,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 69.5625,
+     "containerW": 1744
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "id": "",
+   "title": "מתודולוגיה",
+   "items": [
+    {
+     "kind": "text",
+     "x": 1710.875,
+     "y": 92,
+     "w": 89.125,
+     "h": 28,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 26.4,
+     "runs": [
+      {
+       "t": "התהליך",
+       "size": 22,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 26,
+     "nowrapW": 98.109375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 300,
+     "y": 136,
+     "w": 1500,
+     "h": 67.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 67.2,
+     "runs": [
+      {
+       "t": "המתודולוגיה: מהנחות עבודה להחלטה עסקית",
+       "size": 56,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.203125,
+     "nowrapW": 948.59375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 440,
+     "y": 288,
+     "w": 1360,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "התהליך אינו ליניארי — ממצאים מהשוק חוזרים ומחדדים את ההנחות ואת הגדרת ההזדמנות.",
+       "size": 32,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 1218.953125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 1480,
+     "y": 376,
+     "w": 320,
+     "h": 396.46875,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1480,
+     "y": 376,
+     "w": 320,
+     "h": 4,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 404,
+     "w": 276,
+     "h": 28,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 28,
+     "runs": [
+      {
+       "t": "01",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 28,
+     "nowrapW": 28,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 446,
+     "w": 276,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "נקודת המוצא",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 144.59375,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 478,
+     "w": 276,
+     "h": 34.71875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 34.72,
+     "runs": [
+      {
+       "t": "הנחות עבודה ראשוניות",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 69.4375,
+     "nowrapW": 287.515625,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 530.71875,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "לקוח יעד ובעיה",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 150.5625,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 570.90625,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "תהליך העבודה כיום",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 195.328125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 611.09375,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "רעיון המוצר והחלופות",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 216.3125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 651.28125,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "נכונות לשלם וצמיחה",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 204.75,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1502,
+     "y": 696.46875,
+     "w": 276,
+     "h": 54,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 27,
+     "runs": [
+      {
+       "t": "מנוסחות מהידע הענפי שלכם — כהנחות, לא כמסקנות.",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 54,
+     "nowrapW": 456.75,
+     "containerW": 276
+    },
+    {
+     "kind": "rect",
+     "x": 1140,
+     "y": 376,
+     "w": 320,
+     "h": 396.46875,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1140,
+     "y": 376,
+     "w": 320,
+     "h": 4,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 404,
+     "w": 276,
+     "h": 28,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 28,
+     "runs": [
+      {
+       "t": "02",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 28,
+     "nowrapW": 28,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 446,
+     "w": 276,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "איסוף ראיות",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 136.328125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 478,
+     "w": 276,
+     "h": 34.71875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 34.72,
+     "runs": [
+      {
+       "t": "בדיקת השוק והלקוחות",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 69.4375,
+     "nowrapW": 282.875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 530.71875,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "מיפוי שוק וגודלו",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 155.46875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 570.90625,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "ניתוח חלופות ומתחרים",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 229.203125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 611.09375,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "ראיונות לקוחות ומומחים",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 240.609375,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 1162,
+     "y": 651.28125,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "חסמי מעבר ונכונות לשלם",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 256.5,
+     "containerW": 276
+    },
+    {
+     "kind": "rect",
+     "x": 800,
+     "y": 376,
+     "w": 320,
+     "h": 396.46875,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 800,
+     "y": 376,
+     "w": 320,
+     "h": 4,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 404,
+     "w": 276,
+     "h": 28,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 28,
+     "runs": [
+      {
+       "t": "03",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 28,
+     "nowrapW": 28,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 446,
+     "w": 276,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "מיקוד",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 63.3125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 478,
+     "w": 276,
+     "h": 34.71875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 34.72,
+     "runs": [
+      {
+       "t": "חידוד ההזדמנות והמוצר",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 69.4375,
+     "nowrapW": 299.03125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 530.71875,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "לקוח יעד מוגדר (ICP)",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 217.1875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 570.90625,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "הבעיה המרכזית",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 157.1875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 611.09375,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "הצעת הערך והבידול",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 200.578125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 822,
+     "y": 651.28125,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "גבולות המוצר הראשון",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 216.046875,
+     "containerW": 276
+    },
+    {
+     "kind": "rect",
+     "x": 460,
+     "y": 376,
+     "w": 320,
+     "h": 396.46875,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 460,
+     "y": 376,
+     "w": 320,
+     "h": 4,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 404,
+     "w": 276,
+     "h": 28,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 28,
+     "runs": [
+      {
+       "t": "04",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 28,
+     "nowrapW": 28,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 446,
+     "w": 276,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "מודל",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 53.234375,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 478,
+     "w": 276,
+     "h": 34.71875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 34.72,
+     "runs": [
+      {
+       "t": "בחינת הכדאיות הכלכלית",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 69.4375,
+     "nowrapW": 308.75,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 530.71875,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "שוק נגיש ותמחור אפשרי",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 241.59375,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 570.90625,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "הנחות אימוץ",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 125.484375,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 611.09375,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "עלויות פיתוח ותפעול",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 204.6875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 482,
+     "y": 651.28125,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "תרחישים ורגישויות",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 183.984375,
+     "containerW": 276
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 376,
+     "w": 320,
+     "h": 396.46875,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 376,
+     "w": 320,
+     "h": 4,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 404,
+     "w": 276,
+     "h": 28,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 28,
+     "runs": [
+      {
+       "t": "05",
+       "size": 28,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 28,
+     "nowrapW": 28,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 446,
+     "w": 276,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "מסקנה",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 75.703125,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 478,
+     "w": 276,
+     "h": 34.71875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 34.72,
+     "runs": [
+      {
+       "t": "החלטה ותוכנית פעולה",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 69.4375,
+     "nowrapW": 279.21875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 530.71875,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "אבני דרך ושערי החלטה",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 234.609375,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 570.90625,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "שלבי בדיקה ופיתוח",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 192.1875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 611.09375,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "דרך ראשונית לשוק",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 184.796875,
+     "containerW": 276
+    },
+    {
+     "kind": "text",
+     "x": 142,
+     "y": 651.28125,
+     "w": 276,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "אחריות וצעדים הבאים",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 221.359375,
+     "containerW": 276
+    },
+    {
+     "kind": "rect",
+     "x": 800,
+     "y": 807,
+     "w": 1000,
+     "h": 2,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1780,
+     "y": 823,
+     "w": 20,
+     "h": 31.1875,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "⇆",
+       "size": 24,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 20,
+     "containerW": 1000
+    },
+    {
+     "kind": "text",
+     "x": 894,
+     "y": 823,
+     "w": 872,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "שלבים 1–3 מחזוריים: ראיות מהשוק מחזירות אותנו לחדד את ההנחות, את הלקוח ואת הגדרת המוצר.",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 64.8125,
+     "nowrapW": 998.125,
+     "containerW": 1000
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 807,
+     "w": 660,
+     "h": 2,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 724.59375,
+     "y": 823,
+     "w": 55.40625,
+     "h": 40,
+     "fill": "#F1F1EE",
+     "stroke": {
+      "color": "#E1E2DF",
+      "width": 1
+     },
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 737.59375,
+     "y": 830,
+     "w": 29.40625,
+     "h": 26,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "GO",
+       "size": 20,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 33.515625,
+     "containerW": 660
+    },
+    {
+     "kind": "rect",
+     "x": 615.390625,
+     "y": 823,
+     "w": 101.203125,
+     "h": 40,
+     "fill": "#F1F1EE",
+     "stroke": {
+      "color": "#E1E2DF",
+      "width": 1
+     },
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 628.390625,
+     "y": 830,
+     "w": 75.203125,
+     "h": 26,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "ADJUST",
+       "size": 20,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 87.21875,
+     "containerW": 660
+    },
+    {
+     "kind": "rect",
+     "x": 529.578125,
+     "y": 823,
+     "w": 77.8125,
+     "h": 40,
+     "fill": "#F1F1EE",
+     "stroke": {
+      "color": "#E1E2DF",
+      "width": 1
+     },
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 542.578125,
+     "y": 830,
+     "w": 51.8125,
+     "h": 26,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "STOP",
+       "size": 20,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 58.90625,
+     "containerW": 660
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 873,
+     "w": 660,
+     "h": 27,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 27,
+     "runs": [
+      {
+       "t": "שלב 5 נפתח באחת משלוש התוצאות — כולן לגיטימיות.",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 27,
+     "nowrapW": 460.203125,
+     "containerW": 660
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 946,
+     "w": 1680,
+     "h": 1,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1594,
+     "y": 964,
+     "w": 206,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "תהליך מחזורי — לא ליניארי",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 239.609375,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 964,
+     "w": 63.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "04 / 06",
+       "size": 20,
+       "bold": true,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 69.5625,
+     "containerW": 1744
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "id": "",
+   "title": "דרכי עבודה",
+   "items": [
+    {
+     "kind": "text",
+     "x": 1664.796875,
+     "y": 92,
+     "w": 135.203125,
+     "h": 28,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 26.4,
+     "runs": [
+      {
+       "t": "דרכי עבודה",
+       "size": 22,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 52,
+     "nowrapW": 146.296875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 300,
+     "y": 136,
+     "w": 1500,
+     "h": 67.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 67.2,
+     "runs": [
+      {
+       "t": "שתי דרכים לבחון את ההזדמנות",
+       "size": 56,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.203125,
+     "nowrapW": 660.265625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 440,
+     "y": 288,
+     "w": 1360,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "אותה מסגרת אסטרטגית. ההבדל הוא מי מבצע את המחקר — ומכאן עומק הראיות ומידת עצמאותן.",
+       "size": 32,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 1308.046875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 976,
+     "y": 376,
+     "w": 824,
+     "h": 524,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 976,
+     "y": 376,
+     "w": 824,
+     "h": 4,
+     "fill": "#41586C",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 976,
+     "y": 899,
+     "w": 824,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 976,
+     "y": 376,
+     "w": 1,
+     "h": 524,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1799,
+     "y": 376,
+     "w": 1,
+     "h": 524,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 400,
+     "w": 762,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "חלופה א' — תהליך מונחה וממוקד",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 424.484375,
+     "containerW": 762
+    },
+    {
+     "kind": "rect",
+     "x": 1007,
+     "y": 488.390625,
+     "w": 762,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 442,
+     "w": 762,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "עבודה משותפת המבוססת על הידע הקיים ועל איסוף מידע בידי בן ואופק.",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 720.796875,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1657,
+     "y": 504.390625,
+     "w": 112,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "אלון",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 44.75,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 501.390625,
+     "w": 632,
+     "h": 64.78125,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מסגרות ניתוח וראיון · ניתוח ממצאים · מודל כלכלי · הנחיית מפגשים · מסקנות ומפת דרכים",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 64.8125,
+     "nowrapW": 899.34375,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1657,
+     "y": 581.171875,
+     "w": 112,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "בן ואופק",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 92.234375,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 578.171875,
+     "w": 632,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מידע פנימי · איסוף מידע בשוק · שיחות עם לקוחות",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 501.59375,
+     "containerW": 762
+    },
+    {
+     "kind": "rect",
+     "x": 1007,
+     "y": 622.5625,
+     "w": 762,
+     "h": 125.78125,
+     "fill": "#F1F1EE",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1765,
+     "y": 622.5625,
+     "w": 4,
+     "h": 125.78125,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1025,
+     "y": 636.5625,
+     "w": 722,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "מה חשוב לדעת",
+       "size": 20,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 161.890625,
+     "containerW": 722
+    },
+    {
+     "kind": "text",
+     "x": 1025,
+     "y": 669.5625,
+     "w": 722,
+     "h": 64.78125,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "חסכוני יותר, אך עצמאות המחקר נמוכה יותר: ראיונות בהובלת היזמים אינם שקולים לראיון מקצועי מבחינת עומק חקירה, אחידות ונייטרליות.",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 64.8125,
+     "nowrapW": 1371.296875,
+     "containerW": 722
+    },
+    {
+     "kind": "rect",
+     "x": 1007,
+     "y": 771.8125,
+     "w": 762,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1626,
+     "y": 786.8125,
+     "w": 143,
+     "h": 33.59375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 33.6,
+     "runs": [
+      {
+       "t": "450",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": true
+      },
+      {
+       "t": " ₪ + מע\"מ",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.1875,
+     "nowrapW": 156.109375,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1626,
+     "y": 823.40625,
+     "w": 143,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "לשעת ייעוץ",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 93.328125,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 786.8125,
+     "w": 302,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "היקף ייעוץ מוערך",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 186.09375,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 817.8125,
+     "w": 302,
+     "h": 31.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 31.2,
+     "runs": [
+      {
+       "t": "כ-",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      },
+      {
+       "t": "30–45",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": true
+      },
+      {
+       "t": " שעות",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 31.203125,
+     "nowrapW": 153.328125,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 1007,
+     "y": 854,
+     "w": 302,
+     "h": 27,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 27,
+     "runs": [
+      {
+       "t": "טווח ראשוני — ייקבע לאחר הגדרת ההיקף.",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 54,
+     "nowrapW": 354.453125,
+     "containerW": 762
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 376,
+     "w": 824,
+     "h": 524,
+     "fill": "#FFFFFF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 376,
+     "w": 824,
+     "h": 4,
+     "fill": "#41586C",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 899,
+     "w": 824,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 376,
+     "w": 1,
+     "h": 524,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 943,
+     "y": 376,
+     "w": 1,
+     "h": 524,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 151,
+     "y": 400,
+     "w": 762,
+     "h": 35,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "חלופה ב' — תהליך מחקר מלא",
+       "size": 28,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 381.3125,
+     "containerW": 762
+    },
+    {
+     "kind": "rect",
+     "x": 151,
+     "y": 488.390625,
+     "w": 762,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 151,
+     "y": 442,
+     "w": 762,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "מחקר, ראיונות ואנליזה בהובלה מקצועית מלאה.",
+       "size": 24,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 472.453125,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 801,
+     "y": 504.390625,
+     "w": 112,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "אלון",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 44.75,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 151,
+     "y": 501.390625,
+     "w": 632,
+     "h": 64.78125,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "ניתוח שוק וחלופות · עיצוב המחקר · ראיונות לקוחות ומומחים · סינתזת ראיות · מודל כלכלי · מפת דרכים",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 64.8125,
+     "nowrapW": 1026.25,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 801,
+     "y": 581.171875,
+     "w": 112,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "בן ואופק",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 92.234375,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 151,
+     "y": 578.171875,
+     "w": 632,
+     "h": 32.390625,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "גישה ונתונים פנימיים · הקשר ענפי · הפניות",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 32.40625,
+     "nowrapW": 428.15625,
+     "containerW": 762
+    },
+    {
+     "kind": "rect",
+     "x": 151,
+     "y": 622.5625,
+     "w": 762,
+     "h": 125.78125,
+     "fill": "#F1F1EE",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 909,
+     "y": 622.5625,
+     "w": 4,
+     "h": 125.78125,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 169,
+     "y": 636.5625,
+     "w": 722,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "מה זה נותן",
+       "size": 20,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 114.625,
+     "containerW": 722
+    },
+    {
+     "kind": "text",
+     "x": 169,
+     "y": 669.5625,
+     "w": 722,
+     "h": 64.78125,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 32.4,
+     "runs": [
+      {
+       "t": "עצמאות, עומק ואיכות ראיות גבוהות יותר: ראיונות מאתגרים הנחות, מאפשרים חקירת המשך והשוואה עקבית בין ראיונות, והניתוח חשוף פחות להטיית אישוש.",
+       "size": 24,
+       "bold": false,
+       "color": "#24394B",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 97.21875,
+     "nowrapW": 1545.890625,
+     "containerW": 722
+    },
+    {
+     "kind": "rect",
+     "x": 151,
+     "y": 780,
+     "w": 762,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 770,
+     "y": 795,
+     "w": 143,
+     "h": 33.59375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 33.6,
+     "runs": [
+      {
+       "t": "450",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": true
+      },
+      {
+       "t": " ₪ + מע\"מ",
+       "size": 24,
+       "bold": true,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.1875,
+     "nowrapW": 156.109375,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 770,
+     "y": 831.59375,
+     "w": 143,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "לשעת ייעוץ",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 93.328125,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 151,
+     "y": 795,
+     "w": 440,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "היקף ועלות",
+       "size": 20,
+       "bold": true,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 23,
+     "nowrapW": 121.90625,
+     "containerW": 762
+    },
+    {
+     "kind": "text",
+     "x": 151,
+     "y": 827,
+     "w": 440,
+     "h": 54,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 27,
+     "runs": [
+      {
+       "t": "יוגדרו לאחר פגישת המיפוי, לפי עומק המחקר, מספר הסגמנטים והיקף עבודת השטח.",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 54,
+     "nowrapW": 701.15625,
+     "containerW": 762
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 946,
+     "w": 1680,
+     "h": 1,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1450.59375,
+     "y": 964,
+     "w": 349.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "תמחור שעתי · היקף ייקבע לאחר פגישת המיפוי",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 406.40625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 964,
+     "w": 63.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "05 / 06",
+       "size": 20,
+       "bold": true,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 69.5625,
+     "containerW": 1744
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "id": "",
+   "title": "לדיון היום",
+   "items": [
+    {
+     "kind": "text",
+     "x": 1741.390625,
+     "y": 92,
+     "w": 58.609375,
+     "h": 28,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 26.4,
+     "runs": [
+      {
+       "t": "לדיון",
+       "size": 22,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 26,
+     "nowrapW": 62.90625,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 300,
+     "y": 136,
+     "w": 1500,
+     "h": 67.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 67.2,
+     "runs": [
+      {
+       "t": "מה חשוב שנבין היום?",
+       "size": 56,
+       "bold": true,
+       "color": "#132433",
+       "serif": true,
+       "ltr": false
+      }
+     ],
+     "arialH": 67.203125,
+     "nowrapW": 454.171875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 440,
+     "y": 288,
+     "w": 1360,
+     "h": 43.1875,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 43.2,
+     "runs": [
+      {
+       "t": "חמש שאלות שיקבעו את מטרת העבודה ואת רמת הבדיקה המתאימה.",
+       "size": 32,
+       "bold": false,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 43.203125,
+     "nowrapW": 917.703125,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 428,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 377,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "01",
+       "size": 28,
+       "bold": true,
+       "color": "#C6C9C6",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 376,
+     "w": 1580,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "מה בדיוק במצב הקיים גרם לכם לומר: \"צריך לבנות לזה פתרון אחר\"?",
+       "size": 26,
+       "bold": false,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 735.390625,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 522.71875,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 471.71875,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "02",
+       "size": 28,
+       "bold": true,
+       "color": "#C6C9C6",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 470.71875,
+     "w": 1580,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "למי אתם חושבים שהמוצר הראשון מיועד — ומה גורם לכם לחשוב שזה הלקוח הנכון?",
+       "size": 26,
+       "bold": false,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 906.21875,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 617.4375,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 566.4375,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "03",
+       "size": 28,
+       "bold": true,
+       "color": "#C6C9C6",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 565.4375,
+     "w": 1580,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "מה כבר עשיתם עד היום: אפיון, שיחות עם לקוחות, נתונים, הצעות פיתוח או בדיקות אחרות?",
+       "size": 26,
+       "bold": false,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 979.859375,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 712.15625,
+     "w": 1680,
+     "h": 1,
+     "fill": "#E1E2DF",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 661.15625,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "04",
+       "size": 28,
+       "bold": true,
+       "color": "#C6C9C6",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 660.15625,
+     "w": 1580,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "מהי השאיפה העסקית — כלי טוב יותר לפעילות הקיימת, עסק SaaS עצמאי ורווחי, או חברה שניתן להרחיב משמעותית?",
+       "size": 26,
+       "bold": false,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 1270.546875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 1726,
+     "y": 755.875,
+     "w": 74,
+     "h": 35,
+     "align": "left",
+     "rtl": false,
+     "lineHeight": 35,
+     "runs": [
+      {
+       "t": "05",
+       "size": 28,
+       "bold": true,
+       "color": "#C6C9C6",
+       "serif": true,
+       "ltr": true
+      }
+     ],
+     "arialH": 35,
+     "nowrapW": 28,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 754.875,
+     "w": 1580,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "מה הייתם רוצים לדעת בסוף תהליך הבדיקה כדי להרגיש בנוח לקבל החלטה על ההשקעה הבאה?",
+       "size": 26,
+       "bold": false,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 35.09375,
+     "nowrapW": 1038.375,
+     "containerW": 1744
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 820.90625,
+     "w": 1680,
+     "h": 79.09375,
+     "fill": "#F6E6DE",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "rect",
+     "x": 1796,
+     "y": 820.90625,
+     "w": 4,
+     "h": 79.09375,
+     "fill": "#B84A22",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1635.59375,
+     "y": 849.90625,
+     "w": 132.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "בסיום המפגש",
+       "size": 20,
+       "bold": true,
+       "color": "#B84A22",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 151.5625,
+     "containerW": 1620
+    },
+    {
+     "kind": "text",
+     "x": 749.59375,
+     "y": 842.90625,
+     "w": 862,
+     "h": 35.09375,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 35.1,
+     "runs": [
+      {
+       "t": "נחדד את מטרת העבודה, נבחר את רמת הבדיקה המתאימה ונגדיר Scope ותמחור בהתאם.",
+       "size": 26,
+       "bold": false,
+       "color": "#132433",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 70.1875,
+     "nowrapW": 976.484375,
+     "containerW": 1620
+    },
+    {
+     "kind": "rect",
+     "x": 120,
+     "y": 946,
+     "w": 1680,
+     "h": 1,
+     "fill": "#C6C9C6",
+     "stroke": null,
+     "radius": 0
+    },
+    {
+     "kind": "text",
+     "x": 1649.390625,
+     "y": 964,
+     "w": 150.609375,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "פגישת היכרות ומיפוי",
+       "size": 20,
+       "bold": false,
+       "color": "#7C8489",
+       "serif": false,
+       "ltr": false
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 176.96875,
+     "containerW": 1744
+    },
+    {
+     "kind": "text",
+     "x": 120,
+     "y": 964,
+     "w": 63.40625,
+     "h": 26,
+     "align": "right",
+     "rtl": true,
+     "lineHeight": 24,
+     "runs": [
+      {
+       "t": "06 / 06",
+       "size": 20,
+       "bold": true,
+       "color": "#4A555D",
+       "serif": false,
+       "ltr": true
+      }
+     ],
+     "arialH": 46,
+     "nowrapW": 69.5625,
+     "containerW": 1744
+    }
+   ]
+  }
+ ]
+}
