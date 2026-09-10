@@ -9,7 +9,7 @@
     "experience_years": "Alon states ~10 years. An older deck of his said 7+; he has since confirmed 10, so the earlier conflict is resolved by his instruction.",
     "client_list": "The sample-project names are supplied by Alon about his own engagements. Whether they may be named publicly is his call, not something verified here.",
     "tamkin_reference": "The Tamkin/BDO proposal was read as a STRUCTURAL reference only: numbered circular stage badges over a titled band, and a full-width strip beneath the stage row. No BDO branding, logo, red, stock photography or corporate density was copied.",
-    "photo": "assets/headshot.png is data/אלון.png resampled by tools/prepare_photo.py (Lanczos, no retouching). The source is 141x142, so the frame is sized conservatively rather than blown up.",
+    "photo": "assets/headshot.png is derived by tools/prepare_photo.py (Lanczos resample, no retouching) from the largest photograph in data/. Alon supplied a 141x142 file first and a sharper 199x200 one after; the script picks the larger, so the deck follows whatever he drops in.",
     "deep_interviews": "The guided track says critical depth interviews are run by Alon when needed. That is Alon's own commitment about how he works, not a claim about what Ben and Ofek can or cannot do."
   },
   "meeting": {
