@@ -277,7 +277,10 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
           }
         }
 
-        return { n: i + 1, id: slide.id, title: slide.dataset.title || '', items };
+        // the slide's own fill is never emitted as a shape (the walk starts at
+        // its children), so carry it out for build_pptx.py to paint
+        return { n: i + 1, id: slide.id, title: slide.dataset.title || '',
+                 bg: hex(getComputedStyle(slide).backgroundColor) || '#FFFFFF', items };
       }),
     };
   });

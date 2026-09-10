@@ -25,7 +25,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "אלון.png"
 DST = ROOT / "assets" / "headshot.png"
-FRAME = 200          # the .ab-photo frame, in CSS pixels
+FRAME = 280          # the .ab-photo frame, in CSS pixels
 DPR = 2              # qa/render.js renders at deviceScaleFactor 2
 
 

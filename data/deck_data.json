@@ -9,7 +9,8 @@
     "experience_years": "Alon states ~10 years. An older deck of his said 7+; he has since confirmed 10, so the earlier conflict is resolved by his instruction.",
     "client_list": "The sample-project names are supplied by Alon about his own engagements. Whether they may be named publicly is his call, not something verified here.",
     "tamkin_reference": "The Tamkin/BDO proposal was read as a STRUCTURAL reference only: numbered circular stage badges over a titled band, and a full-width strip beneath the stage row. No BDO branding, logo, red, stock photography or corporate density was copied.",
-    "photo": "assets/headshot.png is data/אלון.png resampled by tools/prepare_photo.py (Lanczos, no retouching). The source is 141x142, so the frame is sized conservatively rather than blown up."
+    "photo": "assets/headshot.png is data/אלון.png resampled by tools/prepare_photo.py (Lanczos, no retouching). The source is 141x142, so the frame is sized conservatively rather than blown up.",
+    "deep_interviews": "The guided track says critical depth interviews are run by Alon when needed. That is Alon's own commitment about how he works, not a claim about what Ben and Ofek can or cannot do."
   },
   "meeting": {
     "date_he": "ספטמבר 2026",
@@ -48,7 +49,7 @@
   "bio": {
     "name_he": "אלון רותם",
     "role_he": "יועץ אסטרטגי · מנהל ב־BDO",
-    "lead_he": "תפקידי בליווי: להביא מסגרת עבודה מסודרת לבחינת ההזדמנות — מה לבדוק, באיזה סדר, ומה נדרש כדי להחליט.",
+    "lead_he": "במיזם הזה אעזור לכם לפרק את הרעיון לשאלות שצריך לבדוק לפני שמחליטים כמה ואיך להשקיע.",
     "exp_label_he": "ניסיון",
     "exp_lead_he": "כ־10 שנים בפרויקטים אסטרטגיים מקומיים ובינלאומיים:",
     "exp_he": [
@@ -87,7 +88,7 @@
     "s7": "מסגרת התקשרות",
     "s7_sub": "תמחור שעתי שקוף. היקף העבודה נגזר מהמסלול שנבחר ומחלוקת המשימות בין הצדדים.",
     "s8": "איך מתקדמים מכאן?",
-    "s8_sub": "ארבעה צעדים קצרים — בלי התחייבות בפגישה עצמה."
+    "s8_sub": "ארבעה צעדים מכאן לשלב הבדיקה."
   },
   "proof": [
     {
@@ -139,7 +140,7 @@
         "לקוח יעד ובעיה",
         "תהליך העבודה כיום",
         "רעיון המוצר והחלופות",
-        "נכונות לשלם וצמיחה"
+        "הנחות לגבי תמחור ופוטנציאל צמיחה"
       ],
       "note": "מנוסחות מהידע הענפי שלכם — כהנחות, לא כמסקנות."
     },
@@ -208,11 +209,12 @@
       "alon_label_he": "אלון מוביל",
       "alon_he": "מתודולוגיה ומסגרות עבודה · אתגור הנחות · ניתוח ממצאים · מודל כלכלי · סינתזה ומסקנות",
       "founders_label_he": "בן ואופק משלימים",
-      "founders_he": "נתונים פנימיים · מידע על השוק · חלק מהשיחות עם לקוחות · משימות תיקוף בין המפגשים",
+      "founders_he": "נתונים פנימיים · איסוף מידע מהשוק · בדיקות שטח בהתאם להנחיות · משימות בין המפגשים",
       "pro_label_he": "יתרון",
       "pro_he": "תהליך חסכוני ומהיר יותר, הנשען על היכרות קיימת עם הענף.",
       "con_label_he": "מגבלה",
-      "con_he": "רמת התיקוף החיצוני והעצמאי נמוכה יותר."
+      "con_he": "רמת התיקוף החיצוני והעצמאי נמוכה יותר.",
+      "note_he": "ראיונות עומק קריטיים יבוצעו בהובלתי לפי הצורך."
     },
     {
       "id": "b",
@@ -265,9 +267,9 @@
       },
       {
         "option_id": "b",
-        "label_he": "היקף ועלות",
-        "value_he": "ייקבעו לאחר פגישת המיפוי",
-        "note_he": "בהתאם לעומק המחקר, מספר הסגמנטים והיקף עבודת השטח. לא ניתן להעריך זאת לפני מיפוי."
+        "label_he": "היקף העבודה",
+        "value_he": "יוגדר לאחר פגישת המיפוי",
+        "note_he": "בהתאם לעומק המחקר, מספר הסגמנטים והיקף עבודת השטח."
       }
     ],
     "bottom_he": "לאחר הפגישה ניתן יהיה לגבש Scope, הערכת שעות והצעת עבודה מסודרת."
@@ -275,26 +277,21 @@
   "steps": [
     {
       "n": "01",
-      "t": "מחדדים את מטרת העבודה",
-      "d": "מה צריך להיות ידוע בסוף התהליך."
+      "t": "מחדדים את מטרת העבודה"
     },
     {
       "n": "02",
-      "t": "בוחרים את מודל העבודה",
-      "d": "מונחה או מחקר מלא, לפי עומק התיקוף הנדרש."
+      "t": "בוחרים את מודל העבודה המתאים"
     },
     {
       "n": "03",
-      "t": "מגדירים Scope והערכת שעות",
-      "d": "תוצרים, חלוקת משימות ולוח זמנים."
+      "t": "מגדירים Scope, תוצרים והערכת שעות"
     },
     {
       "n": "04",
-      "t": "יוצאים לשלב הבדיקה",
-      "d": "עבודה מול אבני דרך ושערי החלטה."
+      "t": "יוצאים לשלב הבדיקה"
     }
   ],
-  "closing_he": "גם אם תחליטו שלא להמשיך — הפגישה עצמה אמורה להשאיר בידיכם מיפוי ברור יותר של השאלות שדורשות תשובה.",
   "rate": {
     "amount": 450,
     "currency": "₪",

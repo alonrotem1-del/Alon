@@ -48,8 +48,10 @@ const CAPTION_CLASSES = [
 const GUTTER_CLASSES = ['sr-v', 'gl-t'];
 
 /* Every one of these must start on the shared side margin. */
+/* .band-bleed is exempt: it deliberately runs --bleed past the margin so a
+   tinted row reads as a zone, while the text inside it still starts on 1800. */
 const EDGE_SELECTOR =
-  '.kick, h1.head, .sub, .band, .f-rule, .f-cap, .cv-rule, .cv-head, .cv-lead, .cv-note';
+  '.kick, h1.head, .sub, .band:not(.band-bleed), .f-rule, .f-cap, .cv-head, .cv-lead, .cv-note';
 
 const TOL = 1.0;
 

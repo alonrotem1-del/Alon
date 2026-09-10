@@ -264,7 +264,7 @@ def main() -> int:
         # so nothing sits behind the content in the z-order
         bg = slide.background.fill
         bg.solid()
-        bg.fore_color.rgb = rgb("#F9FAFB")
+        bg.fore_color.rgb = rgb(s.get("bg") or "#FFFFFF")
 
         for it in s["items"]:
             kind = it["kind"]
