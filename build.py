@@ -287,7 +287,6 @@ def block_commercial(d: dict) -> str:
         f'<div class="rate-x">{esc(r["vat_he"])}</div>'
         "</div>"
         f'<div class="rate-u">{bidi(r["unit_he"])}</div>'
-        f'<div class="rate-n">{bidi(c["rate_note_he"])}</div>'
         "</div>"
         f'<div class="trks">{"".join(cards)}</div>'
         f'<div class="cm-note">{bidi(c["bottom_he"])}</div>'
