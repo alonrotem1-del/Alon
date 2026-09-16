@@ -39,7 +39,7 @@ const CAPTION_CLASSES = [
   'kick',                                // the solid kicker block
   'arc-k', 'ab-lab', 'st-k', 'op-k',     // small section labels
   'ev-k', 'rate-k', 'trk-l',
-  'gates-c', 'st-note',                  // captions under a figure or tile
+  'gates-c', 'st-note', 'st-sub',         // captions under a figure or tile
   'gate',                                // GO / ADJUST / STOP chips
 ];
 

@@ -169,17 +169,21 @@ def block_proof(d: dict) -> str:
 
 
 def block_flow(d: dict) -> str:
-    """Five stage tiles, each opening with a circular numbered badge."""
+    """Five stage tiles, each opening with a circular numbered badge. A stage
+    may carry `sub` — one line under the title, visually subordinate to it,
+    used on stage 4 to mark it as a translation of 2-3's findings rather than
+    a second research phase."""
     tiles = []
     for i, st in enumerate(d["stages"], 1):
         items = "".join(f"<span>{bidi(x)}</span>" for x in st["items"])
         note = f'<div class="st-note">{bidi(st["note"])}</div>' if st.get("note") else ""
+        sub = f'<div class="st-sub">{bidi(st["sub"])}</div>' if st.get("sub") else ""
         tiles.append(
             f'<div class="st st-{i}">'
             '<div class="st-head">'
             f'<div class="st-badge"><div class="st-n" dir="ltr">{esc(st["n"])}</div></div>'
             f'<div class="st-k">{bidi(st["tag"])}</div>'
-            f'<div class="st-t">{bidi(st["t"])}</div>'
+            f'<div class="st-t">{bidi(st["t"])}</div>{sub}'
             "</div>"
             f'<div class="st-body"><div class="st-l">{items}</div>{note}</div>'
             "</div>"

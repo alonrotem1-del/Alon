@@ -83,11 +83,18 @@ def sanity_checks(d: dict) -> list[str]:
         if dupes:
             errs.append(f"{name}: {len(dupes)} exact duplicate row(s)")
 
+    # Stages 1 and 5 are the fixed bookends (four items each); 2-4 were
+    # deliberately widened to five so market evidence (2), segment/product
+    # choice (3) and the economic translation of that evidence (4) each get
+    # their own line rather than being compressed to fit a uniform count.
+    EXPECTED_STAGE_ITEMS = {"01": 4, "02": 5, "03": 5, "04": 5, "05": 4}
     for st in d["stages"]:
         n = len(st["items"])
-        print(f"  stage {st['n']} items      n={n}  {'ok' if n == 4 else 'FAIL'}")
-        if n != 4:
-            errs.append(f"stage {st['n']}: {n} items, expected 4")
+        expected = EXPECTED_STAGE_ITEMS.get(st["n"])
+        print(f"  stage {st['n']} items      n={n}  expected={expected}  "
+              f"{'ok' if n == expected else 'FAIL'}")
+        if n != expected:
+            errs.append(f"stage {st['n']}: {n} items, expected {expected}")
 
     print()
     # Every commercial track must point at a real engagement model, so the two
