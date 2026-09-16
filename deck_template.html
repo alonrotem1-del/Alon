@@ -300,8 +300,11 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 /* ===========================================================================
    6 — DISCUSSION
    Open questions, not a form: no rules between them, a ringed numeral each,
-   and one question carrying the accent — the one whose answer decides what
-   the work is for.
+   and one question carrying the accent — the one whose answer is the pending
+   decision or deadline that actually paces the work. A question may carry one
+   subordinate line under it — a scope note or a short "for example" — styled
+   like stage 4's .st-sub on the methodology slide: smaller, muted, clearly
+   secondary to the question itself.
    =========================================================================== */
 .qs{display:grid;grid-template-rows:repeat(5,1fr);height:100%}
 .q-r{display:grid;grid-template-columns:56px 1fr;gap:28px;align-items:center;
@@ -314,6 +317,8 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .q-hi .q-n{background:var(--accent);border-color:var(--accent);color:var(--n-0)}
 .q-t{font-size:var(--t-body);font-weight:500;color:var(--p-900);line-height:1.35}
 .q-hi .q-t{font-weight:600}
+.q-sub{font-size:var(--t-cap);font-weight:400;color:var(--n-500);line-height:1.35;
+  margin-top:5px}
 
 /* ===========================================================================
    7 — COMMERCIAL FRAME
@@ -409,15 +414,15 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 </section>
 
 <!-- ===================== 6 — TODAY'S DISCUSSION ===================== -->
-<section class="slide" data-title="לדיון היום" data-cap="{{meeting.format_he}}">
-  <div class="kick">לדיון</div>
+<section class="slide" data-title="התאמת התהליך" data-cap="מתאים את עומק הבדיקה וחלוקת העבודה">
+  <div class="kick">התאמת התהליך</div>
   <h1 class="head">{{headlines.s6}}</h1>
   <div class="sub">{{headlines.s6_sub}}</div>
   <div class="band band-bleed">{{BLOCK:questions}}</div>
 </section>
 
 <!-- ===================== 7 — COMMERCIAL FRAME ===================== -->
-<section class="slide" data-title="מסגרת התקשרות" data-cap="תעריף שעתי · היקף ייקבע לאחר פגישת המיפוי">
+<section class="slide" data-title="מסגרת התקשרות" data-cap="תעריף שעתי · היקף ייקבע לאחר פגישת ההיכרות">
   <div class="kick">תעריף והיקף</div>
   <h1 class="head">{{headlines.s7}}</h1>
   <div class="sub">{{headlines.s7_sub}}</div>

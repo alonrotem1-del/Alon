@@ -10,7 +10,10 @@
     "client_list": "The sample-project names are supplied by Alon about his own engagements. Whether they may be named publicly is his call, not something verified here.",
     "tamkin_reference": "The Tamkin/BDO proposal was read as a STRUCTURAL reference only: numbered circular stage badges over a titled band, and a full-width strip beneath the stage row. No BDO branding, logo, red, stock photography or corporate density was copied.",
     "photo": "assets/headshot.png is derived by tools/prepare_photo.py (Lanczos resample, no retouching) from the largest photograph in data/. Alon supplied a 141x142 file first and a sharper 199x200 one after; the script picks the larger, so the deck follows whatever he drops in.",
-    "deep_interviews": "The guided track says critical depth interviews are run by Alon when needed. That is Alon's own commitment about how he works, not a claim about what Ben and Ofek can or cannot do."
+    "deep_interviews": "The guided track says critical depth interviews are run by Alon when needed. That is Alon's own commitment about how he works, not a claim about what Ben and Ofek can or cannot do.",
+    "s5_first_person": "Slide 5 switched from third person ('אלון מוביל') to first person ('אני מוביל') throughout, per Alon's instruction, and dropped the 'עצמאי/עצמאות' framing on both the limitation of option A and the advantage of option B — the claim is now about the SCOPE of external validation, not its overall quality or independence.",
+    "s6_repurposed": "Slide 6 no longer duplicates slide 3's venture-diagnostic questions (first customer, core pain, why-now). It now asks what's needed to tailor the consulting process itself: prior work, the decision they want at the end, capacity for homework, and any pending deadline.",
+    "meeting_vs_mapping": "'פגישת המיפוי' (a forward reference to this meeting as a scoping event, on slide 7 and in the web footnote) was renamed 'פגישת ההיכרות'. This is unrelated to meeting.format_he ('פגישת היכרות ומיפוי'), the meeting's own name used elsewhere in the deck, which was not touched."
   },
   "meeting": {
     "date_he": "ספטמבר 2026",
@@ -21,7 +24,7 @@
     "title_he": "מרעיון למיזם בר־בחינה",
     "kicker_he": "פגישת היכרות ומיפוי · ספטמבר 2026",
     "note_he": "העמוד מתעדכן בכל בנייה מחדש של המצגת — הקישור נשאר זהה.",
-    "footnote_he": "המצגת מתארת תהליך, לא מסקנות. הנתונים המסחריים היחידים המוצגים הם תעריף שעתי והיקף ראשוני משוער למסלול המונחה; היקף סופי ייקבע לאחר פגישת המיפוי. אין במצגת נתוני שוק, נכונות לשלם או עלויות פיתוח — אלה בדיוק השאלות שהתהליך נועד לענות עליהן."
+    "footnote_he": "המצגת מתארת תהליך, לא מסקנות. הנתונים המסחריים היחידים המוצגים הם תעריף שעתי והיקף ראשוני משוער למסלול המונחה; היקף סופי ייקבע לאחר פגישת ההיכרות. אין במצגת נתוני שוק, נכונות לשלם או עלויות פיתוח — אלה בדיוק השאלות שהתהליך נועד לענות עליהן."
   },
   "cover": {
     "kicker_he": "פגישת היכרות ומיפוי",
@@ -81,13 +84,13 @@
     "s4": "המתודולוגיה: מהנחות עבודה להחלטה עסקית",
     "s4_sub": "התהליך אינו ליניארי — ממצאים מהשוק חוזרים ומחדדים את ההנחות ואת הגדרת ההזדמנות.",
     "s5": "שתי דרכים לבחון את ההזדמנות",
-    "s5_sub": "אותה מסגרת אסטרטגית. ההבדל הוא מי מבצע את המחקר — ומכאן עומק הראיות ומידת עצמאותן.",
-    "s6": "מה חשוב שנבין היום?",
-    "s6_sub": "חמש שאלות שיקבעו את מטרת העבודה ואת רמת הבדיקה המתאימה.",
+    "s5_sub": "אותה מסגרת אסטרטגית - מודל עבודה שונה.",
+    "s6": "כדי לדייק את התהליך, חשוב להבין עוד כמה דברים",
+    "s6_sub": "השאלות הבאות יעזרו להתאים את עומק הבדיקה, חלוקת העבודה והיקף התהליך.",
     "s7": "מסגרת התקשרות",
     "s7_sub": "התעריף זהה בשני המסלולים; היקף העבודה נגזר מאופי התהליך ומחלוקת המשימות.",
     "s8": "איך מתקדמים מכאן?",
-    "s8_sub": "ארבעה צעדים מכאן לשלב הבדיקה."
+    "s8_sub": "ארבעה צעדים קצרים מכאן והלאה."
   },
   "proof": [
     {
@@ -208,28 +211,28 @@
       "id": "a",
       "letter_he": "א׳",
       "name_he": "ליווי אסטרטגי מונחה",
-      "desc_he": "אלון מוביל את המתודולוגיה, המסגרות, הניתוח והמודל הכלכלי; בן ואופק משלימים משימות בין המפגשים.",
-      "alon_label_he": "אלון מוביל",
-      "alon_he": "מתודולוגיה ומסגרות עבודה · אתגור הנחות · ניתוח ממצאים · מודל כלכלי · סינתזה ומסקנות",
+      "desc_he": "אני מוביל את התהליך המקצועי והניתוח; בן ואופק משלימים חלק מאיסוף המידע והבדיקות בין המפגשים.",
+      "alon_label_he": "אני מוביל",
+      "alon_he": "הגדרת מה צריך לבדוק ואיך · אתגור ההנחות · ניתוח הממצאים · בניית המודל הכלכלי · סינתזה ומסקנות",
       "founders_label_he": "בן ואופק משלימים",
       "founders_he": "נתונים פנימיים · איסוף מידע מהשוק · בדיקות שטח בהתאם להנחיות · משימות בין המפגשים",
       "pro_label_he": "יתרון",
       "pro_he": "תהליך חסכוני ומהיר יותר, הנשען על היכרות קיימת עם הענף.",
       "con_label_he": "מגבלה",
-      "con_he": "רמת התיקוף החיצוני והעצמאי נמוכה יותר.",
-      "note_he": "ראיונות עומק קריטיים יבוצעו בהובלתי לפי הצורך."
+      "con_he": "היקף התיקוף החיצוני מצומצם יותר.",
+      "note_he": "אם יעלה צורך, גם ראיונות עומק בשוק יבוצעו בהשתתפותי."
     },
     {
       "id": "b",
       "letter_he": "ב׳",
       "name_he": "תהליך מחקר מלא",
-      "desc_he": "אלון מוביל את המחקר והניתוח מקצה לקצה — עיצוב המחקר, עבודת השטח והראיונות מול לקוחות ומומחים.",
-      "alon_label_he": "אלון מוביל",
-      "alon_he": "מיפוי שוק · ניתוח חלופות ומתחרים · עיצוב המחקר · ראיונות עומק · סינתזת ראיות · מודל כלכלי · מפת דרכים",
+      "desc_he": "אני מוביל את המחקר והניתוח מקצה לקצה.",
+      "alon_label_he": "אני מוביל",
+      "alon_he": "מחקר השוק · ניתוח חלופות ומתחרים · ראיונות עומק · ניתוח וסינתזה · בניית המודל הכלכלי · מפת דרכים",
       "founders_label_he": "בן ואופק מספקים",
-      "founders_he": "גישה ונתונים פנימיים · הקשר ענפי · הפניות · שותפות בהחלטות",
+      "founders_he": "מידע ונתונים פנימיים · היכרות עם הענף · הפניות לאנשים רלוונטיים · שותפות בהחלטות",
       "pro_label_he": "יתרון",
-      "pro_he": "רמת עומק, עצמאות ואיכות ראיות גבוהה יותר.",
+      "pro_he": "רמת עומק ואיכות ראיות גבוהה יותר.",
       "con_label_he": "מגבלה",
       "con_he": "היקף עבודה גדול יותר, ולכן גם לוח זמנים ארוך יותר."
     }
@@ -237,23 +240,27 @@
   "discussion": [
     {
       "n": "01",
-      "q": "מה בדיוק במצב הקיים גרם לכם לומר: \"צריך לבנות לזה פתרון אחר\"?"
+      "q": "מה כבר עשיתם עד היום ומה כבר קיים?",
+      "sub": "אפיון, נתונים, שיחות עם לקוחות, הצעות פיתוח או בדיקות אחרות."
     },
     {
       "n": "02",
-      "q": "למי אתם חושבים שהמוצר הראשון מיועד — ומה גורם לכם לחשוב שזה הלקוח הנכון?"
+      "q": "מה אתם רוצים שהמיזם הזה יהיה בעוד 3–5 שנים?"
     },
     {
       "n": "03",
-      "q": "מה כבר עשיתם עד היום: אפיון, שיחות עם לקוחות, נתונים, הצעות פיתוח או בדיקות אחרות?"
+      "q": "איזו החלטה אתם רוצים להיות מסוגלים לקבל בסוף התהליך?",
+      "sub": "למשל: האם לפתח? מה לפתח? כמה להשקיע? האם השוק מספיק גדול? האם להתמקד ב-DJs או לבחון התרחבות?"
     },
     {
       "n": "04",
-      "q": "מה אתם רוצים שהמיזם הזה יהיה בעוד 3–5 שנים — ומה מבחינתכם ייחשב הצלחה?"
+      "q": "כמה מהעבודה אתם רוצים ויכולים לקחת על עצמכם?",
+      "sub": "איסוף מידע, השלמת נתונים, בדיקות בשוק ומשימות בין המפגשים."
     },
     {
       "n": "05",
-      "q": "מה הייתם רוצים לדעת בסוף תהליך הבדיקה כדי להרגיש בנוח לקבל החלטה על ההשקעה הבאה?"
+      "q": "האם יש החלטה או לוח זמנים שכבר עומדים על הפרק?",
+      "sub": "למשל הצעת פיתוח שמחכה להחלטה, תקציב, שותף או תאריך יעד."
     }
   ],
   "commercial": {
@@ -270,7 +277,7 @@
       {
         "option_id": "b",
         "label_he": "היקף העבודה",
-        "value_he": "יוגדר לאחר פגישת המיפוי",
+        "value_he": "יוגדר לאחר פגישת ההיכרות",
         "note_he": "בהתאם לעומק המחקר, מספר הסגמנטים והיקף עבודת השטח."
       }
     ],
@@ -291,7 +298,7 @@
     },
     {
       "n": "04",
-      "t": "יוצאים לשלב הבדיקה"
+      "t": "יוצאים לדרך"
     }
   ],
   "rate": {

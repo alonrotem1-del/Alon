@@ -241,15 +241,18 @@ def block_options(d: dict) -> str:
 
 
 def block_questions(d: dict) -> str:
-    """The last question is the one whose answer decides what the work is for,
-    so it is the one carrying the accent."""
+    """The last question is the one whose answer is the pending decision or
+    deadline that paces the work, so it is the one carrying the accent. A
+    question may carry `sub` — one subordinate line: a short scope note or a
+    "for example" — kept visually secondary via .q-sub."""
     rows = []
     last = len(d["discussion"])
     for i, q in enumerate(d["discussion"], 1):
         hi = " q-hi" if i == last else ""
+        sub = f'<div class="q-sub">{bidi(q["sub"])}</div>' if q.get("sub") else ""
         rows.append(
             f'<div class="q-r{hi}"><div class="q-n" dir="ltr">{esc(q["n"])}</div>'
-            f'<div class="q-t">{bidi(q["q"])}</div></div>'
+            f'<div><div class="q-t">{bidi(q["q"])}</div>{sub}</div></div>'
         )
     return f'<div class="qs">{"".join(rows)}</div>'
 

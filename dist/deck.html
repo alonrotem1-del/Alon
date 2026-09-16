@@ -300,8 +300,11 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 /* ===========================================================================
    6 — DISCUSSION
    Open questions, not a form: no rules between them, a ringed numeral each,
-   and one question carrying the accent — the one whose answer decides what
-   the work is for.
+   and one question carrying the accent — the one whose answer is the pending
+   decision or deadline that actually paces the work. A question may carry one
+   subordinate line under it — a scope note or a short "for example" — styled
+   like stage 4's .st-sub on the methodology slide: smaller, muted, clearly
+   secondary to the question itself.
    =========================================================================== */
 .qs{display:grid;grid-template-rows:repeat(5,1fr);height:100%}
 .q-r{display:grid;grid-template-columns:56px 1fr;gap:28px;align-items:center;
@@ -314,6 +317,8 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .q-hi .q-n{background:var(--accent);border-color:var(--accent);color:var(--n-0)}
 .q-t{font-size:var(--t-body);font-weight:500;color:var(--p-900);line-height:1.35}
 .q-hi .q-t{font-weight:600}
+.q-sub{font-size:var(--t-cap);font-weight:400;color:var(--n-500);line-height:1.35;
+  margin-top:5px}
 
 /* ===========================================================================
    7 — COMMERCIAL FRAME
@@ -408,35 +413,35 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 <section class="slide" data-title="דרכי עבודה" data-cap="אותה מסגרת אסטרטגית · הבדל בעומק התיקוף">
   <div class="kick">דרכי עבודה</div>
   <h1 class="head">שתי דרכים לבחון את ההזדמנות</h1>
-  <div class="sub">אותה מסגרת אסטרטגית. ההבדל הוא מי מבצע את המחקר — ומכאן עומק הראיות ומידת עצמאותן.</div>
-  <div class="band"><div class="opts"><div class="op op-a"><div class="op-h">חלופה א׳ — ליווי אסטרטגי מונחה</div><div class="op-body"><div class="op-d">אלון מוביל את המתודולוגיה, המסגרות, הניתוח והמודל הכלכלי; בן ואופק משלימים משימות בין המפגשים.</div><div class="op-rows"><div class="op-row"><div class="op-k">אלון מוביל</div><div class="op-v">מתודולוגיה ומסגרות עבודה · אתגור הנחות · ניתוח ממצאים · מודל כלכלי · סינתזה ומסקנות</div></div><div class="op-row"><div class="op-k">בן ואופק משלימים</div><div class="op-v">נתונים פנימיים · איסוף מידע מהשוק · בדיקות שטח בהתאם להנחיות · משימות בין המפגשים</div></div></div><div class="op-note">ראיונות עומק קריטיים יבוצעו בהובלתי לפי הצורך.</div><div class="op-eval"><div class="ev ev-pro"><div class="ev-k">יתרון</div><div class="ev-t">תהליך חסכוני ומהיר יותר, הנשען על היכרות קיימת עם הענף.</div></div><div class="ev ev-con"><div class="ev-k">מגבלה</div><div class="ev-t">רמת התיקוף החיצוני והעצמאי נמוכה יותר.</div></div></div></div></div><div class="op op-b"><div class="op-h">חלופה ב׳ — תהליך מחקר מלא</div><div class="op-body"><div class="op-d">אלון מוביל את המחקר והניתוח מקצה לקצה — עיצוב המחקר, עבודת השטח והראיונות מול לקוחות ומומחים.</div><div class="op-rows"><div class="op-row"><div class="op-k">אלון מוביל</div><div class="op-v">מיפוי שוק · ניתוח חלופות ומתחרים · עיצוב המחקר · ראיונות עומק · סינתזת ראיות · מודל כלכלי · מפת דרכים</div></div><div class="op-row"><div class="op-k">בן ואופק מספקים</div><div class="op-v">גישה ונתונים פנימיים · הקשר ענפי · הפניות · שותפות בהחלטות</div></div></div><div class="op-eval"><div class="ev ev-pro"><div class="ev-k">יתרון</div><div class="ev-t">רמת עומק, עצמאות ואיכות ראיות גבוהה יותר.</div></div><div class="ev ev-con"><div class="ev-k">מגבלה</div><div class="ev-t">היקף עבודה גדול יותר, ולכן גם לוח זמנים ארוך יותר.</div></div></div></div></div></div></div>
+  <div class="sub">אותה מסגרת אסטרטגית - מודל עבודה שונה.</div>
+  <div class="band"><div class="opts"><div class="op op-a"><div class="op-h">חלופה א׳ — ליווי אסטרטגי מונחה</div><div class="op-body"><div class="op-d">אני מוביל את התהליך המקצועי והניתוח; בן ואופק משלימים חלק מאיסוף המידע והבדיקות בין המפגשים.</div><div class="op-rows"><div class="op-row"><div class="op-k">אני מוביל</div><div class="op-v">הגדרת מה צריך לבדוק ואיך · אתגור ההנחות · ניתוח הממצאים · בניית המודל הכלכלי · סינתזה ומסקנות</div></div><div class="op-row"><div class="op-k">בן ואופק משלימים</div><div class="op-v">נתונים פנימיים · איסוף מידע מהשוק · בדיקות שטח בהתאם להנחיות · משימות בין המפגשים</div></div></div><div class="op-note">אם יעלה צורך, גם ראיונות עומק בשוק יבוצעו בהשתתפותי.</div><div class="op-eval"><div class="ev ev-pro"><div class="ev-k">יתרון</div><div class="ev-t">תהליך חסכוני ומהיר יותר, הנשען על היכרות קיימת עם הענף.</div></div><div class="ev ev-con"><div class="ev-k">מגבלה</div><div class="ev-t">היקף התיקוף החיצוני מצומצם יותר.</div></div></div></div></div><div class="op op-b"><div class="op-h">חלופה ב׳ — תהליך מחקר מלא</div><div class="op-body"><div class="op-d">אני מוביל את המחקר והניתוח מקצה לקצה.</div><div class="op-rows"><div class="op-row"><div class="op-k">אני מוביל</div><div class="op-v">מחקר השוק · ניתוח חלופות ומתחרים · ראיונות עומק · ניתוח וסינתזה · בניית המודל הכלכלי · מפת דרכים</div></div><div class="op-row"><div class="op-k">בן ואופק מספקים</div><div class="op-v">מידע ונתונים פנימיים · היכרות עם הענף · הפניות לאנשים רלוונטיים · שותפות בהחלטות</div></div></div><div class="op-eval"><div class="ev ev-pro"><div class="ev-k">יתרון</div><div class="ev-t">רמת עומק ואיכות ראיות גבוהה יותר.</div></div><div class="ev ev-con"><div class="ev-k">מגבלה</div><div class="ev-t">היקף עבודה גדול יותר, ולכן גם לוח זמנים ארוך יותר.</div></div></div></div></div></div></div>
   <div class="f-rule"></div><div class="f-cap">אותה מסגרת אסטרטגית · הבדל בעומק התיקוף</div><div class="f-pg"><span dir="ltr">05 / 08</span></div>
 </section>
 
 <!-- ===================== 6 — TODAY'S DISCUSSION ===================== -->
-<section class="slide" data-title="לדיון היום" data-cap="פגישת היכרות ומיפוי">
-  <div class="kick">לדיון</div>
-  <h1 class="head">מה חשוב שנבין היום?</h1>
-  <div class="sub">חמש שאלות שיקבעו את מטרת העבודה ואת רמת הבדיקה המתאימה.</div>
-  <div class="band band-bleed"><div class="qs"><div class="q-r"><div class="q-n" dir="ltr">01</div><div class="q-t">מה בדיוק במצב הקיים גרם לכם לומר: "צריך לבנות לזה פתרון אחר"?</div></div><div class="q-r"><div class="q-n" dir="ltr">02</div><div class="q-t">למי אתם חושבים שהמוצר הראשון מיועד — ומה גורם לכם לחשוב שזה הלקוח הנכון?</div></div><div class="q-r"><div class="q-n" dir="ltr">03</div><div class="q-t">מה כבר עשיתם עד היום: אפיון, שיחות עם לקוחות, נתונים, הצעות פיתוח או בדיקות אחרות?</div></div><div class="q-r"><div class="q-n" dir="ltr">04</div><div class="q-t">מה אתם רוצים שהמיזם הזה יהיה בעוד 3–5 שנים — ומה מבחינתכם ייחשב הצלחה?</div></div><div class="q-r q-hi"><div class="q-n" dir="ltr">05</div><div class="q-t">מה הייתם רוצים לדעת בסוף תהליך הבדיקה כדי להרגיש בנוח לקבל החלטה על ההשקעה הבאה?</div></div></div></div>
-  <div class="f-rule"></div><div class="f-cap">פגישת היכרות ומיפוי</div><div class="f-pg"><span dir="ltr">06 / 08</span></div>
+<section class="slide" data-title="התאמת התהליך" data-cap="מתאים את עומק הבדיקה וחלוקת העבודה">
+  <div class="kick">התאמת התהליך</div>
+  <h1 class="head">כדי לדייק את התהליך, חשוב להבין עוד כמה דברים</h1>
+  <div class="sub">השאלות הבאות יעזרו להתאים את עומק הבדיקה, חלוקת העבודה והיקף התהליך.</div>
+  <div class="band band-bleed"><div class="qs"><div class="q-r"><div class="q-n" dir="ltr">01</div><div><div class="q-t">מה כבר עשיתם עד היום ומה כבר קיים?</div><div class="q-sub">אפיון, נתונים, שיחות עם לקוחות, הצעות פיתוח או בדיקות אחרות.</div></div></div><div class="q-r"><div class="q-n" dir="ltr">02</div><div><div class="q-t">מה אתם רוצים שהמיזם הזה יהיה בעוד 3–5 שנים?</div></div></div><div class="q-r"><div class="q-n" dir="ltr">03</div><div><div class="q-t">איזו החלטה אתם רוצים להיות מסוגלים לקבל בסוף התהליך?</div><div class="q-sub">למשל: האם לפתח? מה לפתח? כמה להשקיע? האם השוק מספיק גדול? האם להתמקד ב-<span dir="ltr">DJs</span> או לבחון התרחבות?</div></div></div><div class="q-r"><div class="q-n" dir="ltr">04</div><div><div class="q-t">כמה מהעבודה אתם רוצים ויכולים לקחת על עצמכם?</div><div class="q-sub">איסוף מידע, השלמת נתונים, בדיקות בשוק ומשימות בין המפגשים.</div></div></div><div class="q-r q-hi"><div class="q-n" dir="ltr">05</div><div><div class="q-t">האם יש החלטה או לוח זמנים שכבר עומדים על הפרק?</div><div class="q-sub">למשל הצעת פיתוח שמחכה להחלטה, תקציב, שותף או תאריך יעד.</div></div></div></div></div>
+  <div class="f-rule"></div><div class="f-cap">מתאים את עומק הבדיקה וחלוקת העבודה</div><div class="f-pg"><span dir="ltr">06 / 08</span></div>
 </section>
 
 <!-- ===================== 7 — COMMERCIAL FRAME ===================== -->
-<section class="slide" data-title="מסגרת התקשרות" data-cap="תעריף שעתי · היקף ייקבע לאחר פגישת המיפוי">
+<section class="slide" data-title="מסגרת התקשרות" data-cap="תעריף שעתי · היקף ייקבע לאחר פגישת ההיכרות">
   <div class="kick">תעריף והיקף</div>
   <h1 class="head">מסגרת התקשרות</h1>
   <div class="sub">התעריף זהה בשני המסלולים; היקף העבודה נגזר מאופי התהליך ומחלוקת המשימות.</div>
-  <div class="band"><div class="cm"><div class="rate"><div class="rate-k">תעריף</div><div class="rate-fig"><div class="rate-v" dir="ltr">450</div><div class="rate-c">₪</div><div class="rate-x">+ מע"מ</div></div><div class="rate-u">לשעת ייעוץ</div></div><div class="trks"><div class="trk trk-a"><div class="trk-k">חלופה א׳ — ליווי אסטרטגי מונחה</div><div class="trk-l">היקף ראשוני משוער</div><div class="trk-v">כ־<span dir="ltr">20–40</span> שעות</div><div class="trk-n">טווח אינדיקטיבי בלבד — תלוי בהגדרת ההיקף ובחלוקת המשימות.</div></div><div class="trk trk-b"><div class="trk-k">חלופה ב׳ — תהליך מחקר מלא</div><div class="trk-l">היקף העבודה</div><div class="trk-v">יוגדר לאחר פגישת המיפוי</div><div class="trk-n">בהתאם לעומק המחקר, מספר הסגמנטים והיקף עבודת השטח.</div></div></div><div class="cm-note">לאחר הפגישה ניתן יהיה לגבש <span dir="ltr">Scope</span>, הערכת שעות והצעת עבודה מסודרת.</div></div></div>
-  <div class="f-rule"></div><div class="f-cap">תעריף שעתי · היקף ייקבע לאחר פגישת המיפוי</div><div class="f-pg"><span dir="ltr">07 / 08</span></div>
+  <div class="band"><div class="cm"><div class="rate"><div class="rate-k">תעריף</div><div class="rate-fig"><div class="rate-v" dir="ltr">450</div><div class="rate-c">₪</div><div class="rate-x">+ מע"מ</div></div><div class="rate-u">לשעת ייעוץ</div></div><div class="trks"><div class="trk trk-a"><div class="trk-k">חלופה א׳ — ליווי אסטרטגי מונחה</div><div class="trk-l">היקף ראשוני משוער</div><div class="trk-v">כ־<span dir="ltr">20–40</span> שעות</div><div class="trk-n">טווח אינדיקטיבי בלבד — תלוי בהגדרת ההיקף ובחלוקת המשימות.</div></div><div class="trk trk-b"><div class="trk-k">חלופה ב׳ — תהליך מחקר מלא</div><div class="trk-l">היקף העבודה</div><div class="trk-v">יוגדר לאחר פגישת ההיכרות</div><div class="trk-n">בהתאם לעומק המחקר, מספר הסגמנטים והיקף עבודת השטח.</div></div></div><div class="cm-note">לאחר הפגישה ניתן יהיה לגבש <span dir="ltr">Scope</span>, הערכת שעות והצעת עבודה מסודרת.</div></div></div>
+  <div class="f-rule"></div><div class="f-cap">תעריף שעתי · היקף ייקבע לאחר פגישת ההיכרות</div><div class="f-pg"><span dir="ltr">07 / 08</span></div>
 </section>
 
 <!-- ===================== 8 — NEXT STEPS ===================== -->
 <section class="slide" data-title="איך מתקדמים" data-cap="פגישת היכרות ומיפוי">
   <div class="kick">צעדים הבאים</div>
   <h1 class="head">איך מתקדמים מכאן?</h1>
-  <div class="sub">ארבעה צעדים מכאן לשלב הבדיקה.</div>
-  <div class="band band-mid"><div class="steps"><div class="sp sp-1"><div class="sp-n" dir="ltr">01</div><div class="sp-t">מחדדים את מטרת העבודה</div></div><div class="sp sp-2"><div class="sp-n" dir="ltr">02</div><div class="sp-t">בוחרים את מודל העבודה המתאים</div></div><div class="sp sp-3"><div class="sp-n" dir="ltr">03</div><div class="sp-t">מגדירים <span dir="ltr">Scope</span>, תוצרים והערכת שעות</div></div><div class="sp sp-4"><div class="sp-n" dir="ltr">04</div><div class="sp-t">יוצאים לשלב הבדיקה</div></div></div></div>
+  <div class="sub">ארבעה צעדים קצרים מכאן והלאה.</div>
+  <div class="band band-mid"><div class="steps"><div class="sp sp-1"><div class="sp-n" dir="ltr">01</div><div class="sp-t">מחדדים את מטרת העבודה</div></div><div class="sp sp-2"><div class="sp-n" dir="ltr">02</div><div class="sp-t">בוחרים את מודל העבודה המתאים</div></div><div class="sp sp-3"><div class="sp-n" dir="ltr">03</div><div class="sp-t">מגדירים <span dir="ltr">Scope</span>, תוצרים והערכת שעות</div></div><div class="sp sp-4"><div class="sp-n" dir="ltr">04</div><div class="sp-t">יוצאים לדרך</div></div></div></div>
   <div class="f-rule"></div><div class="f-cap">פגישת היכרות ומיפוי</div><div class="f-pg"><span dir="ltr">08 / 08</span></div>
 </section>
 
