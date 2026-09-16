@@ -5,23 +5,19 @@
 <title>מרעיון למיזם בר־בחינה — פגישת היכרות ומיפוי</title>
 <style>
 /* ===========================================================================
-   TYPEFACES — build.py inlines these as base64 data URIs.
-   Display : Frank Ruhl Libre — a Hebrew serif, for headlines. Carries the voice.
-   Text    : Assistant — a Hebrew sans, for body and labels. Carries the detail.
-   Both SIL OFL 1.1, with real fallback stacks.
+   TYPEFACE — build.py inlines these as base64 data URIs.
+   One family for the entire deck: Heebo, a modern Hebrew sans (SIL OFL 1.1),
+   variable 100-900 so every weight comes from one file. Hierarchy is carried by
+   weight, size and colour — never by tracking. The fallback stack names Arial
+   first so that a machine without Heebo can never land on a serif, which is
+   also exactly what the PowerPoint export is written in.
    =========================================================================== */
-@font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:300 900;font-display:block;
-  src:url('assets/fonts/frankruhl-hebrew.woff2') format('woff2');
+@font-face{font-family:'Heebo';font-style:normal;font-weight:100 900;font-display:block;
+  src:url('assets/fonts/heebo-hebrew.woff2') format('woff2');
   unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
-@font-face{font-family:'Frank Ruhl Libre';font-style:normal;font-weight:300 900;font-display:block;
-  src:url('assets/fonts/frankruhl-latin.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Assistant';font-style:normal;font-weight:200 800;font-display:block;
-  src:url('assets/fonts/assistant-hebrew.woff2') format('woff2');
-  unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}
-@font-face{font-family:'Assistant';font-style:normal;font-weight:200 800;font-display:block;
-  src:url('assets/fonts/assistant-latin.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:100 900;font-display:block;
+  src:url('assets/fonts/heebo-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 
 /* ===========================================================================
    TOKENS
@@ -31,7 +27,8 @@
    =========================================================================== */
 :root{
   /* type scale — every size in the deck is one of these. No one-offs. */
-  --t-disp:   88px;  /* cover headline, the price figure                   */
+  --t-disp:   88px;  /* cover headline                                     */
+  --t-num:    68px;  /* the hourly rate — the deck's one display numeral  */
   --t-h1:     56px;  /* slide headline, step numeral                       */
   --t-h2:     36px;  /* card title, arc word, step title                   */
   --t-lead:   32px;  /* subhead / lead                                     */
@@ -41,8 +38,10 @@
   --t-kick:   22px;  /* kicker, set in a solid block                       */
   --t-cap:    20px;  /* caption / label / footnote — HARD FLOOR (10pt)     */
 
-  --f-display:'Frank Ruhl Libre','Times New Roman',Georgia,serif;
-  --f-text:'Assistant','Helvetica Neue',Arial,sans-serif;
+  /* two names, one family: --f-display marks what the deck treats as display
+     (headlines, numerals) so the intent stays readable in the CSS. */
+  --f-display:'Heebo',Arial,'Helvetica Neue',sans-serif;
+  --f-text:'Heebo',Arial,'Helvetica Neue',sans-serif;
 
   /* ink — deep navy, cool against the warm ground */
   --p-900:#12212F;
@@ -102,10 +101,10 @@ body.flat .slide{margin:0}
    is allowed to be unambiguous. Its box edge sits on the shared margin. */
 .kick{position:absolute;top:var(--kick-y);right:var(--m);
   background:var(--accent);color:var(--n-0);padding:7px 16px 8px;
-  font-size:var(--t-kick);font-weight:700;letter-spacing:.1em}
+  font-size:var(--t-kick);font-weight:700;}
 h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
-  font-family:var(--f-display);font-size:var(--t-h1);font-weight:700;
-  line-height:1.2;letter-spacing:-.005em;color:var(--p-900);text-wrap:balance}
+  font-family:var(--f-display);font-size:var(--t-h1);font-weight:800;
+  line-height:1.2;color:var(--p-900);text-wrap:balance}
 .sub{position:absolute;top:var(--sub-y);right:var(--m);width:1360px;
   font-size:var(--t-lead);font-weight:400;line-height:1.35;color:var(--n-700);
   text-wrap:balance}
@@ -126,9 +125,9 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .f-rule{position:absolute;top:var(--rule-y);right:var(--m);width:var(--w);height:1px;
   background:var(--n-300)}
 .f-cap{position:absolute;top:var(--foot-y);right:var(--m);
-  font-size:var(--t-cap);font-weight:400;color:var(--n-500);letter-spacing:.02em}
+  font-size:var(--t-cap);font-weight:400;color:var(--n-500);}
 .f-pg{position:absolute;top:var(--foot-y);left:var(--m);
-  font-size:var(--t-cap);font-weight:700;color:var(--n-700);letter-spacing:.06em}
+  font-size:var(--t-cap);font-weight:600;color:var(--n-700);}
 
 /* ===========================================================================
    1 — COVER
@@ -140,8 +139,8 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .cv-band-a{position:absolute;top:0;left:0;width:88px;height:640px;background:var(--accent)}
 .cv-band-b{position:absolute;top:640px;left:0;width:88px;height:440px;background:var(--teal)}
 .cv-head{position:absolute;top:200px;right:var(--m);width:1560px;
-  font-family:var(--f-display);font-size:var(--t-disp);font-weight:700;
-  line-height:1.14;letter-spacing:-.01em;color:var(--p-900)}
+  font-family:var(--f-display);font-size:var(--t-disp);font-weight:800;
+  line-height:1.14;color:var(--p-900)}
 .cv-lead{position:absolute;top:344px;right:var(--m);width:1300px;
   font-size:var(--t-lead);font-weight:400;line-height:1.4;color:var(--n-700)}
 .cv-note{position:absolute;top:428px;right:var(--m);width:1320px;
@@ -155,10 +154,10 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .arc-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
 .arc-bar{height:6px;background:var(--accent)}
 .arc-3 .arc-bar{background:var(--teal)}
-.arc-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;
+.arc-k{font-size:var(--t-cap);font-weight:700;
   color:var(--accent);margin-top:20px}
 .arc-3 .arc-k{color:var(--teal)}
-.arc-t{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+.arc-t{font-family:var(--f-display);font-size:var(--t-h2);font-weight:800;
   color:var(--p-900);line-height:1.2;margin-top:8px}
 .arc-d{font-size:var(--t-small);font-weight:400;color:var(--n-700);
   line-height:1.4;margin-top:12px}
@@ -174,14 +173,14 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   padding:24px 24px 28px}
 .ab-photo{width:100%;height:280px;overflow:hidden;background:var(--n-200)}
 .ab-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.ab-name{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
+.ab-name{font-family:var(--f-display);font-size:var(--t-h2);font-weight:800;
   color:var(--p-900);line-height:1.2;margin-top:22px}
 .ab-role{font-size:var(--t-small);font-weight:600;color:var(--accent);
   line-height:1.35;margin-top:8px}
 .ab-role > span{display:block}
 .ab-col{display:flex;flex-direction:column;justify-content:space-between;height:100%}
 .ab-lab{display:inline-block;font-size:var(--t-cap);font-weight:700;
-  letter-spacing:.12em;color:var(--n-0);background:var(--p-700);padding:5px 15px 6px}
+  color:var(--n-0);background:var(--p-700);padding:5px 15px 6px}
 .ab-sec-a .ab-lab{background:var(--accent)}
 .ab-sec-b .ab-lab{background:var(--teal)}
 .ab-lead{font-size:var(--t-small);color:var(--p-700);line-height:1.35;margin-top:14px}
@@ -235,7 +234,7 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .st-n{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;
   color:var(--accent);line-height:1}
 .st-4 .st-n,.st-5 .st-n{color:var(--teal)}
-.st-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--accent)}
+.st-k{font-size:var(--t-cap);font-weight:700;color:var(--accent)}
 .st-4 .st-k,.st-5 .st-k{color:var(--teal)}
 .st-t{font-size:var(--t-body);font-weight:700;color:var(--p-900);line-height:1.22;
   text-align:center}
@@ -279,7 +278,7 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .op-d{font-size:var(--t-small);color:var(--n-700);line-height:1.35;
   padding-bottom:14px;border-bottom:1px solid var(--n-200)}
 .op-rows{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:16px}
-.op-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--p-900)}
+.op-k{font-size:var(--t-cap);font-weight:700;color:var(--p-900)}
 .op-v{font-size:var(--t-small);color:var(--p-700);line-height:1.35;margin-top:8px}
 .op-note{margin-top:14px;background:var(--accent-soft);
   border-inline-start:4px solid var(--accent);padding:11px 18px 12px;
@@ -287,7 +286,7 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .op-eval{margin-top:auto;padding-top:16px;display:flex;flex-direction:column;gap:10px}
 .ev{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:baseline;
   border-top:1px solid var(--n-200);padding-top:12px}
-.ev-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.06em}
+.ev-k{font-size:var(--t-cap);font-weight:700;}
 .op-a .ev-pro .ev-k{color:var(--accent)}
 .op-b .ev-pro .ev-k{color:var(--teal)}
 .ev-con .ev-k{color:var(--n-500)}
@@ -319,12 +318,12 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .cm{display:grid;grid-template-rows:auto 1fr auto;gap:26px;height:100%}
 .rate{background:var(--p-900);padding:26px 34px 30px;display:flex;
   align-items:baseline;gap:26px}
-.rate-k{font-size:var(--t-cap);font-weight:700;letter-spacing:.14em;
+.rate-k{font-size:var(--t-cap);font-weight:700;
   color:var(--teal-line);white-space:nowrap}
 .rate-fig{display:flex;align-items:baseline;gap:14px}
-.rate-v{font-family:var(--f-display);font-size:var(--t-disp);font-weight:700;
+.rate-v{font-family:var(--f-display);font-size:var(--t-num);font-weight:700;
   color:var(--n-0);line-height:1.05}
-.rate-c{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;color:var(--n-0)}
+.rate-c{font-family:var(--f-display);font-size:var(--t-h3);font-weight:700;color:var(--n-0)}
 .rate-x{font-size:var(--t-h3);font-weight:600;color:var(--accent-line);white-space:nowrap}
 .rate-u{font-size:var(--t-body);color:rgba(255,255,255,.8);white-space:nowrap}
 .rate-n{font-size:var(--t-small);color:rgba(255,255,255,.66);
@@ -335,7 +334,7 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 .trk-b{border-top-color:var(--teal)}
 .trk-k{font-size:var(--t-h3);font-weight:700;color:var(--p-900);line-height:1.25;
   padding-bottom:14px;border-bottom:1px solid var(--n-200)}
-.trk-l{font-size:var(--t-cap);font-weight:700;letter-spacing:.1em;color:var(--n-500);
+.trk-l{font-size:var(--t-cap);font-weight:700;color:var(--n-500);
   margin-top:16px}
 .trk-v{font-family:var(--f-display);font-size:var(--t-h2);font-weight:700;
   color:var(--accent);line-height:1.25;margin-top:6px}
@@ -379,7 +378,6 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
 <section class="slide" data-title="נעים להכיר" data-cap="רקע מקצועי · התפקיד בליווי">
   <div class="kick">מי מלווה אתכם</div>
   <h1 class="head">{{headlines.s2}}</h1>
-  <div class="sub">{{bio.lead_he}}</div>
   <div class="band">{{BLOCK:about}}</div>
 </section>
 

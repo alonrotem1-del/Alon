@@ -42,10 +42,14 @@ EMU_PER_PX = 6350          # 1920 px -> 13.333 in
 PT_PER_PX = 0.5
 LRI = "\u2066"          # LEFT-TO-RIGHT ISOLATE
 PDI = "\u2069"          # POP DIRECTIONAL ISOLATE
-# Faces that carry Hebrew on both Windows and macOS. The web deck's Frank Ruhl
-# Libre / Assistant pairing is mapped onto the nearest guaranteed pair, keeping
-# the serif-display / sans-text contrast that the design depends on.
-FONT_DISPLAY = "Times New Roman"
+# The web deck is set in Heebo. Heebo cannot be relied on inside a .pptx —
+# embedding it is not honoured consistently across PowerPoint on Windows, macOS
+# and the web, and the recipient will not have it installed — so the export is
+# written in Arial, the one sans that carries Hebrew everywhere. Both names
+# resolve to Arial deliberately: the deck's hierarchy is weight, size and colour,
+# none of which depends on a second family, and hardcoding both removes any path
+# by which PowerPoint could substitute a serif for a run marked "display".
+FONT_DISPLAY = "Arial"
 FONT_TEXT = "Arial"
 
 ALIGN = {"right": PP_ALIGN.RIGHT, "left": PP_ALIGN.LEFT, "center": PP_ALIGN.CENTER}
@@ -170,7 +174,8 @@ def add_text(slide, it: dict):
     tf = box.text_frame
     tf.word_wrap = True
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
-    tf.vertical_anchor = MSO_ANCHOR.TOP
+    tf.vertical_anchor = (MSO_ANCHOR.MIDDLE if it.get("vAlign") == "middle"
+                          else MSO_ANCHOR.TOP)
     strip_autofit(tf)
 
     p = tf.paragraphs[0]

@@ -36,8 +36,8 @@ const FLOOR_SUBSTANTIVE = 24;
 const FLOOR_CAPTION = 20;
 const CAPTION_CLASSES = [
   'f-cap', 'f-pg',                       // footer furniture
-  'kick',                                // uppercase kicker
-  'arc-k', 'ab-lab', 'st-k', 'op-k',     // small uppercase labels
+  'kick',                                // the solid kicker block
+  'arc-k', 'ab-lab', 'st-k', 'op-k',     // small section labels
   'ev-k', 'rate-k', 'trk-l',
   'gates-c', 'st-note',                  // captions under a figure or tile
   'gate',                                // GO / ADJUST / STOP chips
@@ -126,8 +126,16 @@ const TOL = 1.0;
             const blockish = ['block', 'flex', 'grid', 'list-item', 'table', 'table-cell'].includes(ccs.display);
             if (blockish && ccs.overflow !== 'hidden') {
               const pr = R(container);
+              /* An inline box's rect is the union of its font content areas,
+                 while its parent's rect comes from line boxes. A face whose
+                 ascent+descent exceeds a tight line-height therefore overhangs
+                 by a pixel or two on every line — that is true of the parent's
+                 own glyphs too, and nothing is clipped or displaced. Only the
+                 horizontal comparison is meaningful for an inline run. */
+              const inlineRun = cs.display === 'inline';
               if (r.left < pr.left - TOL || r.right > pr.right + TOL ||
-                  r.top < pr.top - TOL || r.bottom > pr.bottom + TOL) {
+                  (!inlineRun &&
+                   (r.top < pr.top - TOL || r.bottom > pr.bottom + TOL))) {
                 issues.push({
                   kind: 'container-escape', el: desc(el),
                   detail: `escapes ${desc(container)} by L${Math.round(Math.max(0, pr.left - r.left))} ` +

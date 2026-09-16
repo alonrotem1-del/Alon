@@ -262,9 +262,22 @@ const OUT = path.join(ROOT, 'dist', 'deck_extract.json');
             let lh = parseFloat(cs.lineHeight);
             if (!isFinite(lh)) lh = parseFloat(cs.fontSize) * 1.2;
 
+            /* A numeral sitting in a circle or a square is centred by the flex
+               box, not by its own height: the element's rect is the 56px badge,
+               the line box floats in the middle of it. A PowerPoint text frame
+               anchors TOP by default, which would drop the numeral against the
+               top of the badge. Carry the centring out explicitly. */
+            const centred =
+              (cs.display === 'flex' || cs.display === 'inline-flex') &&
+                (cs.flexDirection.startsWith('column')
+                  ? cs.justifyContent === 'center'
+                  : cs.alignItems === 'center') ||
+              (cs.display === 'grid' && cs.alignItems === 'center');
+
             items.push({
               kind: 'text',
               x: innerX, y: innerY, w: innerW, h: innerH,
+              vAlign: centred ? 'middle' : 'top',
               align,
               rtl: cs.direction === 'rtl',
               lineHeight: lh,
