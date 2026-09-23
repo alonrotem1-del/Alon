@@ -143,22 +143,30 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   line-height:1.14;color:var(--p-900)}
 .cv-lead{position:absolute;top:344px;right:var(--m);width:1300px;
   font-size:var(--t-lead);font-weight:400;line-height:1.4;color:var(--n-700)}
-.cv-note{position:absolute;top:428px;right:var(--m);width:1320px;
+/* The slide's one prominent explanatory statement: a small label ("מטרת
+   התהליך:") over a sentence sized and weighted to read clearly without
+   competing with the display headline above it. Same tinted-box language as
+   .cm-note / .op-note elsewhere in the deck — a reused pattern, not a new one. */
+.cv-note{position:absolute;top:428px;right:var(--m);width:1560px;
   background:var(--accent-soft);border-inline-start:5px solid var(--accent);
-  padding:22px 30px 24px;
-  font-size:var(--t-body);font-weight:400;line-height:1.45;color:var(--p-900)}
+  padding:26px 32px 28px}
+.cv-note-lab{font-size:var(--t-cap);font-weight:700;color:var(--accent)}
+.cv-note-t{font-size:var(--t-lead);font-weight:500;line-height:1.4;
+  color:var(--p-900);margin-top:8px}
 
 /* רעיון -> בחינה -> החלטה, as three segments of one rail. The third segment
-   turns teal because it is the only one that is an outcome, not a step. */
-.arc{position:absolute;top:700px;right:var(--m);width:var(--w);height:180px}
+   turns teal because it is the only one that is an outcome, not a step. Each
+   stop is its word plus one gloss line — the logic itself, nothing more. */
+/* content height is bar(6)+24+title(43)+12+gloss(34)=119px; the box is
+   centred in the space between .cv-note and the footer rule (609..946)
+   rather than left at its old fixed 700/180, now that removing the
+   kicker line shortened every cell by the same fixed amount. */
+.arc{position:absolute;top:718px;right:var(--m);width:var(--w);height:128px}
 .arc-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
 .arc-bar{height:6px;background:var(--accent)}
 .arc-3 .arc-bar{background:var(--teal)}
-.arc-k{font-size:var(--t-cap);font-weight:700;
-  color:var(--accent);margin-top:20px}
-.arc-3 .arc-k{color:var(--teal)}
 .arc-t{font-family:var(--f-display);font-size:var(--t-h2);font-weight:800;
-  color:var(--p-900);line-height:1.2;margin-top:8px}
+  color:var(--p-900);line-height:1.2;margin-top:24px}
 .arc-d{font-size:var(--t-small);font-weight:400;color:var(--n-700);
   line-height:1.4;margin-top:12px}
 
@@ -378,8 +386,9 @@ h1.head{position:absolute;top:var(--head-y);right:var(--m);width:1500px;
   <div class="kick">פגישת היכרות ומיפוי</div>
   <h1 class="cv-head">מרעיון למיזם בר־בחינה</h1>
   <div class="cv-lead">בחינת ההזדמנות, תיקוף ההנחות והגדרת הדרך קדימה</div>
-  <div class="cv-note">המטרה היא לא להחליט היום אם לפתח — אלא להבין מה צריך להיות נכון כדי שהמיזם יהיה כדאי, ואיך נכון לבדוק זאת.</div>
-  <div class="arc"><div class="arc-cells"><div class="arc-c arc-1"><div class="arc-bar"></div><div class="arc-k">היום</div><div class="arc-t">רעיון</div><div class="arc-d">ניסיון ענפי והנחות עבודה</div></div><div class="arc-c arc-2"><div class="arc-bar"></div><div class="arc-k">התהליך</div><div class="arc-t">בחינה</div><div class="arc-d">תיקוף מול שוק, לקוחות וכלכלה</div></div><div class="arc-c arc-3"><div class="arc-bar"></div><div class="arc-k">התוצר</div><div class="arc-t">החלטה</div><div class="arc-d">מבוססת ראיות, עם תוכנית פעולה</div></div></div></div>
+  <div class="cv-note"><div class="cv-note-lab">מטרת התהליך:</div>
+  <div class="cv-note-t">להבין האם קיימת הזדמנות עסקית אמיתית, עבור מי ובאילו תנאים היא יכולה להיות כדאית, ורק אז להחליט אם ואיך להתקדם לפיתוח.</div></div>
+  <div class="arc"><div class="arc-cells"><div class="arc-c arc-1"><div class="arc-bar"></div><div class="arc-t">רעיון</div><div class="arc-d">ניסיון ענפי והנחות עבודה</div></div><div class="arc-c arc-2"><div class="arc-bar"></div><div class="arc-t">בחינה</div><div class="arc-d">תיקוף מול שוק, לקוחות וכלכלה</div></div><div class="arc-c arc-3"><div class="arc-bar"></div><div class="arc-t">החלטה</div><div class="arc-d">מבוססת ראיות, עם תוכנית פעולה</div></div></div></div>
   <div class="f-rule"></div><div class="f-cap">אלון רותם · בן · אופק · ספטמבר 2026</div><div class="f-pg"><span dir="ltr">01 / 08</span></div>
 </section>
 

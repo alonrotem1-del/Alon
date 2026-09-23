@@ -37,7 +37,7 @@ const FLOOR_CAPTION = 20;
 const CAPTION_CLASSES = [
   'f-cap', 'f-pg',                       // footer furniture
   'kick',                                // the solid kicker block
-  'arc-k', 'ab-lab', 'st-k', 'op-k',     // small section labels
+  'ab-lab', 'st-k', 'op-k', 'cv-note-lab', // small section labels
   'ev-k', 'rate-k', 'trk-l',
   'gates-c', 'st-note', 'st-sub', 'q-sub', // captions under a figure or tile
   'gate',                                // GO / ADJUST / STOP chips

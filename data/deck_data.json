@@ -13,7 +13,8 @@
     "deep_interviews": "The guided track says critical depth interviews are run by Alon when needed. That is Alon's own commitment about how he works, not a claim about what Ben and Ofek can or cannot do.",
     "s5_first_person": "Slide 5 switched from third person ('אלון מוביל') to first person ('אני מוביל') throughout, per Alon's instruction, and dropped the 'עצמאי/עצמאות' framing on both the limitation of option A and the advantage of option B — the claim is now about the SCOPE of external validation, not its overall quality or independence.",
     "s6_repurposed": "Slide 6 no longer duplicates slide 3's venture-diagnostic questions (first customer, core pain, why-now). It now asks what's needed to tailor the consulting process itself: prior work, the decision they want at the end, capacity for homework, and any pending deadline.",
-    "meeting_vs_mapping": "'פגישת המיפוי' (a forward reference to this meeting as a scoping event, on slide 7 and in the web footnote) was renamed 'פגישת ההיכרות'. This is unrelated to meeting.format_he ('פגישת היכרות ומיפוי'), the meeting's own name used elsewhere in the deck, which was not touched."
+    "meeting_vs_mapping": "'פגישת המיפוי' (a forward reference to this meeting as a scoping event, on slide 7 and in the web footnote) was renamed 'פגישת ההיכרות'. This is unrelated to meeting.format_he ('פגישת היכרות ומיפוי'), the meeting's own name used elsewhere in the deck, which was not touched.",
+    "s1_purpose_statement": "Slide 1's old cv-note (a general framing sentence) and the arc's per-stop 'k' kicker (היום/התהליך/התוצר, agenda-style section headers) are both replaced by one prominent purpose statement, labelled 'מטרת התהליך:'. The rail keeps its three words (רעיון/בחינה/החלטה) and one-line gloss per stop — that is the idea-to-decision logic itself, not agenda wording."
   },
   "meeting": {
     "date_he": "ספטמבר 2026",
@@ -30,24 +31,22 @@
     "kicker_he": "פגישת היכרות ומיפוי",
     "headline_he": "מרעיון למיזם בר־בחינה",
     "subtitle_he": "בחינת ההזדמנות, תיקוף ההנחות והגדרת הדרך קדימה",
-    "framing_he": "המטרה היא לא להחליט היום אם לפתח — אלא להבין מה צריך להיות נכון כדי שהמיזם יהיה כדאי, ואיך נכון לבדוק זאת.",
     "arc": [
       {
-        "k": "היום",
         "t": "רעיון",
         "d": "ניסיון ענפי והנחות עבודה"
       },
       {
-        "k": "התהליך",
         "t": "בחינה",
         "d": "תיקוף מול שוק, לקוחות וכלכלה"
       },
       {
-        "k": "התוצר",
         "t": "החלטה",
         "d": "מבוססת ראיות, עם תוכנית פעולה"
       }
-    ]
+    ],
+    "purpose_label_he": "מטרת התהליך:",
+    "purpose_he": "להבין האם קיימת הזדמנות עסקית אמיתית, עבור מי ובאילו תנאים היא יכולה להיות כדאית, ורק אז להחליט אם ואיך להתקדם לפיתוח."
   },
   "bio": {
     "name_he": "אלון רותם",

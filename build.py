@@ -100,10 +100,10 @@ def data_uri(path: Path) -> str:
 # --------------------------------------------------------------------------- #
 def block_arc(d: dict) -> str:
     """רעיון -> בחינה -> החלטה, as three segments of one rail. The third turns
-    teal: it is an outcome, not another step."""
+    teal: it is an outcome, not another step. Each stop carries its word and a
+    one-line gloss — the logic itself, not an agenda."""
     cells = "".join(
         f'<div class="arc-c arc-{i + 1}"><div class="arc-bar"></div>'
-        f'<div class="arc-k">{bidi(c["k"])}</div>'
         f'<div class="arc-t">{bidi(c["t"])}</div>'
         f'<div class="arc-d">{bidi(c["d"])}</div></div>'
         for i, c in enumerate(d["cover"]["arc"])
